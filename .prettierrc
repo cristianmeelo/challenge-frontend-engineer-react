@@ -1,0 +1,20 @@
+{
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "semi": true,
+  "singleQuote": false,
+  "jsxSingleQuote": false,
+  "printWidth": 160,
+  "bracketSpacing": true,
+  "jsxBracketSameLine": false,
+  "arrowParens": "always",
+  "endOfLine": "auto",
+  "overrides": [
+    {
+      "files": "*.mdx",
+      "options": {
+        "parser": "mdx"
+      }
+    }
+  ]
+}
