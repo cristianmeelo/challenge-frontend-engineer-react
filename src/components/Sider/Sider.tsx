@@ -4,21 +4,23 @@ import { ShopOutlined, FileOutlined, DashboardOutlined, TeamOutlined, SubnodeOut
 
 import { Locale } from '@/config/i18n.config'
 import { getItem } from '@/functions'
-import { getLanguageServerOnly } from '@/languages/default-languages-server-only'
+import { getLanguageUseClient } from '@/languages/default-languages-use-client'
+import { useRouterPush } from '@/hooks'
 
 export const Sider = ({ params }: { params: { lang: Locale } }) => {
-  const dict = getLanguageServerOnly(params.lang)
+  const dict = getLanguageUseClient(params.lang)
+  const { navigateTo } = useRouterPush()
 
   const [collapsed, setCollapsed] = useState(false)
   const { Sider } = Layout
 
   const items: MenuItem[] = [
-    getItem('Option 1', '1', <DashboardOutlined />),
-    getItem(`${dict.sidebar.icon_2}`, '2', <ShopOutlined />),
-    getItem(`${dict.sidebar.icon_3}`, '3', <SubnodeOutlined />),
-    getItem(`${dict.sidebar.icon_4}`, 'sub1', <TeamOutlined />, [getItem('Team 1', '4'), getItem('Team 2', '5')]),
-    getItem(`${dict.sidebar.icon_5}`, '6', <FileOutlined />),
-    getItem(`${dict.sidebar.icon_6}`, 'sub2', <SyncOutlined />, [
+    getItem('Option 1', '/dashboard', <DashboardOutlined />),
+    getItem(`${dict.sidebar.icon_2}`, '/companies', <ShopOutlined />),
+    getItem(`${dict.sidebar.icon_3}`, '/units', <SubnodeOutlined />),
+    getItem(`${dict.sidebar.icon_4}`, '/users', <TeamOutlined />, [getItem('Team 1', '4'), getItem('Team 2', '5')]),
+    getItem(`${dict.sidebar.icon_5}`, '/workorders', <FileOutlined />),
+    getItem(`${dict.sidebar.icon_6}`, '', <SyncOutlined />, [
       getItem(`${dict.sidebar.icon_6_1} 🇺🇸`, '7'),
       getItem(`${dict.sidebar.icon_6_2} 🇧🇷`, '8'),
       getItem(`${dict.sidebar.icon_6_3} 🇲🇽`, '9'),
@@ -28,7 +30,7 @@ export const Sider = ({ params }: { params: { lang: Locale } }) => {
   return (
     <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
       {/* <img className="logo" src={BlueLogo} alt="Logo" /> */}
-      <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
+      <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} onClick={(item) => navigateTo(item.key)} />
     </Sider>
   )
 }
