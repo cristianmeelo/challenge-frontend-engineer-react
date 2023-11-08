@@ -1,8 +1,8 @@
-"use client"
+'use client'
 
-import { Breadcrumb, Layout, theme } from "antd"
-import { Locale } from "@/config/i18n.config"
-import { Sider, Header, Footer } from "@/components"
+import { Breadcrumb, Layout, theme } from 'antd'
+import { Locale } from '@/config/i18n.config'
+import { Sider, Header, Footer } from '@/components'
 
 export default function Home({ params }: { params: { lang: Locale } }) {
   const { Content } = Layout
@@ -12,12 +12,12 @@ export default function Home({ params }: { params: { lang: Locale } }) {
   } = theme.useToken()
 
   return (
-    <Layout style={{ minHeight: "100vh" }}>
+    <Layout style={{ minHeight: '100vh' }}>
       <Sider params={params} />
       <Layout>
-      <Header />
-        <Content style={{ margin: "0 16px" }}>
-          <Breadcrumb style={{ margin: "16px 0" }}>
+        <Header />
+        <Content style={{ margin: '0 16px' }}>
+          <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>User</Breadcrumb.Item>
             <Breadcrumb.Item>Bill</Breadcrumb.Item>
           </Breadcrumb>

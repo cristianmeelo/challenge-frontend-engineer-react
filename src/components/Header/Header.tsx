@@ -1,11 +1,11 @@
-import { Layout, theme } from "antd"
+import { Layout, Typography, theme } from 'antd'
 
 export const Header = () => {
-  const { Header, Content } = Layout
+  const { Header } = Layout
 
   const {
     token: { colorBgContainer },
   } = theme.useToken()
 
-  return <Header style={{ padding: 0, background: colorBgContainer }} />
+  return <Header style={{ paddingLeft: '1rem', background: colorBgContainer }}>APP LINDAO DEMAIS DESENVOLVIDO PELO CRISTIAN</Header>
 }

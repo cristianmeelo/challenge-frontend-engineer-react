@@ -1,14 +1,16 @@
 # challenge-frontend-engineer-react
- This is a technical test for the front-end software engineer position.
+
+This is a technical test for the front-end software engineer position.
 
 Hi! Thanks for the opportunity with tractian, here i will share the plannejament that i did to build the applliation.
 
 ## First day
+
 - Think about the requisites
 
 ### **Mandatory:**
 
-- Engine (React) 
+- Engine (React)
 - Charts (Highcharts)
 - Typescript
 
@@ -20,9 +22,17 @@ Sao bastants features e que descrevem tem funcionalidades complemetamente difere
 Como é uma empresa internacional, acho que vale i18n.
 
 ### Fazer um layout de baixa fidelidade para acelerar meu desenvolvimento
+
 Colocar os menus, e um layout com informacoes de cada menu.
 
-### Estudar 
+### Estudar
 
+# TODO fazer a página 404
 
+# DIA 1
 
+- menu
+- rotas
+
+- mostrar companies
+- update company
