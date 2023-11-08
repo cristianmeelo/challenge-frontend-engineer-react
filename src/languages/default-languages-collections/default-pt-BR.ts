@@ -5,24 +5,19 @@ export const ptBR = {
   },
   description: "Monitore seus ativos hospitalares em tempo real de forma rápida e intuitiva, tanto indoor quanto outdoor.",
 
+  sidebar: {
+    icon_1: "Relatórioos",
+    icon_2: "Empresas",
+    icon_3: "Unidades",
+    icon_4: "Usuários",
+    icon_5: "Ordens de Serviço",
+    icon_6: "Idioma",
+    icon_6_1: "Inglês",
+    icon_6_2: "Português",
+    icon_6_3: "Espanhol",
+  },
+
   footer: {
-    footer_section_1: {
-      title: "Sobre o Sentinela",
-      link_1: "Quem somos nós?",
-      link_2: "Equipe Sentinela",
-    },
-    footer_section_2: {
-      title: "Produto",
-      link_1: "O que é o produto?",
-      link_2: "Valor agregado à empresa",
-      link_3: "Seja um parceiro Sentinela",
-    },
-    footer_section_3: {
-      title: "Suporte",
-      link_1: "Fale conosco",
-    },
-    footer_copyrights: {
-      text: "Toth Lifecare todos os direitos reservados",
-    },
+    message: "As máquinas falam, nós ouvimos!",
   },
 };
