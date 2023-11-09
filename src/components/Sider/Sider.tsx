@@ -6,12 +6,14 @@ import { Locale } from '@/config/i18n.config'
 import { getItem } from '@/functions'
 import { getLanguageUseClient } from '@/languages/default-languages-use-client'
 import { useRouterPush } from '@/hooks'
+import logo from '/public/logo-tractian.svg'
+import Image from 'next/image'
 
 export const Sider = ({ params }: { params: { lang: Locale } }) => {
   const dict = getLanguageUseClient(params.lang)
+  const [collapsed, setCollapsed] = useState(false)
   const { navigateTo } = useRouterPush()
 
-  const [collapsed, setCollapsed] = useState(false)
   const { Sider } = Layout
 
   const items: MenuItem[] = [
@@ -20,16 +22,12 @@ export const Sider = ({ params }: { params: { lang: Locale } }) => {
     getItem(`${dict.sidebar.icon_3}`, '/units', <SubnodeOutlined />),
     getItem(`${dict.sidebar.icon_4}`, '/users', <TeamOutlined />, [getItem('Team 1', '4'), getItem('Team 2', '5')]),
     getItem(`${dict.sidebar.icon_5}`, '/workorders', <FileOutlined />),
-    getItem(`${dict.sidebar.icon_6}`, '', <SyncOutlined />, [
-      getItem(`${dict.sidebar.icon_6_1} 🇺🇸`, '7'),
-      getItem(`${dict.sidebar.icon_6_2} 🇧🇷`, '8'),
-      getItem(`${dict.sidebar.icon_6_3} 🇲🇽`, '9'),
-    ]),
   ]
 
   return (
     <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
-      {/* <img className="logo" src={BlueLogo} alt="Logo" /> */}
+      <Image src={logo} alt="tractian enterprise logo" />
+
       <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} onClick={(item) => navigateTo(item.key)} />
     </Sider>
   )

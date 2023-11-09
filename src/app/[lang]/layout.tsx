@@ -15,7 +15,7 @@ export default function RootLayout({ children, params }: { children: React.React
     <Layout style={{ minHeight: '100vh' }}>
       <Sider params={params} />
       <Layout>
-        <Header />
+        <Header params={params} />
         {children}
         <Footer params={params} />
       </Layout>
