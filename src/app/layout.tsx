@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import '../css/globals.css'
 
 export const metadata: Metadata = {
   title: 'TRACTIAN | Monitoramento Online de Ativos e Gestão de Manutenção assistida por IA',
@@ -15,7 +14,7 @@ export default function RootLayout({ children, params }: { children: React.React
       <head>
         <link rel="icon" href="../../public/tractian-favicon-ia.png" />
       </head>
-      <body className={inter.className}>
+      <body>
         <main>{children}</main>
       </body>
     </html>

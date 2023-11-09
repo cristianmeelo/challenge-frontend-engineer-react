@@ -30,7 +30,7 @@ export const LanguageSwitcher = ({ params }: { params: { lang: Locale } }) => {
   ]
 
   return (
-    <Dropdown menu={{ items }} placement="topRight" arrow>
+    <Dropdown menu={{ items }} placement="bottomRight" arrow>
       <Button>Change Language</Button>
     </Dropdown>
   )
