@@ -1,1 +1,1 @@
-export * from './useRouterPush/useRouterPush'
+export * from './useRouterPush/useRouterPush';

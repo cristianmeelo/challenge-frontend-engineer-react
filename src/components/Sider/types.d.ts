@@ -1,1 +1,1 @@
-type MenuItem = Required<MenuProps>['items'][number]
+type MenuItem = Required<MenuProps>['items'][number];

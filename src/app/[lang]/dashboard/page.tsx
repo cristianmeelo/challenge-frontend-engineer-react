@@ -1,14 +1,14 @@
-'use client'
+'use client';
 
-import { Breadcrumb, Layout, theme } from 'antd'
-import { Locale } from '@/config/i18n.config'
+import { Breadcrumb, Layout, theme } from 'antd';
+import { Locale } from '@/config/i18n.config';
 
 export default function Dashboard({ params }: { params: { lang: Locale } }) {
-  const { Content } = Layout
+  const { Content } = Layout;
 
   const {
     token: { colorBgContainer },
-  } = theme.useToken()
+  } = theme.useToken();
 
   return (
     <Content style={{ margin: '0 16px' }}>
@@ -18,5 +18,5 @@ export default function Dashboard({ params }: { params: { lang: Locale } }) {
       </Breadcrumb>
       <div style={{ padding: 24, minHeight: 360, background: colorBgContainer }}>Bill is a cat.</div>
     </Content>
-  )
+  );
 }

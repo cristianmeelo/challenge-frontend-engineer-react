@@ -1,15 +1,15 @@
-'use client'
+'use client';
 
-import { Breadcrumb, Layout, theme } from 'antd'
-import { Locale } from '@/config/i18n.config'
-import { Sider, Header, Footer } from '@/components'
+import { Breadcrumb, Layout, theme } from 'antd';
+import { Locale } from '@/config/i18n.config';
+import { Sider, Header, Footer } from '@/components';
 
 export default function Home({ params }: { params: { lang: Locale } }) {
-  const { Content } = Layout
+  const { Content } = Layout;
 
   const {
     token: { colorBgContainer },
-  } = theme.useToken()
+  } = theme.useToken();
 
-  return <Layout style={{ minHeight: '100vh' }}>aham</Layout>
+  return <Layout style={{ minHeight: '100vh' }}>aham</Layout>;
 }

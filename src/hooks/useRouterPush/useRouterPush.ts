@@ -1,11 +1,11 @@
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
 
 export const useRouterPush = (): RouterPush => {
-  const navigator = useRouter()
+  const navigator = useRouter();
 
   const navigateTo: navigateToFunction = (path: string) => {
-    navigator.push(path)
-  }
+    navigator.push(path);
+  };
 
-  return { navigateTo }
-}
+  return { navigateTo };
+};
