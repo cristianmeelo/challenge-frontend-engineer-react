@@ -16,7 +16,7 @@ export const Sider = ({ params }: { params: { lang: Locale } }) => {
   const { Sider } = Layout;
 
   const items: MenuItem[] = [
-    getItem('Option 1', '/dashboard', <DashboardOutlined />),
+    getItem(`${dict.sidebar.icon_1}`, '/assets', <DashboardOutlined />),
     getItem(`${dict.sidebar.icon_2}`, '/companies', <ShopOutlined />),
     getItem(`${dict.sidebar.icon_3}`, '/units', <SubnodeOutlined />),
     getItem(`${dict.sidebar.icon_4}`, '/users', <TeamOutlined />, [getItem('Team 1', '4'), getItem('Team 2', '5')]),

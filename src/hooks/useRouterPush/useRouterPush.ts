@@ -1,10 +1,10 @@
 import { useRouter } from 'next/navigation';
 
 export const useRouterPush = (): RouterPush => {
-  const navigator = useRouter();
+  const router = useRouter();
 
   const navigateTo: navigateToFunction = (path: string) => {
-    navigator.push(path);
+    router.push(path);
   };
 
   return { navigateTo };

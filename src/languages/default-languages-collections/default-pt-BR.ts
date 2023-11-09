@@ -6,7 +6,7 @@ export const ptBR = {
   description: 'Monitore seus ativos hospitalares em tempo real de forma rápida e intuitiva, tanto indoor quanto outdoor.',
 
   sidebar: {
-    icon_1: 'Relatórioos',
+    icon_1: 'Ativos',
     icon_2: 'Empresas',
     icon_3: 'Unidades',
     icon_4: 'Usuários',

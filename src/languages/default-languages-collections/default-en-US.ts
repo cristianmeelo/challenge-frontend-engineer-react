@@ -6,7 +6,7 @@ export const enUS = {
   description: "Track your hospital's assets in real time quickly and intuitively, both internally and externally.",
 
   sidebar: {
-    icon_1: 'Relatórioos',
+    icon_1: 'Assets',
     icon_2: 'Companies',
     icon_3: 'Units',
     icon_4: 'User',
