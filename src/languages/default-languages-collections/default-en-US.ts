@@ -36,7 +36,5 @@ export const enUS = {
     edit: {
       company: 'Edit company',
     },
-
-
   },
 };

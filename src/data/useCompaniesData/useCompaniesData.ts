@@ -1,7 +1,4 @@
 import { useState } from 'react';
-import { Modal } from 'antd';
-
-import { faker } from '@faker-js/faker';
 import { getCompanies, updateCompany } from '@/services/http';
 import { ToastLoading, ToastSuccessful, ToastError } from '@/utils/notifications/notifications';
 import { Locale } from '@/config/i18n.config';
@@ -12,7 +9,6 @@ const emptyCompaniesData: Company[] = [];
 export const useCompaniesData = (language: Locale) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [companiesData, setCompaniesData] = useState<Company[]>(emptyCompaniesData);
-  const [randomAvatar, setRandomAvatar] = useState<string>();
   const dict = getLanguageUseClient(language);
 
   const fetchCompaniesData = async () => {
@@ -23,14 +19,6 @@ export const useCompaniesData = (language: Locale) => {
     } catch (error) {
       setIsLoading(false);
     }
-  };
-
-  const fetchRandomAvatar = () => {
-    setRandomAvatar(
-      faker.image.urlLoremFlickr({
-        category: 'abstract',
-      })
-    );
   };
 
   const handleUpdateCompany = async (record: Company | undefined, setCompaniesData: React.Dispatch<React.SetStateAction<Company[]>>) => {
@@ -57,15 +45,12 @@ export const useCompaniesData = (language: Locale) => {
     } catch (error) {
       ToastError(loadingToast, `${dict.toast_notifications.error}`);
     }
-
   };
 
   return {
     fetchCompaniesData,
-    fetchRandomAvatar,
     isLoading,
     companiesData,
-    randomAvatar,
     setCompaniesData,
     handleUpdateCompany,
   };

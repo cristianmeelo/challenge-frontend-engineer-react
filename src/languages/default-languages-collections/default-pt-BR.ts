@@ -36,6 +36,5 @@ export const ptBR = {
     edit: {
       company: 'Editar Empresa',
     },
-
   },
 };

@@ -7,3 +7,4 @@ export * from './Logo/Logo';
 export * from './LanguageSwitcher/LanguageSwitcher';
 
 export * from './Companies/Companies';
+export * from './Units/Units';

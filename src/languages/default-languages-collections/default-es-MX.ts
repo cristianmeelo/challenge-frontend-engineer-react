@@ -36,7 +36,5 @@ export const esMX = {
     edit: {
       company: 'Editar empresa',
     },
-
- 
   },
 };
