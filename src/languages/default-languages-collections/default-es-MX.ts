@@ -37,9 +37,6 @@ export const esMX = {
       company: 'Editar empresa',
     },
 
-    delete: {
-      title: '¿Está seguro de que desea eliminar esta empresa?',
-      content: 'Esta acción es irreversible y eliminará permanentemente a la empresa.',
-    },
+ 
   },
 };

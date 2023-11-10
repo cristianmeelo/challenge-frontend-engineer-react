@@ -15,7 +15,7 @@ export const Companies: React.FC<CompaniesProps> = ({ data, randomAvatar, setCom
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [editingCompany, setEditingCompany] = useState<Company>();
 
-  const { handleUpdateCompany, handleDeleteCompany } = useCompaniesData(language);
+  const { handleUpdateCompany } = useCompaniesData(language);
 
   const {
     token: { colorBgContainer },
@@ -26,24 +26,20 @@ export const Companies: React.FC<CompaniesProps> = ({ data, randomAvatar, setCom
     setEditingCompany({ ...company });
   };
 
-  const handleDeleteClick = (company: Company) => {
-    handleDeleteCompany(company, setCompaniesData);
-  };
-
   const handleEditModalCancel = () => {
     handleCancelEditingCompany(setIsEditing, setEditingCompany);
   };
 
   const handleEditModalConfirm = () => {
-    // handleDoneEditCompany(setIsEditing, setEditingCompany, setCompaniesData, editingCompany, data);
-    handleUpdateCompany(editingCompany);
+    handleUpdateCompany(editingCompany,setCompaniesData);
     setIsEditing(false);
+
   };
 
   return (
     <>
       <div style={{ padding: 24, minHeight: 360, background: theme.useToken().token.colorBgContainer }}>
-        <CompanyList companies={data} onEdit={handleEditClick} onDelete={handleDeleteClick} isLoading={false} randomAvatar={randomAvatar} />
+        <CompanyList companies={data} onEdit={handleEditClick}  isLoading={false} randomAvatar={randomAvatar} />
       </div>
       <EditCompanyModal
         isOpen={isEditing}

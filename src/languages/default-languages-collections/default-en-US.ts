@@ -37,9 +37,6 @@ export const enUS = {
       company: 'Edit company',
     },
 
-    delete: {
-      title: 'Are you sure you want to remove this company?',
-      content: 'This action is irreversible and will permanently remove the company.',
-    },
+
   },
 };

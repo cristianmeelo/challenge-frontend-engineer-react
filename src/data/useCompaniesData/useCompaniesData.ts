@@ -33,21 +33,7 @@ export const useCompaniesData = (language: Locale) => {
     );
   };
 
-  const handleDeleteCompany = (record: Company, setCompaniesData: React.Dispatch<React.SetStateAction<Company[]>>) => {
-    Modal.confirm({
-      title: `${dict.modal.delete.title}`,
-      content: `${dict.modal.delete.content}`,
-      okText: `${dict.button.confirm}`,
-      okType: 'danger',
-      onOk: () => {
-        setCompaniesData((prev) => {
-          return prev.filter((company) => company.id !== record.id);
-        });
-      },
-    });
-  };
-
-  const handleUpdateCompany = async (record: Company | undefined) => {
+  const handleUpdateCompany = async (record: Company | undefined, setCompaniesData: React.Dispatch<React.SetStateAction<Company[]>>) => {
     const loadingToast = ToastLoading(`${dict.toast_notifications.loading}`);
 
     try {
@@ -71,6 +57,7 @@ export const useCompaniesData = (language: Locale) => {
     } catch (error) {
       ToastError(loadingToast, `${dict.toast_notifications.error}`);
     }
+
   };
 
   return {
@@ -80,7 +67,6 @@ export const useCompaniesData = (language: Locale) => {
     companiesData,
     randomAvatar,
     setCompaniesData,
-    handleDeleteCompany,
     handleUpdateCompany,
   };
 };
