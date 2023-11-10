@@ -35,6 +35,7 @@ export const ptBR = {
   modal: {
     edit: {
       company: 'Editar Empresa',
+      unit: 'Editar Unidade',
     },
   },
 };

@@ -35,6 +35,7 @@ export const esMX = {
   modal: {
     edit: {
       company: 'Editar empresa',
+      unit: 'Editar Unidade',
     },
   },
 };

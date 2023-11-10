@@ -22,11 +22,12 @@ export default function Companies({ params }: { params: { lang: Locale } }) {
     fetchRandomAvatar();
   }, []);
 
-
   return (
     <Content style={{ margin: '0 16px' }}>
       <Breadcrumb content={dict.sidebar.icon_2} />
-      {!isLoading && <CompaniesView data={companiesData} randomAvatar={randomAvatar} setCompaniesData={setCompaniesData} language={params.lang} isLoading={isLoading} />}
+      {!isLoading && (
+        <CompaniesView data={companiesData} randomAvatar={randomAvatar} setCompaniesData={setCompaniesData} language={params.lang} isLoading={isLoading} />
+      )}
       <ToastContainer />
     </Content>
   );

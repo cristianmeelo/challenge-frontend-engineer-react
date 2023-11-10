@@ -4,7 +4,7 @@ export const ToastLoading = (message: string) => {
   return toast.loading(`${message}`, {
     type: toast.TYPE.INFO,
     theme: 'colored',
-    position: toast.POSITION.BOTTOM_RIGHT,
+    position: toast.POSITION.TOP_RIGHT,
   });
 };
 export const ToastSuccessful = (id: Id, message: string) => {
@@ -20,7 +20,7 @@ export const ToastSuccessful = (id: Id, message: string) => {
     pauseOnHover: true,
     draggable: true,
     closeButton: true,
-    position: toast.POSITION.BOTTOM_RIGHT,
+    position: toast.POSITION.TOP_RIGHT,
   });
 };
 export const ToastError = (id: Id, message: string) => {
@@ -36,6 +36,6 @@ export const ToastError = (id: Id, message: string) => {
     pauseOnHover: true,
     draggable: true,
     closeButton: true,
-    position: toast.POSITION.BOTTOM_RIGHT,
+    position: toast.POSITION.TOP_RIGHT,
   });
 };

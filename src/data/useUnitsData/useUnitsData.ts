@@ -1,6 +1,5 @@
 import { useState } from 'react';
 
-import { faker } from '@faker-js/faker';
 import { getUnits, updateUnit } from '@/services/http';
 import { ToastLoading, ToastSuccessful, ToastError } from '@/utils/notifications/notifications';
 import { Locale } from '@/config/i18n.config';
@@ -9,12 +8,11 @@ import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 const emptyUnitData: Unit[] = [];
 
 export const useUnitsData = (language: Locale) => {
+  const dict = getLanguageUseClient(language);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [unitsData, setUnitsData] = useState<Unit[]>(emptyUnitData);
-  const [randomAvatar, setRandomAvatar] = useState<string>();
-  const dict = getLanguageUseClient(language);
 
-  const fetchCompaniesData = async () => {
+  const fetchUnitsData = async () => {
     try {
       const data = await getUnits();
       setUnitsData(data);
@@ -24,48 +22,37 @@ export const useUnitsData = (language: Locale) => {
     }
   };
 
-  const fetchRandomAvatar = () => {
-    setRandomAvatar(
-      faker.image.urlLoremFlickr({
-        category: 'abstract',
-      })
-    );
+  const handleUpdateUnit = async (record: Unit | undefined, setUnitsData: React.Dispatch<React.SetStateAction<Unit[]>>) => {
+    const loadingToast = ToastLoading(`${dict.toast_notifications.loading}`);
+
+    try {
+      if (record) {
+        const updatedData = { name: record.name, companyId: record.companyId };
+        const updatedUnit = await updateUnit(record.id, updatedData);
+
+        setUnitsData((prevUnits) => {
+          const updateUnits = prevUnits.map((unit) => {
+            if (unit.id === updatedUnit.id) {
+              return updatedUnit;
+            } else {
+              return unit;
+            }
+          });
+
+          return updateUnits;
+        });
+        ToastSuccessful(loadingToast, `${dict.toast_notifications.success}`);
+      }
+    } catch (error) {
+      ToastError(loadingToast, `${dict.toast_notifications.error}`);
+    }
   };
 
-  // const handleUpdateCompany = async (record: Company | undefined, setCompaniesData: React.Dispatch<React.SetStateAction<Company[]>>) => {
-  //   const loadingToast = ToastLoading(`${dict.toast_notifications.loading}`);
-
-  //   try {
-  //     if (record) {
-  //       const updatedData = { name: record.name };
-  //       const updatedCompany = await updateUnit(record.id, updatedData);
-
-  //       setCompaniesData((prevCompanies) => {
-  //         const updatedCompanies = prevCompanies.map((company) => {
-  //           if (company.id === updatedCompany.id) {
-  //             return updatedCompany;
-  //           } else {
-  //             return company;
-  //           }
-  //         });
-
-  //         return updatedCompanies;
-  //       });
-  //       ToastSuccessful(loadingToast, `${dict.toast_notifications.success}`);
-  //     }
-  //   } catch (error) {
-  //     ToastError(loadingToast, `${dict.toast_notifications.error}`);
-  //   }
-
-  // };
-
   return {
-    fetchCompaniesData,
-    fetchRandomAvatar,
+    fetchUnitsData,
     isLoading,
     unitsData,
-    randomAvatar,
     setUnitsData,
-    // handleUpdateUnit,
+    handleUpdateUnit,
   };
 };

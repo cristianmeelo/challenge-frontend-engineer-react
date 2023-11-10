@@ -32,7 +32,7 @@ export const Companies: React.FC<CompaniesProps> = ({ data, randomAvatar, setCom
   return (
     <>
       <div style={{ padding: 24, minHeight: 360 }}>
-        <CompaniesList companies={data} onEdit={handleEditClick} randomAvatar={randomAvatar} isLoading={isLoading}/>
+        <CompaniesList companies={data} onEdit={handleEditClick} randomAvatar={randomAvatar} isLoading={isLoading} />
       </div>
       <EditCompanyModal
         isOpen={isEditing}

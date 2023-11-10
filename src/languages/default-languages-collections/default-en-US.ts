@@ -35,6 +35,7 @@ export const enUS = {
   modal: {
     edit: {
       company: 'Edit company',
+      unit: 'Edit Unit',
     },
   },
 };
