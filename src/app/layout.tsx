@@ -3,7 +3,6 @@ import { Inter } from 'next/font/google';
 import '../css/globals.css';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 export const metadata: Metadata = {
   title: 'TRACTIAN | Monitoramento Online de Ativos e Gestão de Manutenção assistida por IA',
   description:

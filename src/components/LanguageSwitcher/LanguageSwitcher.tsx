@@ -1,7 +1,7 @@
-"use client"
+'use client';
 
 import { Button, Dropdown } from 'antd';
-import { usePathname,  } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import type { MenuProps } from 'antd';
 
 import { Locale } from '@/config/i18n.config';
@@ -11,22 +11,15 @@ export const LanguageSwitcher = ({ params }: { params: { lang: Locale } }) => {
   const pathname = usePathname();
   const { navigateTo } = useRouterPush();
 
-
-
-
-
   const toggleLanguage = (lng: Locale) => {
     const name = pathname.split('/' + params.lang).join('');
     navigateTo('/' + lng + name);
   };
 
-
-
   const items: MenuProps['items'] = [
     {
       key: '1',
       label: <div onClick={() => toggleLanguage('en-US')}>🇺🇸 EN</div>,
-
     },
     {
       key: '2',

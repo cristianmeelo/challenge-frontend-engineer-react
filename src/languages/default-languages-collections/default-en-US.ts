@@ -21,9 +21,25 @@ export const enUS = {
     message: 'Machines talk, we listen! ',
   },
 
-  toast_notifications :{
-    loading: "processing data...",
-    success: "data updated!",
-    error: "error updating data, please try again later.",
+  toast_notifications: {
+    loading: 'processing data...',
+    success: 'data updated!',
+    error: 'error updating data, please try again later.',
+  },
+
+  button: {
+    confirm: 'Confirm',
+    cancel: 'Cancel',
+  },
+
+  modal: {
+    edit: {
+      company: 'Edit company',
+    },
+
+    delete: {
+      title: 'Are you sure you want to remove this company?',
+      content: 'This action is irreversible and will permanently remove the company.',
+    },
   },
 };

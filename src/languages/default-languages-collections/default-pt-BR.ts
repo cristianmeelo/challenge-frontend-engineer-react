@@ -21,9 +21,24 @@ export const ptBR = {
     message: 'As máquinas falam, nós ouvimos!',
   },
 
-    toast_notifications :{
-      loading: "processando dados...",
-      success: "dados atualizados!",
-      error: "erro ao atualizar dados, tente novamente mais tarde.",
+  toast_notifications: {
+    loading: 'processando dados...',
+    success: 'dados atualizados!',
+    error: 'erro ao atualizar dados, tente novamente mais tarde.',
+  },
+
+  button: {
+    confirm: 'Confirmar',
+    cancel: 'Cancelar',
+  },
+
+  modal: {
+    edit: {
+      company: 'Editar Empresa',
     },
+    delete: {
+      title: 'Você tem certeza que quer remover essa empresa?',
+      content: 'Essa ação é irreversível e removerá permanentemente a empresa.',
+    },
+  },
 };

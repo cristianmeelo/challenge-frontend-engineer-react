@@ -21,11 +21,25 @@ export const esMX = {
     message: 'Las máquinas hablan, ¡nosotros escuchamos!',
   },
 
+  toast_notifications: {
+    loading: 'procesando datos...',
+    success: '¡datos actualizados!',
+    error: 'error al actualizar los datos, inténtalo de nuevo más tarde.',
+  },
 
+  button: {
+    confirm: 'Confirmar',
+    cancel: 'Cancelar',
+  },
 
-  toast_notifications:{
-    loading: "procesando datos...",
-    success: "¡datos actualizados!",
-    error: "error al actualizar los datos, inténtalo de nuevo más tarde.",
+  modal: {
+    edit: {
+      company: 'Editar empresa',
+    },
+
+    delete: {
+      title: '¿Está seguro de que desea eliminar esta empresa?',
+      content: 'Esta acción es irreversible y eliminará permanentemente a la empresa.',
+    },
   },
 };

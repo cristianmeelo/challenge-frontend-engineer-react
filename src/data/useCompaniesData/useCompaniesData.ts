@@ -15,7 +15,6 @@ export const useCompaniesData = (language: Locale) => {
   const [randomAvatar, setRandomAvatar] = useState<string>();
   const dict = getLanguageUseClient(language);
 
-
   const fetchCompaniesData = async () => {
     try {
       const data = await getCompanies();
@@ -34,11 +33,11 @@ export const useCompaniesData = (language: Locale) => {
     );
   };
 
-  // const handleDeleteCompany = (record: Company, setCompaniesData: React.Dispatch<React.SetStateAction<Company[]>>) => {
-  const handleDeleteCompany = (record: Company) => {
+  const handleDeleteCompany = (record: Company, setCompaniesData: React.Dispatch<React.SetStateAction<Company[]>>) => {
     Modal.confirm({
-      title: 'Confira os dados',
-      okText: 'Bete Bala',
+      title: `${dict.modal.delete.title}`,
+      content: `${dict.modal.delete.content}`,
+      okText: `${dict.button.confirm}`,
       okType: 'danger',
       onOk: () => {
         setCompaniesData((prev) => {
@@ -58,7 +57,6 @@ export const useCompaniesData = (language: Locale) => {
 
         setCompaniesData((prevCompanies) => {
           const updatedCompanies = prevCompanies.map((company) => {
-
             if (company.id === updatedCompany.id) {
               return updatedCompany;
             } else {
@@ -71,7 +69,7 @@ export const useCompaniesData = (language: Locale) => {
         ToastSuccessful(loadingToast, `${dict.toast_notifications.success}`);
       }
     } catch (error) {
-      ToastError(loadingToast,`${dict.toast_notifications.error}`);
+      ToastError(loadingToast, `${dict.toast_notifications.error}`);
     }
   };
 
