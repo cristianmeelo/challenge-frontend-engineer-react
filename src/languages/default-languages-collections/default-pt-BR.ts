@@ -32,8 +32,8 @@ export const ptBR = {
     cancel: 'Cancelar',
   },
 
-  dropdown:{
-    changeCompany: "Trocar Empresa"
+  dropdown: {
+    changeCompany: 'Trocar Empresa',
   },
 
   modal: {

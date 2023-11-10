@@ -32,8 +32,8 @@ export const enUS = {
     cancel: 'Cancel',
   },
 
-  dropdown:{
-    changeCompany: "Change Company"
+  dropdown: {
+    changeCompany: 'Change Company',
   },
 
   modal: {

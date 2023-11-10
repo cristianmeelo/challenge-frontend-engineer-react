@@ -1,27 +1,34 @@
 'use client';
+import { useEffect } from 'react';
+import { Layout } from 'antd';
+import { ToastContainer } from 'react-toastify';
 
-import { Breadcrumb, Layout, Typography, theme } from 'antd';
 import { Locale } from '@/config/i18n.config';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
+import { BreadcrumbBasic as Breadcrumb } from '@/components';
+import { useUsersData } from '@/data/useUsersData/useUsersData';
 
 export default function Users({ params }: { params: { lang: Locale } }) {
   const dict = getLanguageUseClient(params.lang);
 
-  const { Content } = Layout;
-  const { Title } = Typography;
+const {fetchUsersData} = useUsersData(params.lang);
 
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
+  const { Content } = Layout;
+
+  useEffect(() => {
+    fetchUsersData();
+    // fetchCompaniesData();
+    // fetchRandomAvatar();
+  }, []);
+
 
   return (
     <Content style={{ margin: '0 16px' }}>
-      <Breadcrumb style={{ margin: '16px 0' }}>
-        <Breadcrumb.Item>
-          <Title level={1}>{dict.sidebar.icon_3}</Title>
-        </Breadcrumb.Item>
-      </Breadcrumb>
-      <div style={{ padding: 24, minHeight: 360, background: colorBgContainer }}>Bill is a cat.</div>
+        <Breadcrumb content={dict.sidebar.icon_4} />
+usuários
+
+      <ToastContainer />
+
     </Content>
   );
 }

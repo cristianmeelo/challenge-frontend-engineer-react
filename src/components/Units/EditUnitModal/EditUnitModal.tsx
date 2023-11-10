@@ -13,7 +13,7 @@ export const EditUnitModal: React.FC<EditUnitModalProps> = ({
   okText,
   cancelText,
   companies,
-  language
+  language,
 }) => {
   const menu = (
     <Menu>
@@ -26,11 +26,12 @@ export const EditUnitModal: React.FC<EditUnitModalProps> = ({
   );
   const dict = getLanguageUseClient(language);
 
-
   return (
     <Modal title={title} visible={isOpen} okText={okText} cancelText={cancelText} onCancel={onCancel} onOk={onConfirm}>
       <Input value={value?.name} onChange={onChange} />
-      <div><br/></div>
+      <div>
+        <br />
+      </div>
 
       <span></span>
       <Dropdown overlay={menu} placement="bottomRight" trigger={['click']}>

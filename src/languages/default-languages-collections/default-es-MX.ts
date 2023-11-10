@@ -32,8 +32,8 @@ export const esMX = {
     cancel: 'Cancelar',
   },
 
-  dropdown:{
-    changeCompany: "Cambiar Empresa"
+  dropdown: {
+    changeCompany: 'Cambiar Empresa',
   },
 
   modal: {

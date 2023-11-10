@@ -9,5 +9,5 @@ type EditUnitModalProps = {
   cancelText: string;
   companies: Company[];
   handleMenuClick: (company: Company) => void;
-  language: Locale
+  language: Locale;
 };

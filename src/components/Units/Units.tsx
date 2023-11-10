@@ -30,7 +30,7 @@ export const Units: React.FC<UnitsProps> = ({ unitsData, companiesData, randomAv
   return (
     <>
       <div style={{ padding: 24, minHeight: 360 }}>
-        <UnitsList units={unitsData} onEdit={handleEditClick} randomAvatar={randomAvatar} isLoading={isLoading} companies={companiesData}/>
+        <UnitsList units={unitsData} onEdit={handleEditClick} randomAvatar={randomAvatar} isLoading={isLoading} companies={companiesData} />
       </div>
       <EditUnitModal
         isOpen={isEditing}
