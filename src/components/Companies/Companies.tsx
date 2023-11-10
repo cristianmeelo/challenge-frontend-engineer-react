@@ -6,10 +6,13 @@ import { EditCompanyModal } from '@/components/Companies/EditCompanyModal/EditCo
 import { handleCancelEditingCompany } from './utils/handleCancelEditingCompany/handleCancelEditingCompany';
 import { handleDeleteCompany } from './utils/handleDeleteCompany/handleDeleteCompany';
 import { handleDoneEditCompany } from './utils/handleDoneEditCompany/handleDoneEditCompany';
+import { useCompaniesData } from '@/data';
 
-export const Companies: React.FC<CompaniesProps> = ({ data, randomAvatar, setCompaniesData }) => {
+export const Companies: React.FC<CompaniesProps> = ({ data, randomAvatar, setCompaniesData, language }) => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [editingCompany, setEditingCompany] = useState<Company>();
+
+  const { handleUpdateCompany } = useCompaniesData(language);
 
   const {
     token: { colorBgContainer },
@@ -29,7 +32,8 @@ export const Companies: React.FC<CompaniesProps> = ({ data, randomAvatar, setCom
   };
 
   const handleEditModalConfirm = () => {
-    handleDoneEditCompany(setIsEditing, setEditingCompany, setCompaniesData, editingCompany, data);
+    // handleDoneEditCompany(setIsEditing, setEditingCompany, setCompaniesData, editingCompany, data);
+    handleUpdateCompany(editingCompany);
     setIsEditing(false);
   };
 

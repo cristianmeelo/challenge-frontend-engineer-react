@@ -20,4 +20,12 @@ export const esMX = {
   footer: {
     message: 'Las máquinas hablan, ¡nosotros escuchamos!',
   },
+
+
+
+  toast_notifications:{
+    loading: "procesando datos...",
+    success: "¡datos actualizados!",
+    error: "error al actualizar los datos, inténtalo de nuevo más tarde.",
+  },
 };

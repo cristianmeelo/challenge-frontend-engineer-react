@@ -20,4 +20,10 @@ export const enUS = {
   footer: {
     message: 'Machines talk, we listen! ',
   },
+
+  toast_notifications :{
+    loading: "processing data...",
+    success: "data updated!",
+    error: "error updating data, please try again later.",
+  },
 };

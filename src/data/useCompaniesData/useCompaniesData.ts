@@ -2,14 +2,19 @@ import { useState } from 'react';
 import { Modal } from 'antd';
 
 import { faker } from '@faker-js/faker';
-import { getCompanies } from '@/services/http';
+import { getCompanies, updateCompany } from '@/services/http';
+import { ToastLoading, ToastSuccessful, ToastError } from '@/utils/notifications/notifications';
+import { Locale } from '@/config/i18n.config';
+import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 
 const emptyCompaniesData: Company[] = [];
 
-export const useCompaniesData = () => {
+export const useCompaniesData = (language: Locale) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [companiesData, setCompaniesData] = useState<Company[]>(emptyCompaniesData);
   const [randomAvatar, setRandomAvatar] = useState<string>();
+  const dict = getLanguageUseClient(language);
+
 
   const fetchCompaniesData = async () => {
     try {
@@ -21,7 +26,7 @@ export const useCompaniesData = () => {
     }
   };
 
-  const handleFetchRandomAvatar = () => {
+  const fetchRandomAvatar = () => {
     setRandomAvatar(
       faker.image.urlLoremFlickr({
         category: 'abstract',
@@ -43,13 +48,41 @@ export const useCompaniesData = () => {
     });
   };
 
+  const handleUpdateCompany = async (record: Company | undefined) => {
+    const loadingToast = ToastLoading(`${dict.toast_notifications.loading}`);
+
+    try {
+      if (record) {
+        const updatedData = { name: record.name };
+        const updatedCompany = await updateCompany(record.id, updatedData);
+
+        setCompaniesData((prevCompanies) => {
+          const updatedCompanies = prevCompanies.map((company) => {
+
+            if (company.id === updatedCompany.id) {
+              return updatedCompany;
+            } else {
+              return company;
+            }
+          });
+
+          return updatedCompanies;
+        });
+        ToastSuccessful(loadingToast, `${dict.toast_notifications.success}`);
+      }
+    } catch (error) {
+      ToastError(loadingToast,`${dict.toast_notifications.error}`);
+    }
+  };
+
   return {
     fetchCompaniesData,
-    handleFetchRandomAvatar,
+    fetchRandomAvatar,
     isLoading,
     companiesData,
     randomAvatar,
     setCompaniesData,
     handleDeleteCompany,
+    handleUpdateCompany,
   };
 };

@@ -20,4 +20,10 @@ export const ptBR = {
   footer: {
     message: 'As máquinas falam, nós ouvimos!',
   },
+
+    toast_notifications :{
+      loading: "processando dados...",
+      success: "dados atualizados!",
+      error: "erro ao atualizar dados, tente novamente mais tarde.",
+    },
 };
