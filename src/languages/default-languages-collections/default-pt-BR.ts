@@ -32,6 +32,10 @@ export const ptBR = {
     cancel: 'Cancelar',
   },
 
+  dropdown:{
+    changeCompany: "Trocar Empresa"
+  },
+
   modal: {
     edit: {
       company: 'Editar Empresa',

@@ -7,4 +7,7 @@ type EditUnitModalProps = {
   title: string;
   okText: string;
   cancelText: string;
+  companies: Company[];
+  handleMenuClick: (company: Company) => void;
+  language: Locale
 };

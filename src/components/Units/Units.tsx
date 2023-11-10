@@ -30,21 +30,30 @@ export const Units: React.FC<UnitsProps> = ({ unitsData, companiesData, randomAv
   return (
     <>
       <div style={{ padding: 24, minHeight: 360 }}>
-        <UnitsList units={unitsData} onEdit={handleEditClick} randomAvatar={randomAvatar} isLoading={isLoading} companies={companiesData} />
+        <UnitsList units={unitsData} onEdit={handleEditClick} randomAvatar={randomAvatar} isLoading={isLoading} companies={companiesData}/>
       </div>
       <EditUnitModal
         isOpen={isEditing}
         onCancel={handleEditModalCancel}
         onConfirm={handleEditModalConfirm}
         value={editingUnit}
+        companies={companiesData}
         title={dict.modal.edit.unit}
         okText={dict.button.confirm}
         cancelText={dict.button.cancel}
-        onChange={(e: { target: { value: string } }) =>
-          setEditingUnit((prev) => {
-            return { ...prev!, name: e.target.value };
-          })
-        }
+        language={language}
+        handleMenuClick={(company: Company) => {
+          setEditingUnit((prev) => ({
+            ...prev!,
+            companyId: company.id,
+          }));
+        }}
+        onChange={(e) => {
+          setEditingUnit((prev) => ({
+            ...prev!,
+            name: e.target.value,
+          }));
+        }}
       />
     </>
   );

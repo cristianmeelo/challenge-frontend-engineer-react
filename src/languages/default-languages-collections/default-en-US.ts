@@ -32,6 +32,10 @@ export const enUS = {
     cancel: 'Cancel',
   },
 
+  dropdown:{
+    changeCompany: "Change Company"
+  },
+
   modal: {
     edit: {
       company: 'Edit company',
