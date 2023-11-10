@@ -1,6 +1,9 @@
-export * from './Logo/Logo';
-export * from './Sider/Sider';
+export * from './Base/Sider/Sider';
 export * from './Header/Header';
-export * from './Footer/Footer';
+export * from './Base/Footer/Footer';
+export * from './Base/BreadcrumbBasic/BreadcrumbBasic';
 
+export * from './Logo/Logo';
 export * from './LanguageSwitcher/LanguageSwitcher';
+
+export * from './Companies/Companies';

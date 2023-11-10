@@ -1,4 +1,4 @@
-import { handleCancelEditingCompany } from '@/components/Companies/utils';
+import { handleCancelEditingCompany } from '../handleCancelEditingCompany/handleCancelEditingCompany';
 
 export const handleDoneEditCompany = (
   setIsEditing: React.Dispatch<React.SetStateAction<boolean>>,

@@ -3,13 +3,9 @@ import { theme } from 'antd';
 
 import { CompanyList } from '@/components/Companies/CompanyList/CompanyList';
 import { EditCompanyModal } from '@/components/Companies/EditCompanyModal/EditCompanyModal';
-import { handleDeleteCompany, handleCancelEditingCompany, handleDoneEditCompany } from '@/components/Companies/utils';
-
-interface CompaniesProps {
-  data: Company[];
-  randomAvatar: string | undefined;
-  setCompaniesData: React.Dispatch<React.SetStateAction<Company[]>>;
-}
+import { handleCancelEditingCompany } from './utils/handleCancelEditingCompany/handleCancelEditingCompany';
+import { handleDeleteCompany } from './utils/handleDeleteCompany/handleDeleteCompany';
+import { handleDoneEditCompany } from './utils/handleDoneEditCompany/handleDoneEditCompany';
 
 export const Companies: React.FC<CompaniesProps> = ({ data, randomAvatar, setCompaniesData }) => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
