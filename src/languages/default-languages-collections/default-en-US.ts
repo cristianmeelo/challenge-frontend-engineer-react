@@ -17,7 +17,7 @@ export const enUS = {
     icon_6_3: 'Spanish',
   },
 
-  footer: {
+  header: {
     message: 'Machines talk, we listen! ',
   },
 

@@ -1,8 +1,10 @@
 'use client';
 
-import { Button, Dropdown } from 'antd';
-import { usePathname } from 'next/navigation';
 import type { MenuProps } from 'antd';
+import { Button, Dropdown } from 'antd';
+import { TranslationOutlined } from '@ant-design/icons';
+
+import { usePathname } from 'next/navigation';
 
 import { Locale } from '@/config/i18n.config';
 import { useRouterPush } from '@/hooks';
@@ -33,7 +35,9 @@ export const LanguageSwitcher = ({ params }: { params: { lang: Locale } }) => {
 
   return (
     <Dropdown menu={{ items }} placement="bottomRight" arrow>
-      <Button>Change Language</Button>
+      <Button>
+        <TranslationOutlined />
+      </Button>
     </Dropdown>
   );
 };

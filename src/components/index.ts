@@ -1,10 +1,8 @@
 export * from './Base/Sider/Sider';
-export * from './Header/Header';
-export * from './Base/Footer/Footer';
+export * from './Base/Sider/Logo/Logo';
+export * from './Base/Header/Header';
+export * from './Base/Header/LanguageSwitcher/LanguageSwitcher';
 export * from './Base/BreadcrumbBasic/BreadcrumbBasic';
-
-export * from './Logo/Logo';
-export * from './LanguageSwitcher/LanguageSwitcher';
 
 export * from './Companies/Companies';
 export * from './Units/Units';

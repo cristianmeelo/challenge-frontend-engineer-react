@@ -17,7 +17,7 @@ export const esMX = {
     icon_6_3: 'Español',
   },
 
-  footer: {
+  header: {
     message: 'Las máquinas hablan, ¡nosotros escuchamos!',
   },
 

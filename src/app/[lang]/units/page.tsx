@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect } from 'react';
-import { Layout } from 'antd';
 import { ToastContainer } from 'react-toastify';
 
 import { Locale } from '@/config/i18n.config';
@@ -16,8 +15,6 @@ export default function Units({ params }: { params: { lang: Locale } }) {
   const { fetchCompaniesData, companiesData } = useCompaniesData(params.lang);
   const { fetchRandomAvatar, randomAvatar } = useRandomAvatar();
 
-  const { Content } = Layout;
-
   useEffect(() => {
     fetchUnitsData();
     fetchCompaniesData();
@@ -25,7 +22,7 @@ export default function Units({ params }: { params: { lang: Locale } }) {
   }, []);
 
   return (
-    <Content style={{ margin: '0 16px' }}>
+    <>
       <Breadcrumb content={dict.sidebar.icon_3} />
       <UnitsView
         unitsData={unitsData}
@@ -36,6 +33,6 @@ export default function Units({ params }: { params: { lang: Locale } }) {
         isLoading={isLoading}
       />
       <ToastContainer />
-    </Content>
+    </>
   );
 }

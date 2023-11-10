@@ -2,16 +2,22 @@
 
 import { Layout } from 'antd';
 import { Locale } from '@/config/i18n.config';
-import { Sider, Header, Footer } from '@/components';
+import { Sider, Header } from '@/components';
 
 export default function RootLayout({ children, params }: { children: React.ReactNode; params: { lang: Locale } }) {
+  const { Content } = Layout;
+
+  const contentStyle: React.CSSProperties = {
+    padding: '0 16px',
+    color: '#fff',
+  };
+
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Sider params={params} />
       <Layout>
         <Header params={params} />
-        {children}
-        <Footer params={params} />
+        <Content style={contentStyle}>{children}</Content>
       </Layout>
     </Layout>
   );

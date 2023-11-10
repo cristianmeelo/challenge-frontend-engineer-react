@@ -11,7 +11,7 @@ import { useUsersData } from '@/data/useUsersData/useUsersData';
 export default function Users({ params }: { params: { lang: Locale } }) {
   const dict = getLanguageUseClient(params.lang);
 
-const {fetchUsersData} = useUsersData(params.lang);
+  const { fetchUsersData } = useUsersData(params.lang);
 
   const { Content } = Layout;
 
@@ -21,14 +21,11 @@ const {fetchUsersData} = useUsersData(params.lang);
     // fetchRandomAvatar();
   }, []);
 
-
   return (
-    <Content style={{ margin: '0 16px' }}>
-        <Breadcrumb content={dict.sidebar.icon_4} />
-usuários
-
+    <>
+      <Breadcrumb content={dict.sidebar.icon_4} />
+      usuários
       <ToastContainer />
-
-    </Content>
+    </>
   );
 }

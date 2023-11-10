@@ -17,7 +17,7 @@ export const ptBR = {
     icon_6_3: 'Espanhol',
   },
 
-  footer: {
+  header: {
     message: 'As máquinas falam, nós ouvimos!',
   },
 
