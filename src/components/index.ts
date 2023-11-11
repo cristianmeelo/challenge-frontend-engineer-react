@@ -6,3 +6,5 @@ export * from './Base/BreadcrumbBasic/BreadcrumbBasic';
 
 export * from './Companies/Companies';
 export * from './Units/Units';
+
+export * from './EditUserModal/EditUserModal';
