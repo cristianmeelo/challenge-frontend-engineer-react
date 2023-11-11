@@ -9,24 +9,24 @@ import { useUsersData } from '@/data/useUsersData/useUsersData';
 import { useCompaniesData, useUnitsData } from '@/data';
 import { getCompanyName, getUnitName } from '@/functions';
 
+
 export default function Users({ params }: { params: { lang: Locale } }) {
   const dict = getLanguageUseClient(params.lang);
-  const { fetchUsersData,usersData } = useUsersData(params.lang);
-  const { fetchCompaniesData,companiesData } = useCompaniesData(params.lang);
-  const { fetchUnitsData,unitsData } = useUnitsData(params.lang);
+  const { fetchUsersData, usersData } = useUsersData(params.lang);
+  const { fetchCompaniesData, companiesData } = useCompaniesData(params.lang);
+  const { fetchUnitsData, unitsData } = useUnitsData(params.lang);
 
   const { Content } = Layout;
 
   useEffect(() => {
     fetchUsersData();
-     fetchCompaniesData();
-     fetchUnitsData();
+    fetchCompaniesData();
+    fetchUnitsData();
   }, []);
 
 
-  
+
   const columns = [
-    
     {
       title: 'Name',
       dataIndex: 'name',
@@ -42,13 +42,17 @@ export default function Users({ params }: { params: { lang: Locale } }) {
       dataIndex: 'companyId',
       key: 'companyId',
       render: (companyId: string) => getCompanyName({ companyId }, companiesData),
-      
     },
     {
       title: 'Unit',
       dataIndex: 'unitId',
       key: 'unitId',
       render: (unitId: string) => getUnitName({ unitId }, unitsData),
+      filters: unitsData.map((unit) => ({
+        text: unit.name,
+        value: unit.id,
+      })),
+      onFilter: (value: string, record: DataType) => record.unitId === value,
     },
   ];
 

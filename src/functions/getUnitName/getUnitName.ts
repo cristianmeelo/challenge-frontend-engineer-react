@@ -6,13 +6,12 @@
  * @returns {string} - The name of the unit associated with the object, or 'Unknown Unit' if not found.
  */
 export const getUnitName = (item: { unitId: string }, unitsData: Unit[]): string => {
-    /**
-     * Finds the unit object in the unitsData array based on the unit ID in the item.
-     *
-     * @param {Object} unit - A unit object from the unitsData array.
-     * @returns {boolean} - True if the unit ID matches the item's unit ID, otherwise false.
-     */
-    const unit = unitsData.find((unit) => unit.id === item.unitId);
-    return unit ? unit.name : 'Unknown Unit';
-  };
-  
+  /**
+   * Finds the unit object in the unitsData array based on the unit ID in the item.
+   *
+   * @param {Object} unit - A unit object from the unitsData array.
+   * @returns {boolean} - True if the unit ID matches the item's unit ID, otherwise false.
+   */
+  const unit = unitsData.find((unit) => unit.id === item.unitId);
+  return unit ? unit.name : 'Unknown Unit';
+};

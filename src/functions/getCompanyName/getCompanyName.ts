@@ -6,7 +6,6 @@
  * @returns {string} - The name of the company associated with the object, or 'Unknown Company' if not found.
  */
 export const getCompanyName = (item: { companyId: string }, companiesData: Company[]): string => {
-
   /**
    * Finds the company object in the companiesData array based on the company ID in the item.
    *
