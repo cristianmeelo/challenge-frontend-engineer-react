@@ -27,7 +27,14 @@ export const EditUnitModal: React.FC<EditUnitModalProps> = ({
   const dict = getLanguageUseClient(language);
 
   return (
-    <Modal title={title} visible={isOpen} okText={okText} cancelText={cancelText} onCancel={onCancel} onOk={onConfirm}>
+    <Modal
+      title={title}
+      visible={isOpen}
+      okText={okText}
+      cancelText={cancelText}
+      onCancel={onCancel}
+      onOk={onConfirm}
+    >
       <Input value={value?.name} onChange={onChange} />
       <div>
         <br />

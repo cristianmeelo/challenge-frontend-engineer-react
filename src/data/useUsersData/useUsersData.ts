@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { ToastLoading, ToastSuccessful, ToastError } from '@/utils/notifications/notifications';
 
 import { getUsers, updateUser } from '@/services/http';
-import { ToastLoading, ToastSuccessful, ToastError } from '@/utils/notifications/notifications';
-import { Locale } from '@/config/i18n.config';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 
 const emptyUserData: User[] = [];
@@ -11,6 +10,10 @@ export const useUsersData = (language: Locale) => {
   const dict = getLanguageUseClient(language);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [usersData, setUsersData] = useState<User[]>(emptyUserData);
+
+  useEffect(() => {
+    fetchUsersData();
+  }, []);
 
   const fetchUsersData = async () => {
     try {

@@ -9,7 +9,12 @@ import React from 'react';
  * @param {MenuItem[]} [children] - An optional array of child menu items if the item has sub-items.
  * @returns {MenuItem} - A menu item object with the specified properties.
  */
-export function getItem(label: React.ReactNode, key?: React.Key, icon?: React.ReactNode, children?: MenuItem[]): MenuItem {
+export function getItem(
+  label: React.ReactNode,
+  key?: React.Key,
+  icon?: React.ReactNode,
+  children?: MenuItem[]
+): MenuItem {
   return {
     key,
     icon,

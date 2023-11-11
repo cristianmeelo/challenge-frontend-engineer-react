@@ -6,7 +6,10 @@ export const getCompanies = async (): Promise<Company[]> => {
   return response.data;
 };
 
-export const updateCompany = async (companyId: string, updatedData: { name: string }): Promise<Company> => {
+export const updateCompany = async (
+  companyId: string,
+  updatedData: { name: string }
+): Promise<Company> => {
   const response: AxiosResponse<Company> = await api.put(`/companies/${companyId}`, updatedData);
   return response.data;
 };

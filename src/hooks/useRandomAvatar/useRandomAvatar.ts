@@ -1,5 +1,5 @@
+import { useState, useEffect } from 'react';
 import { faker } from '@faker-js/faker';
-import { useState } from 'react';
 
 /**
  * Hook for generating a random avatar using Faker.js.
@@ -8,6 +8,10 @@ import { useState } from 'react';
 
 export const useRandomAvatar = () => {
   const [randomAvatar, setRandomAvatar] = useState<string | undefined>();
+
+  useEffect(() => {
+    fetchRandomAvatar();
+  }, []);
 
   const fetchRandomAvatar = () => {
     setRandomAvatar(

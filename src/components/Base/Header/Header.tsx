@@ -1,6 +1,5 @@
 import { Layout, Row, Col } from 'antd';
 
-import { Locale } from '@/config/i18n.config';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { LanguageSwitcher } from './LanguageSwitcher/LanguageSwitcher';
 

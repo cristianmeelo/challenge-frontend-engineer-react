@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import { Layout } from 'antd';
 import { ToastContainer } from 'react-toastify';
 
-import { Locale } from '@/config/i18n.config';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { BreadcrumbBasic as Breadcrumb } from '@/components';
 import { useRandomAvatar } from '@/hooks';

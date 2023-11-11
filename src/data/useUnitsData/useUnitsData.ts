@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { ToastLoading, ToastSuccessful, ToastError } from '@/utils/notifications/notifications';
 
 import { getUnits, updateUnit } from '@/services/http';
-import { ToastLoading, ToastSuccessful, ToastError } from '@/utils/notifications/notifications';
-import { Locale } from '@/config/i18n.config';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 
 const emptyUnitData: Unit[] = [];
@@ -11,6 +10,10 @@ export const useUnitsData = (language: Locale) => {
   const dict = getLanguageUseClient(language);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [unitsData, setUnitsData] = useState<Unit[]>(emptyUnitData);
+
+  useEffect(() => {
+    fetchUnitsData();
+  }, []);
 
   const fetchUnitsData = async () => {
     try {
@@ -22,7 +25,10 @@ export const useUnitsData = (language: Locale) => {
     }
   };
 
-  const handleUpdateUnit = async (record: Unit | undefined, setUnitsData: React.Dispatch<React.SetStateAction<Unit[]>>) => {
+  const handleUpdateUnit = async (
+    record: Unit | undefined,
+    setUnitsData: React.Dispatch<React.SetStateAction<Unit[]>>
+  ) => {
     const loadingToast = ToastLoading(`${dict.toast_notifications.loading}`);
 
     try {

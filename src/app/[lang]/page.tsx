@@ -1,7 +1,6 @@
 'use client';
 
 import { Breadcrumb, Layout, Typography, theme } from 'antd';
-import { Locale } from '@/config/i18n.config';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 
 export default function Home({ params }: { params: { lang: Locale } }) {
@@ -23,7 +22,9 @@ export default function Home({ params }: { params: { lang: Locale } }) {
             <Title level={1}>Aham</Title>
           </Breadcrumb.Item>
         </Breadcrumb>
-        <div style={{ padding: 24, minHeight: 360, background: colorBgContainer }}>Bem vindo à Tractian, aqui voce monitora seus ativos com ...</div>
+        <div style={{ padding: 24, minHeight: 360, background: colorBgContainer }}>
+          Bem vindo à Tractian, aqui voce monitora seus ativos com ...
+        </div>
       </Content>
     </Layout>
   );

@@ -3,7 +3,8 @@ export const esMX = {
     part1: 'Monitoreo',
     part2: 'Sencillo de Activos',
   },
-  description: 'Monitore sus activos hospitalarios en tiempo real de forma rápida y intuitiva, tanto en interiores como en exteriores.',
+  description:
+    'Monitore sus activos hospitalarios en tiempo real de forma rápida y intuitiva, tanto en interiores como en exteriores.',
 
   sidebar: {
     icon_1: 'Activos',

@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { BreadcrumbBasic as Breadcrumb } from '@/components';
+
 import { CompaniesList } from '@/components/Companies/CompaniesList/CompanyList';
 import { EditCompanyModal } from '@/components/Companies/EditCompanyModal/EditCompanyModal';
 import { handleCancelEditingCompany } from './utils/handleCancelEditingCompany/handleCancelEditingCompany';
@@ -7,7 +9,13 @@ import { handleCancelEditingCompany } from './utils/handleCancelEditingCompany/h
 import { useCompaniesData } from '@/data';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 
-export const Companies: React.FC<CompaniesProps> = ({ data, randomAvatar, setCompaniesData, language, isLoading }) => {
+export const Companies: React.FC<CompaniesProps> = ({
+  data,
+  randomAvatar,
+  setCompaniesData,
+  language,
+  isLoading,
+}) => {
   const dict = getLanguageUseClient(language);
 
   const [isEditing, setIsEditing] = useState<boolean>(false);
@@ -32,7 +40,14 @@ export const Companies: React.FC<CompaniesProps> = ({ data, randomAvatar, setCom
   return (
     <>
       <div style={{ padding: 24, minHeight: 360 }}>
-        <CompaniesList companies={data} onEdit={handleEditClick} randomAvatar={randomAvatar} isLoading={isLoading} />
+        <Breadcrumb content={dict.sidebar.icon_2} />
+
+        <CompaniesList
+          companies={data}
+          onEdit={handleEditClick}
+          randomAvatar={randomAvatar}
+          isLoading={isLoading}
+        />
       </div>
       <EditCompanyModal
         isOpen={isEditing}

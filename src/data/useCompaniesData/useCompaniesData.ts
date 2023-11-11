@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { getCompanies, updateCompany } from '@/services/http';
+import { useState, useEffect } from 'react';
 import { ToastLoading, ToastSuccessful, ToastError } from '@/utils/notifications/notifications';
-import { Locale } from '@/config/i18n.config';
+
+import { getCompanies, updateCompany } from '@/services/http';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 
 const emptyCompaniesData: Company[] = [];
@@ -10,6 +10,10 @@ export const useCompaniesData = (language: Locale) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [companiesData, setCompaniesData] = useState<Company[]>(emptyCompaniesData);
   const dict = getLanguageUseClient(language);
+
+  useEffect(() => {
+    fetchCompaniesData();
+  }, []);
 
   const fetchCompaniesData = async () => {
     try {
@@ -21,7 +25,10 @@ export const useCompaniesData = (language: Locale) => {
     }
   };
 
-  const handleUpdateCompany = async (record: Company | undefined, setCompaniesData: React.Dispatch<React.SetStateAction<Company[]>>) => {
+  const handleUpdateCompany = async (
+    record: Company | undefined,
+    setCompaniesData: React.Dispatch<React.SetStateAction<Company[]>>
+  ) => {
     const loadingToast = ToastLoading(`${dict.toast_notifications.loading}`);
 
     try {

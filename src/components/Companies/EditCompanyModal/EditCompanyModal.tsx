@@ -1,5 +1,4 @@
 import { Modal, Input } from 'antd';
-import { Locale } from '@/config/i18n.config';
 
 interface EditCompanyModalProps {
   isOpen: boolean;
@@ -12,9 +11,25 @@ interface EditCompanyModalProps {
   cancelText: string;
 }
 
-export const EditCompanyModal: React.FC<EditCompanyModalProps> = ({ isOpen, onCancel, onConfirm, value, onChange, title, okText, cancelText }) => {
+export const EditCompanyModal: React.FC<EditCompanyModalProps> = ({
+  isOpen,
+  onCancel,
+  onConfirm,
+  value,
+  onChange,
+  title,
+  okText,
+  cancelText,
+}) => {
   return (
-    <Modal title={title} open={isOpen} okText={okText} cancelText={cancelText} onCancel={onCancel} onOk={onConfirm}>
+    <Modal
+      title={title}
+      open={isOpen}
+      okText={okText}
+      cancelText={cancelText}
+      onCancel={onCancel}
+      onOk={onConfirm}
+    >
       <Input value={value?.name} onChange={onChange} />
     </Modal>
   );

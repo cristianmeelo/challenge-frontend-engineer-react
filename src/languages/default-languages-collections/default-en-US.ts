@@ -3,7 +3,8 @@ export const enUS = {
     part1: 'Simple',
     part2: 'Asset Monitoring',
   },
-  description: "Track your hospital's assets in real time quickly and intuitively, both internally and externally.",
+  description:
+    "Track your hospital's assets in real time quickly and intuitively, both internally and externally.",
 
   sidebar: {
     icon_1: 'Assets',

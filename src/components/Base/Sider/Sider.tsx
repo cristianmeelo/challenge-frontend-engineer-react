@@ -1,9 +1,15 @@
 import { useState } from 'react';
 import { Layout, Menu, Typography } from 'antd';
-import { ShopOutlined, FileOutlined, DashboardOutlined, TeamOutlined, SubnodeOutlined, SyncOutlined } from '@ant-design/icons';
+import {
+  ShopOutlined,
+  FileOutlined,
+  DashboardOutlined,
+  TeamOutlined,
+  SubnodeOutlined,
+  SyncOutlined,
+} from '@ant-design/icons';
 import Image from 'next/image';
 
-import { Locale } from '@/config/i18n.config';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { getItem } from '@/functions';
 import { useRouterPush } from '@/hooks';
@@ -30,7 +36,13 @@ export const Sider = ({ params }: { params: { lang: Locale } }) => {
       <Image src={logo} className="sidebar-logo" alt="tractian enterprise logo" />
       {!collapsed && <Text className="sidebar-text">{dict.header.message}</Text>}
 
-      <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} onClick={(item) => navigateTo(item.key)} />
+      <Menu
+        theme="dark"
+        defaultSelectedKeys={['1']}
+        mode="inline"
+        items={items}
+        onClick={(item) => navigateTo(item.key)}
+      />
     </Sider>
   );
 };

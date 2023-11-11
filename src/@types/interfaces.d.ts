@@ -16,3 +16,7 @@ interface User {
   name: string;
   email: string;
 }
+
+interface PageProps {
+  language: Locale;
+}

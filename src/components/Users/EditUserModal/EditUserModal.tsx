@@ -25,10 +25,17 @@ export const EditUserModal: React.FC<EditUsertModalProps> = ({
   //     ))}
   //   </Menu>
   // );
-   const dict = getLanguageUseClient(language);
+  const dict = getLanguageUseClient(language);
 
   return (
-    <Modal title={title} open={isOpen} okText={okText} cancelText={cancelText} onCancel={onCancel} onOk={onConfirm}>
+    <Modal
+      title={title}
+      open={isOpen}
+      okText={okText}
+      cancelText={cancelText}
+      onCancel={onCancel}
+      onOk={onConfirm}
+    >
       <Input value={value?.name} onChange={onChange} />
       {/* <div>
         <br />

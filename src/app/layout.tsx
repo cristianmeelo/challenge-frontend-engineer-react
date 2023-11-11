@@ -8,9 +8,17 @@ export const metadata: Metadata = {
     'O sistema preditivo mais completo do mercado para fornecer aos técnicos de manutenção e tomadores de decisão industriais uma supervisão abrangente de suas operações. Monitore seus ativos de forma eficiente com nosso sensor de vibração, temperatura e energia industrial, aliado ao melhor software de gestão de manutenção.',
 };
 
-export default function RootLayout({ children, params }: { children: React.ReactNode; params: { lang: string } }) {
+export default function RootLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: { lang: string };
+}) {
+  const language = params.lang;
+
   return (
-    <html lang={params.lang}>
+    <html lang={language}>
       <head>
         <link rel="icon" href="../../public/tractian-favicon-ia.png" />
       </head>

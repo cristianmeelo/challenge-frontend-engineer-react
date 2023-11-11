@@ -1,7 +1,12 @@
 import { List, Avatar, Skeleton } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
 
-export const CompanyListItem: React.FC<CompanyListItemProps> = ({ company, onEdit, randomAvatar, isLoading }) => (
+export const CompanyListItem: React.FC<CompanyListItemProps> = ({
+  company,
+  onEdit,
+  randomAvatar,
+  isLoading,
+}) => (
   <List.Item
     actions={[
       <a key="list-loadmore-edit">

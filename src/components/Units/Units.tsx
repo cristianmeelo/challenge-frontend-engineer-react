@@ -3,8 +3,16 @@ import { UnitsList } from './UnitsList/UnitsList';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { EditUnitModal } from './EditUnitModal/EditUnitModal';
 import { useUnitsData } from '@/data';
+import { BreadcrumbBasic as Breadcrumb } from '@/components';
 
-export const Units: React.FC<UnitsProps> = ({ unitsData, companiesData, randomAvatar, setUnitsData, language, isLoading }) => {
+export const Units: React.FC<UnitsProps> = ({
+  unitsData,
+  companiesData,
+  randomAvatar,
+  setUnitsData,
+  language,
+  isLoading,
+}) => {
   const dict = getLanguageUseClient(language);
 
   const [isEditing, setIsEditing] = useState<boolean>(false);
@@ -30,7 +38,15 @@ export const Units: React.FC<UnitsProps> = ({ unitsData, companiesData, randomAv
   return (
     <>
       <div style={{ padding: 24, minHeight: 360 }}>
-        <UnitsList units={unitsData} onEdit={handleEditClick} randomAvatar={randomAvatar} isLoading={isLoading} companies={companiesData} />
+        <Breadcrumb content={dict.sidebar.icon_3} />
+
+        <UnitsList
+          units={unitsData}
+          onEdit={handleEditClick}
+          randomAvatar={randomAvatar}
+          isLoading={isLoading}
+          companies={companiesData}
+        />
       </div>
       <EditUnitModal
         isOpen={isEditing}
