@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import '../css/globals.css';
 import 'react-toastify/dist/ReactToastify.css';
 

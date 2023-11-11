@@ -123,6 +123,22 @@ table {
   border-spacing: 0;
 }
 
+
+.Toastify__toast-theme--colored.Toastify__toast--info {
+  background-color: #4096ff !important;
+}
+
+.Toastify__toast-theme--colored.Toastify__toast--success {
+  background-color: #73d13d !important;
+}
+
+
+.Toastify__toast-theme--colored.Toastify__toast--error {
+  background-color: #ff4d4f !important;
+}
+
+
+
 .sidebar-logo {
   display: flex;
   justify-content: center;
