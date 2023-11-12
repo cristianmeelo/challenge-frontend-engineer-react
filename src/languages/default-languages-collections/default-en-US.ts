@@ -41,7 +41,8 @@ export const enUS = {
   },
 
   dropdown: {
-    changeCompany: 'Change Company',
+    change_company: 'Change Company',
+    change_unit: 'Change Unit',
   },
 
   modal: {

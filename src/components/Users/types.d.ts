@@ -1,5 +1,3 @@
 type UserProps = {
   language: Locale;
-
 };
-

@@ -12,10 +12,8 @@ export const AppProvider = ({
   return (
     <CompaniesProvider language={params.lang}>
       <UnitsProvider language={params.lang}>
-      <UsersProvider language={params.lang}>
-        {children}
-        </UsersProvider>
-        </UnitsProvider>
+        <UsersProvider language={params.lang}>{children}</UsersProvider>
+      </UnitsProvider>
     </CompaniesProvider>
   );
 };

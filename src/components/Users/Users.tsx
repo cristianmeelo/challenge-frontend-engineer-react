@@ -9,24 +9,18 @@ import { EditUserModal } from './EditUserModal/EditUserModal';
 import { userColumns } from './userColumns/userColumns';
 import { useCompaniesContext, useUnitsContext, useUsersContext } from '@/hooks';
 
-export const Users: React.FC<UserProps> = ({
-  language,
- 
-}) => {
-  const {companiesData} = useCompaniesContext();
-  const {unitsData} = useUnitsContext();
-const  {handleUpdateUser,setUsersData,usersData} = useUsersContext();
+export const Users: React.FC<UserProps> = ({ language }) => {
+  const { companiesData } = useCompaniesContext();
+  const { unitsData } = useUnitsContext();
+  const { handleUpdateUser, setUsersData, usersData } = useUsersContext();
 
   const dict = getLanguageUseClient(language);
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [editingUser, setEditingUser] = useState<User>();
 
-
-
   const handleEditClick = (user: User) => {
     setIsEditing(true);
     setEditingUser({ ...user });
-console.log(user)
   };
 
   const handleEditModalCancel = () => {
@@ -69,12 +63,15 @@ console.log(user)
           setEditingUser((prev) => ({
             ...prev!,
             companyId: company.id,
-            // unitId: unit.id,
+          }));
+        }}
+        handleUnitMenuClicked={(unit: Unit) => {
+          setEditingUser((prev) => ({
+            ...prev!,
+            unitId: unit.id,
           }));
         }}
         language={language}
-        companies={companiesData}
-        units={unitsData}
       />
       <ToastContainer />
     </>

@@ -7,11 +7,9 @@ type EditUsertModalProps = {
   onConfirm: () => void;
   value?: User;
   onChange: any; // #TODO
-  companies: Company[];
-  units: Unit[];
   handleMenuClick: (company: Company) => void;
+  handleUnitMenuClicked: (unit: Unit) => void;
   language: Locale;
 };
 
 type UserField = 'email' | 'name';
-
