@@ -5,6 +5,3 @@ type UserProps = {
   companiesData: Company[];
   unitsData: Unit[];
 };
-
-type UserField = "email" | "name";
-

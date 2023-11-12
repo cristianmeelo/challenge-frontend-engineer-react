@@ -34,7 +34,7 @@ export const enUS = {
   },
 
   table: {
-    edit_column: "Edit",
+    edit_column: 'Edit',
     users: {
       title: 'Users List',
     },

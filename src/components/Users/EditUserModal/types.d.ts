@@ -5,8 +5,8 @@ type EditUsertModalProps = {
   cancelText: string;
   onCancel: () => void;
   onConfirm: () => void;
-  value?: Company;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: User;
+  onChange: (field: string, value: string) => void;
   companies: Company[];
   units: Unit[];
   handleMenuClick: (company: Company) => void;

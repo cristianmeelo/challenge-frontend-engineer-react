@@ -38,7 +38,7 @@ export const ptBR = {
   },
 
   table: {
-    edit_column: "Editar",
+    edit_column: 'Editar',
     users: {
       title: 'Lista de Usuários',
     },

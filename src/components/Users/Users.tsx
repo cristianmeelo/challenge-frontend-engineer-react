@@ -36,7 +36,7 @@ export const Users: React.FC<UserProps> = ({
   };
 
   const editColumnText = `${dict.table.edit_column}`;
-  const columns = userColumns(companiesData, unitsData, handleEditClick, editColumnText );
+  const columns = userColumns(companiesData, unitsData, handleEditClick, editColumnText);
 
   return (
     <>
@@ -56,7 +56,7 @@ export const Users: React.FC<UserProps> = ({
         title={dict.modal.edit.user}
         okText={dict.button.confirm}
         cancelText={dict.button.cancel}
-        onChange={(field: UserField, value: string) =>
+        onChange={(field: string, value: string) =>
           setEditingUser((prev) => {
             return { ...prev!, [field]: value };
           })
@@ -73,7 +73,6 @@ export const Users: React.FC<UserProps> = ({
         units={unitsData}
       />
       <ToastContainer />
-
     </>
   );
 };

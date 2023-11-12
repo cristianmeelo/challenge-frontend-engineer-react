@@ -36,17 +36,15 @@ export const EditUnitModal: React.FC<EditUnitModalProps> = ({
       onCancel={onCancel}
       onOk={onConfirm}
     >
-   <Space direction="vertical" size={16}>
+      <Space direction="vertical" size={16}>
+        <Input value={value?.name} onChange={onChange} />
 
-      <Input value={value?.name} onChange={onChange} />
-  
-      <Dropdown overlay={menu} placement="bottomRight" trigger={['click']}>
-        <Button>
-          {dict.dropdown.changeCompany} <ShopOutlined />
-        </Button>
-      </Dropdown>
+        <Dropdown overlay={menu} placement="bottomRight" trigger={['click']}>
+          <Button>
+            {dict.dropdown.changeCompany} <ShopOutlined />
+          </Button>
+        </Dropdown>
       </Space>
-
     </Modal>
   );
 };
