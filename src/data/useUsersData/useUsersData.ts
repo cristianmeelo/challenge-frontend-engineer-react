@@ -25,37 +25,44 @@ export const useUsersData = (language: Locale) => {
     }
   };
 
-  // const handleUpdateUnit = async (record: Unit | undefined, setUnitsData: React.Dispatch<React.SetStateAction<Unit[]>>) => {
-  //   const loadingToast = ToastLoading(`${dict.toast_notifications.loading}`);
+  const handleUpdateUser = async (
+    record: User | undefined,
+    setUsersData: React.Dispatch<React.SetStateAction<User[]>>
+  ) => {
+    const loadingToast = ToastLoading(`${dict.toast_notifications.loading}`);
 
-  //   try {
-  //     if (record) {
-  //       const updatedData = { name: record.name, companyId: record.companyId };
-  //       const updatedUnit = await updateUsers(record.id, updatedData);
+    try {
+      if (record) {
+        const updatedData = {
+          name: record.name,
+          email: record.email,
+          companyId: record.companyId,
+          unitId: record.unitId,
+        };
+        const updatedUser = await updateUser(record.id, updatedData);
 
-  //       setUnitsData((prevUnits) => {
-  //         const updateUnits = prevUnits.map((unit) => {
-  //           if (unit.id === updatedUnit.id) {
-  //             return updatedUnit;
-  //           } else {
-  //             return unit;
-  //           }
-  //         });
-
-  //         return updateUnits;
-  //       });
-  //       ToastSuccessful(loadingToast, `${dict.toast_notifications.success}`);
-  //     }
-  //   } catch (error) {
-  //     ToastError(loadingToast, `${dict.toast_notifications.error}`);
-  //   }
-  // };
+        setUsersData((prevUsers) => {
+          const updateUsers = prevUsers.map((user) => {
+            if (user.id === updatedUser.id) {
+              return updatedUser;
+            } else {
+              return user;
+            }
+          });
+          return updateUsers;
+        });
+        ToastSuccessful(loadingToast, `${dict.toast_notifications.success}`);
+      }
+    } catch (error) {
+      ToastError(loadingToast, `${dict.toast_notifications.error}`);
+    }
+  };
 
   return {
     fetchUsersData,
     isLoading,
     usersData,
     setUsersData,
-    // handleUpdateUnit,
+    handleUpdateUser,
   };
 };

@@ -18,5 +18,7 @@ interface User {
 }
 
 interface PageProps {
-  language: Locale;
+  params: {
+    lang: Locale;
+  };
 }

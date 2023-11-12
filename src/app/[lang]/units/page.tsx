@@ -1,16 +1,14 @@
 'use client';
 
-import { ToastContainer } from 'react-toastify';
 import { useCompaniesData, useUnitsData } from '@/data';
 import { useRandomAvatar } from '@/hooks';
-import {  Units as UnitsView } from '@/components';
+import { Units as UnitsView } from '@/components';
 
-export default function Units({ language }: PageProps) {
-  const {  unitsData, setUnitsData, isLoading } = useUnitsData(language);
-  const {  companiesData } = useCompaniesData(language);
+export default function Units({ params }: PageProps) {
+  const language = params.lang;
+  const { unitsData, setUnitsData, isLoading } = useUnitsData(language);
+  const { companiesData } = useCompaniesData(language);
   const { randomAvatar } = useRandomAvatar();
-
-;
 
   return (
     <>
@@ -22,7 +20,6 @@ export default function Units({ language }: PageProps) {
         language={language}
         isLoading={isLoading}
       />
-      <ToastContainer />
     </>
   );
 }

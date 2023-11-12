@@ -10,7 +10,7 @@ export const enUS = {
     icon_1: 'Assets',
     icon_2: 'Companies',
     icon_3: 'Units',
-    icon_4: 'User',
+    icon_4: 'Users',
     icon_5: 'Workorders',
     icon_6: 'Language',
     icon_6_1: 'English',
@@ -33,6 +33,13 @@ export const enUS = {
     cancel: 'Cancel',
   },
 
+  table: {
+    edit_column: "Edit",
+    users: {
+      title: 'Users List',
+    },
+  },
+
   dropdown: {
     changeCompany: 'Change Company',
   },
@@ -41,6 +48,7 @@ export const enUS = {
     edit: {
       company: 'Edit company',
       unit: 'Edit Unit',
+      user: 'Edit User',
     },
   },
 };

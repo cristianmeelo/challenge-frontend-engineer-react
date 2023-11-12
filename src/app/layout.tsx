@@ -13,12 +13,10 @@ export default function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { lang: string };
+  params: { language: string };
 }) {
-  const language = params.lang;
-
   return (
-    <html lang={language}>
+    <html lang={params.language}>
       <head>
         <link rel="icon" href="../../public/tractian-favicon-ia.png" />
       </head>

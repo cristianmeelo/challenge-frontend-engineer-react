@@ -37,10 +37,18 @@ export const ptBR = {
     changeCompany: 'Trocar Empresa',
   },
 
+  table: {
+    edit_column: "Editar",
+    users: {
+      title: 'Lista de Usuários',
+    },
+  },
+
   modal: {
     edit: {
       company: 'Editar Empresa',
       unit: 'Editar Unidade',
+      user: 'Editar Usuário',
     },
   },
 };

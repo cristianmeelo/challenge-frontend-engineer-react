@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import { UnitsList } from './UnitsList/UnitsList';
+import { ToastContainer } from 'react-toastify';
+
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
-import { EditUnitModal } from './EditUnitModal/EditUnitModal';
 import { useUnitsData } from '@/data';
 import { BreadcrumbBasic as Breadcrumb } from '@/components';
+import { EditUnitModal } from './EditUnitModal/EditUnitModal';
+import { UnitsList } from './UnitsList/UnitsList';
 
 export const Units: React.FC<UnitsProps> = ({
   unitsData,
@@ -14,10 +16,8 @@ export const Units: React.FC<UnitsProps> = ({
   isLoading,
 }) => {
   const dict = getLanguageUseClient(language);
-
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [editingUnit, setEditingUnit] = useState<Unit>();
-
   const { handleUpdateUnit } = useUnitsData(language);
 
   const handleEditClick = (unit: Unit) => {
@@ -37,17 +37,16 @@ export const Units: React.FC<UnitsProps> = ({
 
   return (
     <>
-      <div style={{ padding: 24, minHeight: 360 }}>
-        <Breadcrumb content={dict.sidebar.icon_3} />
+      <Breadcrumb content={dict.sidebar.icon_3} />
 
-        <UnitsList
-          units={unitsData}
-          onEdit={handleEditClick}
-          randomAvatar={randomAvatar}
-          isLoading={isLoading}
-          companies={companiesData}
-        />
-      </div>
+      <UnitsList
+        units={unitsData}
+        companies={companiesData}
+        onEdit={handleEditClick}
+        randomAvatar={randomAvatar}
+        isLoading={isLoading}
+      />
+
       <EditUnitModal
         isOpen={isEditing}
         onCancel={handleEditModalCancel}
@@ -71,6 +70,7 @@ export const Units: React.FC<UnitsProps> = ({
           }));
         }}
       />
+      <ToastContainer />
     </>
   );
 };

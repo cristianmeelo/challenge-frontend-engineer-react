@@ -6,7 +6,6 @@ import {
   DashboardOutlined,
   TeamOutlined,
   SubnodeOutlined,
-  SyncOutlined,
 } from '@ant-design/icons';
 import Image from 'next/image';
 

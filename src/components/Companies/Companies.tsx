@@ -1,26 +1,22 @@
 import { useState } from 'react';
+import { ToastContainer } from 'react-toastify';
 
+import { getLanguageUseClient } from '@/languages/default-languages-use-client';
+import { useCompaniesData } from '@/data';
 import { BreadcrumbBasic as Breadcrumb } from '@/components';
-
 import { CompaniesList } from '@/components/Companies/CompaniesList/CompanyList';
 import { EditCompanyModal } from '@/components/Companies/EditCompanyModal/EditCompanyModal';
-import { handleCancelEditingCompany } from './utils/handleCancelEditingCompany/handleCancelEditingCompany';
-
-import { useCompaniesData } from '@/data';
-import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 
 export const Companies: React.FC<CompaniesProps> = ({
-  data,
+  companiesData,
   randomAvatar,
   setCompaniesData,
   language,
   isLoading,
 }) => {
   const dict = getLanguageUseClient(language);
-
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [editingCompany, setEditingCompany] = useState<Company>();
-
   const { handleUpdateCompany } = useCompaniesData(language);
 
   const handleEditClick = (company: Company) => {
@@ -29,7 +25,8 @@ export const Companies: React.FC<CompaniesProps> = ({
   };
 
   const handleEditModalCancel = () => {
-    handleCancelEditingCompany(setIsEditing, setEditingCompany);
+    setIsEditing(false);
+    setEditingCompany(undefined);
   };
 
   const handleEditModalConfirm = () => {
@@ -39,16 +36,15 @@ export const Companies: React.FC<CompaniesProps> = ({
 
   return (
     <>
-      <div style={{ padding: 24, minHeight: 360 }}>
-        <Breadcrumb content={dict.sidebar.icon_2} />
+      <Breadcrumb content={dict.sidebar.icon_2} />
 
-        <CompaniesList
-          companies={data}
-          onEdit={handleEditClick}
-          randomAvatar={randomAvatar}
-          isLoading={isLoading}
-        />
-      </div>
+      <CompaniesList
+        companies={companiesData}
+        onEdit={handleEditClick}
+        randomAvatar={randomAvatar}
+        isLoading={isLoading}
+      />
+
       <EditCompanyModal
         isOpen={isEditing}
         onCancel={handleEditModalCancel}
@@ -63,6 +59,7 @@ export const Companies: React.FC<CompaniesProps> = ({
           })
         }
       />
+      <ToastContainer />
     </>
   );
 };

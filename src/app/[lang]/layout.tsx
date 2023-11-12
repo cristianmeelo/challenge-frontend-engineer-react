@@ -13,7 +13,7 @@ export default function RootLayout({
   const { Content } = Layout;
 
   const contentStyle: React.CSSProperties = {
-    padding: '0 16px',
+    padding: '1.5rem 2rem',
     color: '#fff',
     backgroundColor: '#fff',
   };

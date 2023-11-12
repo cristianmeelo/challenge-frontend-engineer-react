@@ -2,11 +2,12 @@ import { Space } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
 import { getCompanyName, getUnitName } from '@/functions';
 
-function handleEditClick(text: string, record: User): void {
-  throw new Error('Function not implemented.');
-}
-
-export const userColumns = (companiesData: Company[], unitsData: Unit[]) => [
+export const userColumns = (
+  companiesData: Company[],
+  unitsData: Unit[],
+  handleEditClick: (record: User) => void,
+  editColumnText: string
+) => [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -37,12 +38,12 @@ export const userColumns = (companiesData: Company[], unitsData: Unit[]) => [
     onFilter: (value: string, record: any) => record.unitId === value,
   },
   {
-    title: 'Editar',
+    title: editColumnText,
     dataIndex: 'edit',
     key: 'edit',
     render: (text: string, record: User) => (
       <Space size="middle">
-        <EditOutlined onClick={() => handleEditClick(text, record)} style={{ cursor: 'pointer' }} />
+        <EditOutlined onClick={() => handleEditClick(record)} style={{ cursor: 'pointer' }} />
       </Space>
     ),
   },

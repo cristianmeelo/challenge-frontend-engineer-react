@@ -33,6 +33,13 @@ export const esMX = {
     cancel: 'Cancelar',
   },
 
+  table: {
+    edit_column: "Editar",
+    users: {
+      title: 'Lista de Usuarios',
+    },
+  },
+
   dropdown: {
     changeCompany: 'Cambiar Empresa',
   },
@@ -41,6 +48,7 @@ export const esMX = {
     edit: {
       company: 'Editar empresa',
       unit: 'Editar Unidade',
+      user: 'Editar Usuario',
     },
   },
 };
