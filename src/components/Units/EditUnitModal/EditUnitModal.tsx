@@ -4,16 +4,16 @@ import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 
 export const EditUnitModal: React.FC<EditUnitModalProps> = ({
   isOpen,
-  onCancel,
-  onConfirm,
   value,
-  onChange,
-  handleMenuClick,
   title,
   okText,
   cancelText,
   companies,
   language,
+  onCancel,
+  onConfirm,
+  onChange,
+  handleMenuClick,
 }) => {
   const menu = (
     <Menu>

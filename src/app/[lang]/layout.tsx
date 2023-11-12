@@ -20,7 +20,7 @@ export default function RootLayout({
   };
 
   return (
-    <AppProvider>
+    <AppProvider params={params}>
       <Layout style={{ minHeight: '100vh' }}>
         <Sider params={params} />
         <Layout>

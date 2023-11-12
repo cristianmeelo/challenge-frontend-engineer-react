@@ -1,12 +1,36 @@
-import { useState, useEffect } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import { ToastLoading, ToastSuccessful, ToastError } from '@/utils/notifications/notifications';
-
-import { getUsers, updateUser } from '@/services/http';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
+import { getUnits, getUsers, updateUnit, updateUser } from '@/services/http';
 
-const emptyUserData: User[] = [];
+interface UsersContextProps {
+  isLoading: boolean;
+  usersData: User[];
+  setUsersData: React.Dispatch<React.SetStateAction<User[]>>;
+  handleUpdateUser: (
+    record: User | undefined,
+    setUsersData: React.Dispatch<React.SetStateAction<User[]>>
+  ) => void;
+}
 
-export const useUsersData = (language: Locale) => {
+const initialUsersContext: UsersContextProps = {
+  isLoading: true,
+  usersData: [],
+  setUsersData: () => {},
+  handleUpdateUser: () => {},
+};
+
+export const UsersContext = createContext<UsersContextProps>(initialUsersContext);
+
+export const UsersProvider = ({
+  children,
+  language,
+}: {
+  children: React.ReactNode;
+  language: Locale;
+}) => {
+  const emptyUserData: User[] = [];
+
   const dict = getLanguageUseClient(language);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [usersData, setUsersData] = useState<User[]>(emptyUserData);
@@ -58,11 +82,13 @@ export const useUsersData = (language: Locale) => {
     }
   };
 
-  return {
+  const context = {
     fetchUsersData,
     isLoading,
     usersData,
     setUsersData,
     handleUpdateUser,
   };
+
+  return <UsersContext.Provider value={context}>{children}</UsersContext.Provider>;
 };

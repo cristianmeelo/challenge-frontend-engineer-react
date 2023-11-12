@@ -28,6 +28,10 @@ export const EditUserModal: React.FC<EditUsertModalProps> = ({
     </Menu>
   );
 
+  const handleChange = (field: string, e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange(field, e.target.value);
+  };
+
   return (
     <Modal
       title={title}
@@ -38,8 +42,8 @@ export const EditUserModal: React.FC<EditUsertModalProps> = ({
       onOk={onConfirm}
     >
       <Space direction="vertical" size={16}>
-        <Input value={value?.name} onChange={(e) => onChange('name', e.target.value)} />
-        <Input value={value?.email} onChange={(e) => onChange('email', e.target.value)} />
+      <Input value={value?.name} onChange={(e) => handleChange('name', e)} />
+      <Input value={value?.email} onChange={(e) => handleChange('email', e)} />
 
         <Dropdown overlay={menu} placement="bottomRight" trigger={['click']}>
           <Button>

@@ -1,7 +1,3 @@
 interface unitsListProps {
-  units: Unit[];
-  companies: Company[];
   onEdit: (unit: Unit) => void;
-  randomAvatar?: string;
-  isLoading: boolean;
 }

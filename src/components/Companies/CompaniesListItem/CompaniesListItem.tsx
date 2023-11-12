@@ -1,12 +1,14 @@
 import { List, Avatar, Skeleton } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
+import { useCompaniesContext } from '@/hooks';
 
 export const CompanyListItem: React.FC<CompanyListItemProps> = ({
   company,
   onEdit,
   randomAvatar,
-  isLoading,
 }) => {
+  const { isLoading } = useCompaniesContext();
+
   return (
     <>
       <List.Item

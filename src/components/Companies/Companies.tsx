@@ -2,22 +2,18 @@ import { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
-import { useCompaniesData } from '@/data';
 import { BreadcrumbBasic as Breadcrumb } from '@/components';
 import { CompaniesList } from '@/components/Companies/CompaniesList/CompanyList';
 import { EditCompanyModal } from '@/components/Companies/EditCompanyModal/EditCompanyModal';
+import { useCompaniesContext } from '@/hooks';
 
-export const Companies: React.FC<CompaniesProps> = ({
-  companiesData,
-  randomAvatar,
-  setCompaniesData,
-  language,
-  isLoading,
-}) => {
+export const Companies: React.FC<CompaniesProps> = ({ language }) => {
   const dict = getLanguageUseClient(language);
+
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [editingCompany, setEditingCompany] = useState<Company>();
-  const { handleUpdateCompany } = useCompaniesData(language);
+
+  const { handleUpdateCompany, setCompaniesData } = useCompaniesContext();
 
   const handleEditClick = (company: Company) => {
     setIsEditing(true);
@@ -38,12 +34,7 @@ export const Companies: React.FC<CompaniesProps> = ({
     <>
       <Breadcrumb content={dict.sidebar.icon_2} />
 
-      <CompaniesList
-        companies={companiesData}
-        onEdit={handleEditClick}
-        randomAvatar={randomAvatar}
-        isLoading={isLoading}
-      />
+      <CompaniesList onEdit={handleEditClick} />
 
       <EditCompanyModal
         isOpen={isEditing}

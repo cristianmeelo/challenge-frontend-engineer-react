@@ -3,26 +3,30 @@ import { ToastContainer } from 'react-toastify';
 import { Table } from 'antd';
 
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
-import { useUsersData } from '@/data';
+
 import { BreadcrumbBasic as Breadcrumb } from '@/components';
 import { EditUserModal } from './EditUserModal/EditUserModal';
 import { userColumns } from './userColumns/userColumns';
+import { useCompaniesContext, useUnitsContext, useUsersContext } from '@/hooks';
 
 export const Users: React.FC<UserProps> = ({
-  companiesData,
   language,
-  setUsersData,
-  unitsData,
-  usersData,
+ 
 }) => {
+  const {companiesData} = useCompaniesContext();
+  const {unitsData} = useUnitsContext();
+const  {handleUpdateUser,setUsersData,usersData} = useUsersContext();
+
   const dict = getLanguageUseClient(language);
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [editingUser, setEditingUser] = useState<User>();
-  const { handleUpdateUser } = useUsersData(language);
+
+
 
   const handleEditClick = (user: User) => {
     setIsEditing(true);
     setEditingUser({ ...user });
+console.log(user)
   };
 
   const handleEditModalCancel = () => {

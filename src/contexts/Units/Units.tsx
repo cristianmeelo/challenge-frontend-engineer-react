@@ -1,15 +1,40 @@
-import { useState, useEffect } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import { ToastLoading, ToastSuccessful, ToastError } from '@/utils/notifications/notifications';
-
-import { getUnits, updateUnit } from '@/services/http';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
+import { getUnits, updateUnit } from '@/services/http';
 
-const emptyUnitData: Unit[] = [];
+interface UnitsContextProps {
+  isLoading: boolean;
+  unitsData: Unit[];
+  setUnitsData: React.Dispatch<React.SetStateAction<Unit[]>>;
+  handleUpdateUnit: (
+    record: Unit | undefined,
+    setUnitsData: React.Dispatch<React.SetStateAction<Unit[]>>
+  ) => void;
+}
 
-export const useUnitsData = (language: Locale) => {
-  const dict = getLanguageUseClient(language);
+const initialUnitsContext: UnitsContextProps = {
+  isLoading: true,
+  unitsData: [],
+  setUnitsData: () => {},
+  handleUpdateUnit: () => {},
+};
+
+export const UnitsContext = createContext<UnitsContextProps>(initialUnitsContext);
+
+export const UnitsProvider = ({
+  children,
+  language,
+}: {
+  children: React.ReactNode;
+  language: Locale;
+}) => {
+  const emptyUnitData: Unit[] = [];
+
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [unitsData, setUnitsData] = useState<Unit[]>(emptyUnitData);
+
+  const dict = getLanguageUseClient(language);
 
   useEffect(() => {
     fetchUnitsData();
@@ -54,11 +79,13 @@ export const useUnitsData = (language: Locale) => {
     }
   };
 
-  return {
+  const context = {
     fetchUnitsData,
     isLoading,
     unitsData,
     setUnitsData,
     handleUpdateUnit,
   };
+
+  return <UnitsContext.Provider value={context}>{children}</UnitsContext.Provider>;
 };
