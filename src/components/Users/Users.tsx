@@ -9,7 +9,7 @@ import { EditUserModal } from './EditUserModal/EditUserModal';
 import { userColumns } from './userColumns/userColumns';
 import { useCompaniesContext, useUnitsContext, useUsersContext } from '@/hooks';
 
-export const Users: React.FC<UserProps> = ({ language }) => {
+export const Users: React.FC<ViewProps> = ({ language }) => {
   const { companiesData } = useCompaniesContext();
   const { unitsData } = useUnitsContext();
   const { handleUpdateUser, setUsersData, usersData } = useUsersContext();

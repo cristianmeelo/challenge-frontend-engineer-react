@@ -1,3 +1,0 @@
-interface CompaniesProps {
-  language: Locale;
-}

@@ -7,7 +7,7 @@ import { CompaniesList } from '@/components/Companies/CompaniesList/CompanyList'
 import { EditCompanyModal } from '@/components/Companies/EditCompanyModal/EditCompanyModal';
 import { useCompaniesContext } from '@/hooks';
 
-export const Companies: React.FC<CompaniesProps> = ({ language }) => {
+export const Companies: React.FC<ViewProps> = ({ language }) => {
   const dict = getLanguageUseClient(language);
 
   const [isEditing, setIsEditing] = useState<boolean>(false);

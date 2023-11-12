@@ -7,7 +7,7 @@ import { EditUnitModal } from './EditUnitModal/EditUnitModal';
 import { UnitsList } from './UnitsList/UnitsList';
 import { useCompaniesContext, useUnitsContext } from '@/hooks';
 
-export const Units: React.FC<UnitsProps> = ({ language }) => {
+export const Units: React.FC<ViewProps> = ({ language }) => {
   const { handleUpdateUnit, setUnitsData } = useUnitsContext();
   const { companiesData } = useCompaniesContext();
 
