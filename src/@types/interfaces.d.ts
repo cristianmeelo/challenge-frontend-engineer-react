@@ -35,10 +35,10 @@ type Priority = 'low' | 'medium' | 'high';
 type WorkOrderStatus = 'in progress' | 'completed';
 
 interface Asset {
-  id: number;
-  assignedUserIds: number[];
-  companyId: number;
-  unitId: number;
+  id: string;
+  assignedUserIds: string[];
+  companyId: string;
+  unitId: string;
   name: string;
   model: string;
   image: string;

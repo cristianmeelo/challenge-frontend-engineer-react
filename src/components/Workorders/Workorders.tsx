@@ -1,12 +1,17 @@
 import { Table, Space, Tag, Tooltip } from 'antd';
+import { ClockCircleOutlined, CheckCircleOutlined } from '@ant-design/icons';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { BreadcrumbBasic as Breadcrumb } from '@/components';
-import { ExclamationCircleOutlined, ClockCircleOutlined, CheckCircleOutlined } from '@ant-design/icons';
-import { useWorkordersContext } from '@/hooks';
+import { useAssetsContext, useUsersContext, useWorkordersContext } from '@/hooks';
+import { getAssetName, getUserName } from '@/functions';
+
 
 export const Workorders: React.FC<ViewProps> = ({ language }) => {
   const dict = getLanguageUseClient(language);
-  const { workordersData } = useWorkordersContext();
+  const { workordersData } = useWorkordersContext(); 
+  const {  assetsData } = useAssetsContext(); 
+  const { usersData } = useUsersContext();
+
 
   const statusMap: { [key in WorkOrderStatus]: { icon: React.ReactNode; text: string } } = {
     'in progress': { icon: <ClockCircleOutlined style={{ color: 'orange' }} />, text: 'In Progress' },
@@ -22,8 +27,9 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
   const columns = [
     {
       title: 'Asset',
-      dataIndex: 'title',
-      key: 'title',
+      dataIndex: 'assetId', // Substitua pelo nome do campo que contém o ID do ativo em workordersData
+      key: 'assetId',
+      render: (assetId: string) => getAssetName({ assetId }, assetsData),
     },
     {
       title: 'Status',
@@ -44,7 +50,18 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
       key: 'priority',
       render: (priority: string) => priorityTagMap[priority],
     },
-    // ... Outras colunas
+    {
+      title: 'Assigned Users',
+      dataIndex: 'assignedUserIds',
+      key: 'assignedUserIds',
+      render: (assignedUserIds: string[]) => (
+        <ul>
+          {assignedUserIds.map((userId) => (
+            <li key={userId}>{getUserName({ userId: userId }, usersData)}</li>
+          ))}
+        </ul>
+      ),
+    },
     {
       title: 'Ações',
       key: 'action',
@@ -63,5 +80,3 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
     </>
   );
 };
-
-
