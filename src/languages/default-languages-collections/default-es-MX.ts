@@ -34,7 +34,7 @@ export const esMX = {
   },
 
   table: {
-    edit_column: "Editar",
+    edit_column: 'Editar',
     users: {
       title: 'Lista de Usuarios',
     },

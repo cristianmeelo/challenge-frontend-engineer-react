@@ -37,9 +37,9 @@ export const EditUserModal: React.FC<EditUsertModalProps> = ({
       onCancel={onCancel}
       onOk={onConfirm}
     >
-   <Space direction="vertical" size={16}>
-        <Input value={value?.name} onChange={(e) => onChange("name", e.target.value)} />
-        <Input value={value?.email} onChange={(e) => onChange("email", e.target.value)} />
+      <Space direction="vertical" size={16}>
+        <Input value={value?.name} onChange={(e) => onChange('name', e.target.value)} />
+        <Input value={value?.email} onChange={(e) => onChange('email', e.target.value)} />
 
         <Dropdown overlay={menu} placement="bottomRight" trigger={['click']}>
           <Button>

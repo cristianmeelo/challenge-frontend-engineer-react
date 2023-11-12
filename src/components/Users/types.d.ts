@@ -6,5 +6,4 @@ type UserProps = {
   unitsData: Unit[];
 };
 
-type UserField = "email" | "name";
-
+type UserField = 'email' | 'name';

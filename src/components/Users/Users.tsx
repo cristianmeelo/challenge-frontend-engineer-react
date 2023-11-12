@@ -36,7 +36,7 @@ export const Users: React.FC<UserProps> = ({
   };
 
   const editColumnText = `${dict.table.edit_column}`;
-  const columns = userColumns(companiesData, unitsData, handleEditClick, editColumnText );
+  const columns = userColumns(companiesData, unitsData, handleEditClick, editColumnText);
 
   return (
     <>
@@ -73,7 +73,6 @@ export const Users: React.FC<UserProps> = ({
         units={unitsData}
       />
       <ToastContainer />
-
     </>
   );
 };
