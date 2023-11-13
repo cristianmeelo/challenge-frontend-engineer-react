@@ -4,7 +4,7 @@ const { version } = packageJson;
 
 const url: { [key: string]: string } = {
   development: 'https://my-json-server.typicode.com/tractian/fake-api',
-  production: 'https://',
+  production: 'https://my-json-server.typicode.com/tractian/fake-api',
   test: 'https://',
 };
 
