@@ -118,11 +118,6 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
             return { ...prev!, [field]: value };
           })
         }
-        onStatusChange={(status: WorkOrderStatus) => {
-          setEditingWorkorder((prev) => {
-            return { ...prev!, status: status };
-          });
-        }}
         onPriorityChange={(priority: Priority) => {
           setEditingWorkorder((prev) => {
             return { ...prev!, priority: priority };

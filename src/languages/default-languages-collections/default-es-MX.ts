@@ -19,14 +19,13 @@ export const esMX = {
 
   sidebar: {
     icon_1: 'Activos',
+    icon_1_1: 'Modo Cuadrícula',
+    icon_1_2: 'Modo de lista',
     icon_2: 'Empresas',
     icon_3: 'Unidades',
     icon_4: 'Usuarios',
     icon_5: 'Órdenes de Servicio',
-    icon_6: 'Idioma',
-    icon_6_1: 'Inglés',
-    icon_6_2: 'Portugués',
-    icon_6_3: 'Español',
+   
   },
 
   header: {

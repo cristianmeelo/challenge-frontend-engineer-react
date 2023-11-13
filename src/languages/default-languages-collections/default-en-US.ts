@@ -19,14 +19,13 @@ export const enUS = {
 
   sidebar: {
     icon_1: 'Assets',
+    icon_1_1: 'Grid Mode',
+    icon_1_2: 'List Mode',
     icon_2: 'Companies',
     icon_3: 'Units',
     icon_4: 'Users',
     icon_5: 'Workorders',
-    icon_6: 'Language',
-    icon_6_1: 'English',
-    icon_6_2: 'Portuguese',
-    icon_6_3: 'Spanish',
+ 
   },
 
   header: {

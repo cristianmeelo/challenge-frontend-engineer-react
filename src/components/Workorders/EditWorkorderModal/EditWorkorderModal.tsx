@@ -17,7 +17,6 @@ type EditWorkorderModalProps = {
   onChange: any; // #TODO
   workorder: Workorder | undefined;
   handleAssetMenuClick: (asset: Asset) => void;
-  onStatusChange: (status: WorkOrderStatus) => void;
   onPriorityChange: (priority: Priority) => void;
   language: Locale;
 };
@@ -34,7 +33,6 @@ export const EditWorkorderModal: React.FC<EditWorkorderModalProps> = ({
   workorder,
   handleAssetMenuClick,
   language,
-  onStatusChange,
   onPriorityChange,
 }) => {
   const dict = getLanguageUseClient(language);
@@ -85,14 +83,7 @@ export const EditWorkorderModal: React.FC<EditWorkorderModalProps> = ({
             {selectedAsset ? selectedAsset.name : dict.dropdown.change_asset} <AppstoreOutlined />
           </Button>
         </Dropdown>
-        <Segmented
-          options={['in progress', 'completed']}
-          value={status}
-          onChange={(value: SegmentedValue) => {
-            setStatus(value as WorkOrderStatus);
-            onStatusChange(value as WorkOrderStatus);
-          }}
-        />
+
         <Segmented
           options={['low', 'medium', 'high']}
           value={priority}

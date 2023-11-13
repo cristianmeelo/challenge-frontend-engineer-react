@@ -91,6 +91,8 @@ export const getColumns = (
       key: 'action',
       render: (text: string, record: Workorder) => (
         <Space size="middle" direction="vertical">
+              <Space.Compact direction="vertical">
+
           <Button type="primary" icon={<EyeOutlined />} onClick={() => handleSeeClick(record)}>
             Ver Checklist
           </Button>
@@ -107,6 +109,8 @@ export const getColumns = (
           >
             Editar Usuários
           </Button>
+          </Space.Compact>
+
         </Space>
       ),
     },

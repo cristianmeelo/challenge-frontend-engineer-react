@@ -19,14 +19,12 @@ export const ptBR = {
 
   sidebar: {
     icon_1: 'Ativos',
+    icon_1_1: 'Modo Grade',
+    icon_1_2: 'Modo Lista',
     icon_2: 'Empresas',
     icon_3: 'Unidades',
     icon_4: 'Usuários',
     icon_5: 'Ordens de Serviço',
-    icon_6: 'Idioma',
-    icon_6_1: 'Inglês',
-    icon_6_2: 'Português',
-    icon_6_3: 'Espanhol',
   },
 
   header: {
