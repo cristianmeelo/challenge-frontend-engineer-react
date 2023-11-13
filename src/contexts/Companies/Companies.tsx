@@ -15,7 +15,6 @@ interface CompaniesContextProps {
     record: Company | undefined,
     setCompaniesData: React.Dispatch<React.SetStateAction<Company[]>>
   ) => void;
-  fetchCompaniesData: Function;
 }
 
 const initialCompaniesContext: CompaniesContextProps = {
@@ -23,7 +22,6 @@ const initialCompaniesContext: CompaniesContextProps = {
   companiesData: [],
   setCompaniesData: () => {},
   handleUpdateCompany: () => {},
-  fetchCompaniesData: () => {},
 };
 
 export const CompaniesContext = createContext<CompaniesContextProps>(initialCompaniesContext);
@@ -41,9 +39,9 @@ export const CompaniesProvider = ({
   const [companiesData, setCompaniesData] = useState<Company[]>(emptyCompaniesData);
   const dict = getLanguageUseClient(language);
 
-  // useEffect(() => {
-  //   fetchCompaniesData();
-  // }, []);
+  useEffect(() => {
+    fetchCompaniesData();
+  }, []);
 
   const fetchCompaniesData = async () => {
     try {
@@ -89,7 +87,6 @@ export const CompaniesProvider = ({
     companiesData,
     setCompaniesData,
     handleUpdateCompany,
-    fetchCompaniesData
   };
 
   return <CompaniesContext.Provider value={context}>{children}</CompaniesContext.Provider>;
