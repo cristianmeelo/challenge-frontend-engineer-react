@@ -1,7 +1,7 @@
 import { Table, Tag } from 'antd';
+import type { ColumnsType } from 'antd/es/table';
 import { getStatusTagColor } from '../functions';
-
-import { getCompanyName, getUnitName, getUserName } from '@/functions';
+import { generateModelFilters, getCompanyName, getUnitName, getUserName } from '@/functions';
 import { useAssetsContext, useCompaniesContext, useUnitsContext, useUsersContext } from '@/hooks';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 
@@ -12,7 +12,9 @@ export const ListView = ({ language }: { language: Locale }) => {
   const { companiesData } = useCompaniesContext();
   const { unitsData } = useUnitsContext();
 
-  const columns = [
+  const modelFilters = generateModelFilters(assetsData);
+
+  const columns: ColumnsType<any> = [
     {
       title: `${dict.table.assets.title}`,
       dataIndex: 'name',
@@ -22,21 +24,29 @@ export const ListView = ({ language }: { language: Locale }) => {
       title: `${dict.table.assets.model}`,
       dataIndex: 'model',
       key: 'model',
+      filters: modelFilters,
+      onFilter: (value: any, record: Asset) => record.model === value,
     },
     {
       title: `${dict.table.assets.status}`,
       dataIndex: 'status',
       key: 'status',
-      render: (status: string) => <Tag color={getStatusTagColor(status)}>{status}</Tag>,
+      render: (status: AssetStatus) => <Tag color={getStatusTagColor(status)}>{status}</Tag>,
+      filters: [
+        { text: 'InOperation', value: 'inOperation' },
+        { text: 'InDowntime', value: 'inDowntime' },
+        { text: 'InAlert', value: 'inAlert' },
+        { text: 'UnplannedStop', value: 'unplannedStop' },
+        { text: 'PlannedStop', value: 'plannedStop' },
+      ],
+      onFilter: (value: any, record: Asset) => record.status === value,
     },
     {
       title: `${dict.table.assets.healthscore}`,
       dataIndex: 'healthscore',
       key: 'healthscore',
       render: (healthscore: number) => (
-        <span style={{ color: healthscore > 80 ? 'green' : 'red' }}>
-          {healthscore}%
-        </span>
+        <span style={{ color: healthscore > 80 ? 'green' : 'red' }}>{healthscore}%</span>
       ),
     },
     {
@@ -76,6 +86,7 @@ export const ListView = ({ language }: { language: Locale }) => {
       dataIndex: 'unitId',
       key: 'unitId',
       render: (unitId: string) => getUnitName({ unitId }, unitsData),
+      sorter: (a, b) => a.unitId - b.unitId,
     },
     {
       title: `${dict.table.assets.assigned_user}`,

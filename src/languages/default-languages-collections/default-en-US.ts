@@ -52,18 +52,17 @@ export const enUS = {
     },
     assets: {
       title: 'Assets List',
-        name: "Name",
-        model: "Model",
-        status: "Status",
-        healthscore: "Health Score",
-        sensors: "Sensors",
-        specifications: "Specifications",
-        company: "Company",
-        unit: "Unit",
-        assigned_user: "Assigned User",
-      },
+      name: 'Name',
+      model: 'Model',
+      status: 'Status',
+      healthscore: 'Health Score',
+      sensors: 'Sensors',
+      specifications: 'Specifications',
+      company: 'Company',
+      unit: 'Unit',
+      assigned_user: 'Assigned User',
     },
-
+  },
 
   dropdown: {
     change_company: 'Change Company',
