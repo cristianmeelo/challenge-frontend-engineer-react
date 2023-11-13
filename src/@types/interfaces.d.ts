@@ -31,8 +31,8 @@ interface Workorder {
   title: string;
 }
 
-type Priority = 'low' | 'medium' | 'high';
-type WorkOrderStatus = 'in progress' | 'completed';
+type Priority = 'Low' | 'Medium' | 'High';
+type WorkOrderStatus = 'in Progress' | 'Completed';
 
 interface Asset {
   id: string;

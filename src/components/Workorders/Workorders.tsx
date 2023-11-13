@@ -10,7 +10,7 @@ import { BreadcrumbBasic as Breadcrumb } from '@/components';
 import { useAssetsContext, useUsersContext, useWorkordersContext } from '@/hooks';
 import { getAssetName, getUserName } from '@/functions';
 import { ChecklistModal } from './ChecklistModal/ChecklistModal';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { EditWorkorderModal } from './EditWorkorderModal/EditWorkorderModal';
 
 export const Workorders: React.FC<ViewProps> = ({ language }) => {
@@ -22,6 +22,10 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [isSeeing, setIsSeeing] = useState<boolean>(false);
   const [editingWorkorder, setEditingWorkorder] = useState<Workorder>();
+
+  useEffect(() => {
+    console.log(editingWorkorder);
+  }, [editingWorkorder]);
 
   const statusMap: { [key in WorkOrderStatus]: { icon: React.ReactNode; text: string } } = {
     'in progress': {
@@ -170,6 +174,16 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
             return { ...prev!, [field]: value };
           })
         }
+        onStatusChange={(status: WorkOrderStatus) => {
+          setEditingWorkorder((prev) => {
+            return { ...prev!, status: status };
+          });
+        }}
+        onPriorityChange={(priority: Priority) => {
+          setEditingWorkorder((prev) => {
+            return { ...prev!, priority: priority };
+          });
+        }}
         language={language}
       />
     </>
