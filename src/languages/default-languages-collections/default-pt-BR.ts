@@ -36,6 +36,7 @@ export const ptBR = {
   dropdown: {
     change_company: 'Trocar Empresa',
     change_unit: 'Trocar Unidade',
+    change_asset: 'Trocar Ativo',
   },
 
   table: {

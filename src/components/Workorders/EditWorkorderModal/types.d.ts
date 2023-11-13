@@ -1,0 +1,1 @@
+type WorkOrderField = 'title' | 'description';

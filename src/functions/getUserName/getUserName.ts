@@ -13,9 +13,7 @@ export const getUserName = (item: { userId: string }, usersData: User[]): string
    * @returns {boolean} - True if the user ID matches the item's user ID, otherwise false.
    */
 
-
   const user = usersData.find((user) => user.id === item.userId);
-
 
   return user ? user.name : 'Unknown User';
 };

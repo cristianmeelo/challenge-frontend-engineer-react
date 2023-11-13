@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from 'react';
 import { ToastLoading, ToastSuccessful, ToastError } from '@/utils/notifications/notifications';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
-import {  getUsers, updateUser } from '@/services/http';
+import { getUsers, updateUser } from '@/services/http';
 
 interface UsersContextProps {
   isLoading: boolean;

@@ -1,9 +1,8 @@
+import { useState } from 'react';
 import { Modal, Input, Menu, Dropdown, Button, Space } from 'antd';
 import { ShopOutlined, SubnodeOutlined } from '@ant-design/icons';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
-import { getCompanyName } from '@/functions';
 import { useCompaniesContext, useUnitsContext } from '@/hooks';
-import { useState } from 'react';
 
 export const EditUserModal: React.FC<EditUsertModalProps> = ({
   isOpen,
@@ -48,7 +47,7 @@ export const EditUserModal: React.FC<EditUsertModalProps> = ({
     </Menu>
   );
 
-  const handleChange = (field: string, e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (field: UserField, e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(field, e.target.value);
   };
 

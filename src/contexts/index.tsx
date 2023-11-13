@@ -16,12 +16,9 @@ export const AppProvider = ({
       <UnitsProvider language={params.lang}>
         <UsersProvider language={params.lang}>
           <WorkordersProvider language={params.lang}>
-<AssetsProvider language={params.lang}>
-
-          {children}
-</AssetsProvider>
+            <AssetsProvider language={params.lang}>{children}</AssetsProvider>
           </WorkordersProvider>
-          </UsersProvider>
+        </UsersProvider>
       </UnitsProvider>
     </CompaniesProvider>
   );

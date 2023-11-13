@@ -43,6 +43,7 @@ export const esMX = {
   dropdown: {
     change_company: 'Cambiar Empresa',
     change_unit: 'Cambiar Unidad',
+    change_asset: 'Cambiar Activo',
   },
 
   modal: {

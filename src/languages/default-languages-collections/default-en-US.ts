@@ -43,6 +43,7 @@ export const enUS = {
   dropdown: {
     change_company: 'Change Company',
     change_unit: 'Change Unit',
+    change_asset: 'Change Asset',
   },
 
   modal: {
