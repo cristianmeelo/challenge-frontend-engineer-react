@@ -2,6 +2,7 @@
 
 import { Layout } from 'antd';
 import { Sider, Header } from '@/components';
+import { AppProvider } from '@/contexts';
 
 export default function RootLayout({
   children,
@@ -19,12 +20,14 @@ export default function RootLayout({
   };
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
-      <Sider params={params} />
-      <Layout>
-        <Header params={params} />
-        <Content style={contentStyle}>{children}</Content>
+    <AppProvider params={params}>
+      <Layout style={{ minHeight: '100vh' }}>
+        <Sider params={params} />
+        <Layout>
+          <Header params={params} />
+          <Content style={contentStyle}>{children}</Content>
+        </Layout>
       </Layout>
-    </Layout>
+    </AppProvider>
   );
 }

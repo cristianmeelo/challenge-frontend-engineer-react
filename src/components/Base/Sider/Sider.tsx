@@ -3,9 +3,9 @@ import { Layout, Menu, Typography } from 'antd';
 import {
   ShopOutlined,
   FileOutlined,
-  DashboardOutlined,
+  AppstoreOutlined,
   TeamOutlined,
-  SubnodeOutlined,
+  SisternodeOutlined,
 } from '@ant-design/icons';
 import Image from 'next/image';
 
@@ -22,9 +22,9 @@ export const Sider = ({ params }: { params: { lang: Locale } }) => {
   const { Text } = Typography;
 
   const items: MenuItem[] = [
-    getItem(`${dict.sidebar.icon_1}`, '/assets', <DashboardOutlined />),
+    getItem(`${dict.sidebar.icon_1}`, '/assets', <AppstoreOutlined />),
     getItem(`${dict.sidebar.icon_2}`, '/companies', <ShopOutlined />),
-    getItem(`${dict.sidebar.icon_3}`, '/units', <SubnodeOutlined />),
+    getItem(`${dict.sidebar.icon_3}`, '/units', <SisternodeOutlined />),
     // getItem(`${dict.sidebar.icon_4}`, '/users', <TeamOutlined />, [getItem('Team 1', '4'), getItem('Team 2', '5')]),
     getItem(`${dict.sidebar.icon_4}`, '/users', <TeamOutlined />),
     getItem(`${dict.sidebar.icon_5}`, '/workorders', <FileOutlined />),

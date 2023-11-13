@@ -1,12 +1,40 @@
-import { useState, useEffect } from 'react';
+/**
+ * CompaniesContext é utilizado para fornecer informações sobre empresas
+ * aos componentes da aplicação.
+ */
+import { createContext, useEffect, useState } from 'react';
 import { ToastLoading, ToastSuccessful, ToastError } from '@/utils/notifications/notifications';
-
-import { getCompanies, updateCompany } from '@/services/http';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
+import { getCompanies, updateCompany } from '@/services/http';
 
-const emptyCompaniesData: Company[] = [];
+interface CompaniesContextProps {
+  isLoading: boolean;
+  companiesData: Company[];
+  setCompaniesData: React.Dispatch<React.SetStateAction<Company[]>>;
+  handleUpdateCompany: (
+    record: Company | undefined,
+    setCompaniesData: React.Dispatch<React.SetStateAction<Company[]>>
+  ) => void;
+}
 
-export const useCompaniesData = (language: Locale) => {
+const initialCompaniesContext: CompaniesContextProps = {
+  isLoading: true,
+  companiesData: [],
+  setCompaniesData: () => {},
+  handleUpdateCompany: () => {},
+};
+
+export const CompaniesContext = createContext<CompaniesContextProps>(initialCompaniesContext);
+
+export const CompaniesProvider = ({
+  children,
+  language,
+}: {
+  children: React.ReactNode;
+  language: Locale;
+}) => {
+  const emptyCompaniesData: Company[] = [];
+
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [companiesData, setCompaniesData] = useState<Company[]>(emptyCompaniesData);
   const dict = getLanguageUseClient(language);
@@ -54,11 +82,12 @@ export const useCompaniesData = (language: Locale) => {
     }
   };
 
-  return {
-    fetchCompaniesData,
+  const context = {
     isLoading,
     companiesData,
     setCompaniesData,
     handleUpdateCompany,
   };
+
+  return <CompaniesContext.Provider value={context}>{children}</CompaniesContext.Provider>;
 };
