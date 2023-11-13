@@ -25,6 +25,7 @@ export const ptBR = {
     icon_3: 'Unidades',
     icon_4: 'Usuários',
     icon_5: 'Ordens de Serviço',
+    icon_6: 'Dashboard',
   },
 
   header: {
@@ -79,5 +80,14 @@ export const ptBR = {
       asset: 'Editar Ativo',
     },
     assigned_users: 'Usuários Encarregados',
+  },
+
+  chart: {
+    sensor_chart: {
+      title: 'Distribuição Total de Sensores por Modelo',
+      description:
+        'O gráfico de pizza exibido abaixo oferece um insight valioso sobre a distribuição dos modelos de sensores em todos os ativos monitorados. Ao analisar a quantidade total de sensores para cada modelo, podemos identificar padrões e discrepâncias que podem impactar diretamente nas operações e na manutenção. Essa visualização proporciona uma compreensão rápida e clara das necessidades de sensorização, permitindo decisões estratégicas sobre aquisição e substituição de sensores. Este overview é crucial para otimizar a eficiência operacional e garantir que os ativos estejam equipados com os sensores adequados, contribuindo para uma gestão mais proativa e eficaz do parque industrial.',
+      serie_a: 'Quantidade Total de Sensores',
+    },
   },
 };
