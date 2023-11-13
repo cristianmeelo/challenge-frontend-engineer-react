@@ -50,6 +50,17 @@ export const esMX = {
     workorders: {
       title: 'Lista de Órdenes de Servicio',
     },
+    assets: {
+      title: 'Lista de Activos',
+    name: "Nombre",
+    model: "Modelo",
+    status: "Estado",
+    healthscore: "Puntuación de Salud",
+    sensors: "Sensores",
+    specifications: "Especificaciones",
+    company: "Empresa",
+    unit: "Unidad",
+    assigned_user: "Usuario Designado",
   },
 
   dropdown: {

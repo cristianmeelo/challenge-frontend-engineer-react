@@ -7,16 +7,17 @@ import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { useAssetsContext } from '@/hooks';
 import { SearchProps } from 'antd/es/input';
 import { TabsBasic } from '../Base/TabsBasic/TabsBasic';
+import { SearchBasic } from '../Base/SearchBasic/SearchBasic';
+import { getColorByStatus, getStatusTagColor } from './functions';
 
 export const Assets: React.FC<ViewProps> = ({ language }) => {
   const dict = getLanguageUseClient(language);
   const { assetsData } = useAssetsContext();
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState<string>('');
 
   const filteredAssets = assetsData.filter((asset) =>
     asset.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
-  const { Search } = Input;
 
   const options: Highcharts.Options = {
     title: {
@@ -30,8 +31,6 @@ export const Assets: React.FC<ViewProps> = ({ language }) => {
     ],
   };
 
-  const onSearch: SearchProps['onSearch'] = (value, _e, info) => console.log(info?.source, value);
-
   const [activeTab, setActiveTab] = useState<tabsOptions>('list');
 
   return (
@@ -42,16 +41,9 @@ export const Assets: React.FC<ViewProps> = ({ language }) => {
         setActiveTab={(key) => setActiveTab(key)}
         language={language}
       />
-      
+
       <Space direction="vertical" size="middle" align="center">
-        <Search
-          placeholder="Input by name"
-          allowClear
-          enterButton="Search"
-          size="large"
-          onSearch={onSearch}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
+        <SearchBasic setSearchTerm={(term) => setSearchTerm(term)} />
       </Space>
     </>
   );

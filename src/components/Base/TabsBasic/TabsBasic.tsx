@@ -1,9 +1,8 @@
 import { Tabs } from 'antd';
-import { Space, Input, Card, Timeline, Statistic, Avatar, Tag, Descriptions } from 'antd';
 import { UnorderedListOutlined, AppstoreOutlined } from '@ant-design/icons';
+import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { ListView } from '../../Assets/ListView/ListView';
 import { GridView } from '../../Assets/GridView/GridView';
-import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 
 export const TabsBasic = ({ activeTab, setActiveTab, language }: TabsBasicProps) => {
   const dict = getLanguageUseClient(language);
@@ -13,7 +12,7 @@ export const TabsBasic = ({ activeTab, setActiveTab, language }: TabsBasicProps)
       key: 'list',
       label: <>{dict.sidebar.icon_1_2}</>,
       icon: <UnorderedListOutlined />,
-      content: <ListView />,
+      content: <ListView language={language} />,
     },
     {
       key: 'grid',

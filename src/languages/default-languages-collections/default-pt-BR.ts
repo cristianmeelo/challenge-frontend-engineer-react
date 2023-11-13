@@ -56,6 +56,18 @@ export const ptBR = {
     workorders: {
       title: 'Lista de Ordens de Serviço',
     },
+    assets: {
+      title: 'Lista de Ativos',
+      name: "Nome",
+      model: "Modelo",
+      status: "Status",
+      healthscore: "Healthscore",
+      sensors: "Sensores",
+      specifications: "Especificações",
+      company: "Empresa",
+      unit: "Unidade",
+      assigned_user: "Usuário Designado",
+    },
   },
 
   modal: {
