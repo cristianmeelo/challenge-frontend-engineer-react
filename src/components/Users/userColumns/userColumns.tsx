@@ -12,8 +12,8 @@ export const userColumns = (
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-    sorter: (a: { name: string | any[] }, b: { name: string | any[] }) =>
-      a.name.length - b.name.length,
+    // sorter: (a: { name: string | any[] }, b: { name: string | any[] }) =>
+    //   a.name.length - b.name.length,
   },
   {
     title: 'Email',
@@ -31,11 +31,11 @@ export const userColumns = (
     dataIndex: 'unitId',
     key: 'unitId',
     render: (unitId: string) => getUnitName({ unitId }, unitsData),
-    filters: unitsData.map((unit) => ({
-      text: unit.name,
-      value: unit.id,
-    })),
-    onFilter: (value: string, record: any) => record.unitId === value,
+    // filters: unitsData.map((unit) => ({
+    //   text: unit.name,
+    //   value: unit.id,
+    // })),
+    // onFilter: (value: string, record: any) => record.unitId === value,
   },
   {
     title: editColumnText,
