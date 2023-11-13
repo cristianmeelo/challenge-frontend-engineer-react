@@ -9,10 +9,10 @@ export const getAssets = async (): Promise<Asset[]> => {
 };
 
 export const updateAsset = async (
-  assetId: number,
+  id: string,
   updatedData: {
-    assignedUserIds?: number[];
-    companyId?: number;
+    assignedUserIds?: string[];
+    companyId?: string;
     healthHistory?: {
       status: AssetStatus;
       timestamp: string;
@@ -36,6 +36,6 @@ export const updateAsset = async (
     unitId?: number;
   }
 ): Promise<Asset> => {
-  const response: AxiosResponse<Asset> = await api.put(`/assets/${assetId}`, updatedData);
+  const response: AxiosResponse<Asset> = await api.put(`/assets/${id}`, updatedData);
   return response.data;
 };

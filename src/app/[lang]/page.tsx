@@ -19,23 +19,18 @@ export default function Home({ params }: { params: { lang: Locale } }) {
   };
 
   return (
-
-        <Watermark content="Blue Cap 🧢" font={{ color: 'rgba(0, 0, 0, 0.08)' }}>
-
-
-        <Content style={contentStyle}>
-            <Title>{dict.home.title}</Title>
-            <Paragraph>{dict.home.description}</Paragraph>
-            <Divider>
-              <Space>
-                <DeploymentUnitOutlined spin={true} />
-                {dict.home.divider}
-              </Space>
-            </Divider>
-            <StepsBasic params={params} />
-
-        </Content>
+    <Watermark content="Blue Cap 🧢" font={{ color: 'rgba(0, 0, 0, 0.08)' }}>
+      <Content style={contentStyle}>
+        <Title>{dict.home.title}</Title>
+        <Paragraph>{dict.home.description}</Paragraph>
+        <Divider>
+          <Space>
+            <DeploymentUnitOutlined spin={true} />
+            {dict.home.divider}
+          </Space>
+        </Divider>
+        <StepsBasic params={params} />
+      </Content>
     </Watermark>
-
   );
 }

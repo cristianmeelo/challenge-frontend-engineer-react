@@ -41,7 +41,6 @@ export const Units: React.FC<ViewProps> = ({ language }) => {
         onCancel={handleEditModalCancel}
         onConfirm={handleEditModalConfirm}
         value={editingUnit}
-        companies={companiesData}
         title={dict.modal.edit.unit}
         okText={dict.button.confirm}
         cancelText={dict.button.cancel}

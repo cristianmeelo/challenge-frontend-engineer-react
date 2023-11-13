@@ -1,3 +1,0 @@
-type UnitsProps = {
-  language: Locale;
-};

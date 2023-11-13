@@ -54,25 +54,22 @@ export const Users: React.FC<ViewProps> = ({ language }) => {
         title={dict.modal.edit.user}
         okText={dict.button.confirm}
         cancelText={dict.button.cancel}
-        onChange={(field: string, value: string) =>
-          setEditingUser((prev) => {
-            return { ...prev!, [field]: value };
-          })
-        }
+        onChange={(field: string, value: string) => setEditingUser((prev) => {
+          return { ...prev!, [field]: value };
+        })}
         handleMenuClick={(company: Company) => {
           setEditingUser((prev) => ({
             ...prev!,
             companyId: company.id,
           }));
-        }}
+        } }
         handleUnitMenuClicked={(unit: Unit) => {
           setEditingUser((prev) => ({
             ...prev!,
             unitId: unit.id,
           }));
-        }}
-        language={language}
-      />
+        } }
+        language={language}       />
       <ToastContainer />
     </>
   );

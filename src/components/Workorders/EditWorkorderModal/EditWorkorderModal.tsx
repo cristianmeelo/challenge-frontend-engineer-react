@@ -43,8 +43,8 @@ export const EditWorkorderModal: React.FC<EditWorkorderModalProps> = ({
   const [editedTitle, setEditedTitle] = useState<string>(workorder?.title || '');
   const [editedDescription, setEditedDescription] = useState<string>(workorder?.description || '');
   const [selectedAsset, setSelectedAsset] = useState<Asset | null>(null);
-  const [status, setStatus] = useState<WorkOrderStatus>(workorder?.status || 'in Progress');
-  const [priority, setPriority] = useState<Priority>(workorder?.priority || 'High');
+  const [status, setStatus] = useState<WorkOrderStatus>(workorder?.status || 'in progress');
+  const [priority, setPriority] = useState<Priority>(workorder?.priority || 'high');
 
   const { assetsData } = useAssetsContext();
 

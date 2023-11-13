@@ -1,6 +1,7 @@
 import { Modal, Input, Menu, Dropdown, Button, Space } from 'antd';
 import { ShopOutlined } from '@ant-design/icons';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
+import { useCompaniesContext } from '@/hooks';
 
 export const EditUnitModal: React.FC<EditUnitModalProps> = ({
   isOpen,
@@ -8,16 +9,16 @@ export const EditUnitModal: React.FC<EditUnitModalProps> = ({
   title,
   okText,
   cancelText,
-  companies,
   language,
   onCancel,
   onConfirm,
   onChange,
   handleMenuClick,
 }) => {
+  const { companiesData } = useCompaniesContext();
   const menu = (
     <Menu>
-      {companies.map((company) => (
+      {companiesData.map((company) => (
         <Menu.Item key={company.id} onClick={() => handleMenuClick(company)}>
           {company.name}
         </Menu.Item>
@@ -41,7 +42,7 @@ export const EditUnitModal: React.FC<EditUnitModalProps> = ({
 
         <Dropdown overlay={menu} placement="bottomRight" trigger={['click']}>
           <Button>
-            {dict.dropdown.changeCompany} <ShopOutlined />
+            {dict.dropdown.change_company} <ShopOutlined />
           </Button>
         </Dropdown>
       </Space>
