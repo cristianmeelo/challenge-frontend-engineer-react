@@ -2,6 +2,7 @@
  * CompaniesContext é utilizado para fornecer informações sobre empresas
  * aos componentes da aplicação.
  */
+"use client"
 import { createContext, useEffect, useState } from 'react';
 import { ToastLoading, ToastSuccessful, ToastError } from '@/utils/notifications/notifications';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';

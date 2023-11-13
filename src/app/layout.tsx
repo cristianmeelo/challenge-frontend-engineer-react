@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import '../css/globals.css';
 import 'react-toastify/dist/ReactToastify.css';
+import StyledComponentsRegistry from '@/lib/AntdRegistry';
 
 export const metadata: Metadata = {
   title: 'TRACTIAN | Monitoramento Online de Ativos e Gestão de Manutenção assistida por IA',
@@ -21,7 +22,7 @@ export default function RootLayout({
         <link rel="icon" href="../../public/tractian-favicon-ia.png" />
       </head>
       <body>
-        <main>{children}</main>
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
     </html>
   );
