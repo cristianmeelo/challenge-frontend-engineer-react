@@ -21,14 +21,14 @@ export const ListView = ({ language }: { language: Locale }) => {
       key: 'name',
     },
     {
-      title: `${dict.table.assets.model}`,
+      title: `${dict.table.assets}`,
       dataIndex: 'model',
       key: 'model',
       filters: modelFilters,
       onFilter: (value: any, record: Asset) => record.model === value,
     },
     {
-      title: `${dict.table.assets.status}`,
+      title: `${dict.table.assets.columns.status}`,
       dataIndex: 'status',
       key: 'status',
       render: (status: AssetStatus) => <Tag color={getStatusTagColor(status)}>{status}</Tag>,
@@ -42,7 +42,7 @@ export const ListView = ({ language }: { language: Locale }) => {
       onFilter: (value: any, record: Asset) => record.status === value,
     },
     {
-      title: `${dict.table.assets.healthscore}`,
+      title: `${dict.table.assets.columns.healthscore}`,
       dataIndex: 'healthscore',
       key: 'healthscore',
       render: (healthscore: number) => (
@@ -50,7 +50,7 @@ export const ListView = ({ language }: { language: Locale }) => {
       ),
     },
     {
-      title: `${dict.table.assets.sensors}`,
+      title: `${dict.table.assets.columns.sensors}`,
       dataIndex: 'sensors',
       key: 'sensors',
       render: (sensors: string[]) => (
@@ -62,7 +62,7 @@ export const ListView = ({ language }: { language: Locale }) => {
       ),
     },
     {
-      title: `${dict.table.assets.specifications}`,
+      title: `${dict.table.assets.columns.specifications}`,
       dataIndex: 'specifications',
       key: 'specifications',
       render: (specifications: any) => (
@@ -76,20 +76,20 @@ export const ListView = ({ language }: { language: Locale }) => {
       ),
     },
     {
-      title: `${dict.table.assets.company}`,
+      title: `${dict.table.assets.columns.company}`,
       dataIndex: 'companyId',
       key: 'companyId',
       render: (companyId: string) => getCompanyName({ companyId }, companiesData),
     },
     {
-      title: `${dict.table.assets.unit}`,
+      title: `${dict.table.assets.columns.unit}`,
       dataIndex: 'unitId',
       key: 'unitId',
       render: (unitId: string) => getUnitName({ unitId }, unitsData),
       sorter: (a, b) => a.unitId - b.unitId,
     },
     {
-      title: `${dict.table.assets.assigned_user}`,
+      title: `${dict.table.assets.columns.assigned_user}`,
       dataIndex: 'assignedUserIds',
       key: 'assignedUserIds',
       render: (assignedUserIds: string[]) => (

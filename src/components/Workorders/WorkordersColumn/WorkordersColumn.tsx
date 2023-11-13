@@ -8,6 +8,7 @@ import {
 } from '@ant-design/icons';
 
 import { getAssetName, getUserName } from '@/functions';
+import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 
 export const getStatusMap = (): {
   [key in WorkOrderStatus]: { icon: React.ReactNode; text: string };
@@ -34,30 +35,32 @@ export const getColumns = (
   usersData: User[],
   handleSeeClick: (record: Workorder) => void,
   handleEditClick: (record: Workorder) => void,
-  handleEditAssignedUserClick: (record: Workorder) => void
+  handleEditAssignedUserClick: (record: Workorder) => void,
+  language: Locale
 ): Array<any> => {
   const statusMap = getStatusMap();
   const priorityTagMap = getPriorityTagMap();
+  const dict = getLanguageUseClient(language);
 
   return [
     {
-      title: 'Title',
+      title: `${dict.table.workorders.columns.title}`,
       dataIndex: 'title',
       key: 'title',
     },
     {
-      title: 'Description',
+      title: `${dict.table.workorders.columns.description}`,
       dataIndex: 'description',
       key: 'description',
     },
     {
-      title: 'Asset',
+      title: `${dict.table.workorders.columns.asset}`,
       dataIndex: 'assetId',
       key: 'assetId',
       render: (assetId: string) => getAssetName({ assetId }, assetsData),
     },
     {
-      title: 'Status',
+      title: `${dict.table.workorders.columns.status}`,
       dataIndex: 'status',
       key: 'status',
       render: (status: WorkOrderStatus) => (
@@ -70,13 +73,13 @@ export const getColumns = (
       ),
     },
     {
-      title: 'Priority',
+      title: `${dict.table.workorders.columns.priority}`,
       dataIndex: 'priority',
       key: 'priority',
       render: (priority: string) => priorityTagMap[priority],
     },
     {
-      title: 'Assigned Users',
+      title: `${dict.table.workorders.columns.assigned_users}`,
       dataIndex: 'assignedUserIds',
       key: 'assignedUserIds',
       render: (assignedUserIds: string[]) => (
@@ -93,11 +96,11 @@ export const getColumns = (
         <Space size="middle" direction="vertical">
           <Space.Compact direction="vertical">
             <Button type="primary" icon={<EyeOutlined />} onClick={() => handleSeeClick(record)}>
-              Ver Checklist
+              {dict.table.workorders.buttons.checklist}
             </Button>
 
             <Button type="default" icon={<EditOutlined />} onClick={() => handleEditClick(record)}>
-              Editar Ordem de Servico
+              {dict.table.workorders.buttons.workorder}
             </Button>
 
             <Button
@@ -106,7 +109,7 @@ export const getColumns = (
               icon={<UserSwitchOutlined />}
               onClick={() => handleEditAssignedUserClick(record)}
             >
-              Editar Usuários
+              {dict.table.workorders.buttons.users}
             </Button>
           </Space.Compact>
         </Space>

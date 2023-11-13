@@ -28,7 +28,7 @@ export const Sider = ({ params }: { params: { lang: Locale } }) => {
     getItem(`${dict.sidebar.icon_3}`, '/units', <SisternodeOutlined />),
     getItem(`${dict.sidebar.icon_4}`, '/users', <TeamOutlined />),
     getItem(`${dict.sidebar.icon_5}`, '/workorders', <FileOutlined />),
-    getItem(`${dict.sidebar.icon_5}`, '/dashboard', <DashboardOutlined />),
+    getItem(`${dict.sidebar.icon_6}`, '/dashboard', <DashboardOutlined />),
   ];
 
   return (

@@ -65,7 +65,8 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
     usersData,
     handleSeeClick,
     handleEditClick,
-    handleEditAssignedUserClick
+    handleEditAssignedUserClick,
+    language
   );
 
   const handleEditAssignedUsersConfirm = () => {
