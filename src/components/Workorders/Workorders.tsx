@@ -4,6 +4,7 @@ import {
   CheckCircleOutlined,
   EyeOutlined,
   EditOutlined,
+  UserSwitchOutlined 
 } from '@ant-design/icons';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { BreadcrumbBasic as Breadcrumb } from '@/components';
@@ -12,6 +13,7 @@ import { getAssetName, getUserName } from '@/functions';
 import { ChecklistModal } from './ChecklistModal/ChecklistModal';
 import { useEffect, useState } from 'react';
 import { EditWorkorderModal } from './EditWorkorderModal/EditWorkorderModal';
+import { EditAssignedUsersModal } from './EditAssignedUsersModal/EditAssignedUserModal';
 
 export const Workorders: React.FC<ViewProps> = ({ language }) => {
   const dict = getLanguageUseClient(language);
@@ -20,6 +22,7 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
   const { usersData } = useUsersContext();
 
   const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [isEditingAssigned, setIsEditingAssigned] = useState<boolean>(false);
   const [isSeeing, setIsSeeing] = useState<boolean>(false);
   const [editingWorkorder, setEditingWorkorder] = useState<Workorder>();
 
@@ -30,9 +33,9 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
   const statusMap: { [key in WorkOrderStatus]: { icon: React.ReactNode; text: string } } = {
     'in progress': {
       icon: <ClockCircleOutlined style={{ color: 'orange' }} />,
-      text: 'In Progress',
+      text: 'in progress',
     },
-    completed: { icon: <CheckCircleOutlined style={{ color: 'green' }} />, text: 'Completed' },
+    "completed": { icon: <CheckCircleOutlined style={{ color: 'green' }} />, text: 'completed' },
   };
 
   const priorityTagMap: { [key: string]: React.ReactNode } = {
@@ -109,6 +112,10 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
           <Button type="default" icon={<EditOutlined />} onClick={() => handleEditClick(record)}>
             Editar Ordem de Servico
           </Button>
+
+          <Button type="dashed" danger icon={<UserSwitchOutlined />} onClick={() => handleEditAssignedUserClick(record)}>
+            Editar Usuários
+          </Button>
         </Space>
       ),
     },
@@ -118,6 +125,22 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
     setIsEditing(true);
     setEditingWorkorder({ ...workorder });
   };
+
+  const handleEditAssignedUserClick = (workorder: Workorder) => {
+    setIsEditingAssigned(true);
+    setEditingWorkorder({ ...workorder });
+  };
+  const handleEditAssignedUserModalCancel = () => {
+    setIsEditingAssigned(false);
+  };
+
+  const handleEditAssignedUsersConfirm = () => {
+    setIsSeeing(false);
+  };
+  const handleEditModalCancel = () => {
+    setIsEditing(false);
+  };
+
   const handleSeeClick = (workorder: Workorder) => {
     setIsSeeing(true);
     setEditingWorkorder({ ...workorder });
@@ -130,9 +153,7 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
   const handleSeeModalConfirm = () => {
     setIsSeeing(false);
   };
-  const handleEditModalCancel = () => {
-    setIsEditing(false);
-  };
+ 
 
   const handleEditModalConfirm = (editedTitle: string, editedDescription: string) => {
     // Lógica para salvar as alterações, por exemplo, chamada de API, atualização do estado, etc.
@@ -185,6 +206,16 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
           });
         }}
         language={language}
+      />
+
+      <EditAssignedUsersModal
+              isOpen={isEditingAssigned }
+              title={`${editingWorkorder?.title} - Assigned users `}
+              okText={'Salvar de vdd'}
+              cancelText={'Cancela mesmom pai?'}
+              onCancel={handleEditAssignedUserModalCancel}
+              onConfirm={handleEditAssignedUsersConfirm}
+              workorder={editingWorkorder}
       />
     </>
   );

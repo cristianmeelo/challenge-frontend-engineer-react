@@ -89,7 +89,7 @@ export const EditWorkorderModal: React.FC<EditWorkorderModalProps> = ({
           </Button>
         </Dropdown>
         <Segmented
-          options={['in Progress', 'Completed']}
+          options={['in progress', 'completed']}
           value={status}
           onChange={(value: SegmentedValue) => {
             setStatus(value as WorkOrderStatus);
@@ -97,7 +97,7 @@ export const EditWorkorderModal: React.FC<EditWorkorderModalProps> = ({
           }}
         />
         <Segmented
-          options={['Low', 'Medium', 'High']}
+          options={['low', 'medium', 'high']}
           value={priority}
           onChange={(value: SegmentedValue) => {
             setPriority(value as Priority);

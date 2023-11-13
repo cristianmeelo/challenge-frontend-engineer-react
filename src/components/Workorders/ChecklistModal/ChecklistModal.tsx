@@ -54,4 +54,4 @@ export const ChecklistModal: React.FC<ChecklistModalProps> = ({
   );
 };
 
-export default ChecklistModal;
+
