@@ -1,0 +1,1 @@
+type tabsOptions = 'list' | 'grid';

@@ -91,26 +91,24 @@ export const getColumns = (
       key: 'action',
       render: (text: string, record: Workorder) => (
         <Space size="middle" direction="vertical">
-              <Space.Compact direction="vertical">
+          <Space.Compact direction="vertical">
+            <Button type="primary" icon={<EyeOutlined />} onClick={() => handleSeeClick(record)}>
+              Ver Checklist
+            </Button>
 
-          <Button type="primary" icon={<EyeOutlined />} onClick={() => handleSeeClick(record)}>
-            Ver Checklist
-          </Button>
+            <Button type="default" icon={<EditOutlined />} onClick={() => handleEditClick(record)}>
+              Editar Ordem de Servico
+            </Button>
 
-          <Button type="default" icon={<EditOutlined />} onClick={() => handleEditClick(record)}>
-            Editar Ordem de Servico
-          </Button>
-
-          <Button
-            type="dashed"
-            danger
-            icon={<UserSwitchOutlined />}
-            onClick={() => handleEditAssignedUserClick(record)}
-          >
-            Editar Usuários
-          </Button>
+            <Button
+              type="dashed"
+              danger
+              icon={<UserSwitchOutlined />}
+              onClick={() => handleEditAssignedUserClick(record)}
+            >
+              Editar Usuários
+            </Button>
           </Space.Compact>
-
         </Space>
       ),
     },

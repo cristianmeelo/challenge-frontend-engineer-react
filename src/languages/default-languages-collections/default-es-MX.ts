@@ -25,7 +25,6 @@ export const esMX = {
     icon_3: 'Unidades',
     icon_4: 'Usuarios',
     icon_5: 'Órdenes de Servicio',
-   
   },
 
   header: {

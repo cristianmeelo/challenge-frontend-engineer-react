@@ -1,11 +1,12 @@
-import React, {useState} from 'react';
-import {  Space, Input, Card, Timeline, Statistic, Avatar, Tag, Descriptions } from 'antd';
-import { BreadcrumbBasic as Breadcrumb } from '@/components';
-
+import React, { useState } from 'react';
+import { Space, Input, Card, Timeline, Statistic, Avatar, Tag, Descriptions } from 'antd';
 import * as Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
+import { BreadcrumbBasic as Breadcrumb } from '@/components';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { useAssetsContext } from '@/hooks';
+import { SearchProps } from 'antd/es/input';
+import { TabsBasic } from '../Base/TabsBasic/TabsBasic';
 
 export const Assets: React.FC<ViewProps> = ({ language }) => {
   const dict = getLanguageUseClient(language);
@@ -16,40 +17,6 @@ export const Assets: React.FC<ViewProps> = ({ language }) => {
     asset.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
   const { Search } = Input;
-
-
-  
-  const getColorByStatus = (status: string) => {
-    
-    switch (status) {
-      case 'inOperation':
-        return 'green';
-      case 'inDowntime':
-        return 'red';
-      case 'inAlert':
-        return 'yellow';
-      case 'unplannedStop':
-        return 'gray';
-      default:
-        return 'blue';
-    }
-  };
-
-  const getStatusTagColor = (status: string) => {
-    
-    switch (status) {
-      case 'inOperation':
-        return 'green';
-      case 'inDowntime':
-        return 'red';
-      case 'inAlert':
-        return 'yellow';
-      case 'unplannedStop':
-        return 'gray';
-      default:
-        return 'blue';
-    }
-  };
 
   const options: Highcharts.Options = {
     title: {
@@ -65,14 +32,19 @@ export const Assets: React.FC<ViewProps> = ({ language }) => {
 
   const onSearch: SearchProps['onSearch'] = (value, _e, info) => console.log(info?.source, value);
 
+  const [activeTab, setActiveTab] = useState<tabsOptions>('list');
+
   return (
     <>
       <Breadcrumb content={dict.sidebar.icon_1} />
-
+      <TabsBasic
+        activeTab={activeTab}
+        setActiveTab={(key) => setActiveTab(key)}
+        language={language}
+      />
+      
       <Space direction="vertical" size="middle" align="center">
-
-
-      <Search
+        <Search
           placeholder="Input by name"
           allowClear
           enterButton="Search"
@@ -80,28 +52,16 @@ export const Assets: React.FC<ViewProps> = ({ language }) => {
           onSearch={onSearch}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-      <Search
-          placeholder="Input by name"
-          allowClear
-          enterButton="Search"
-          size="large"
-          onSearch={onSearch}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-
-
       </Space>
     </>
   );
 };
 
-
 // {filteredAssets.map((asset) => (
 //   <Card key={asset.id} title={asset.name}
-  
+
 //   >
 //     <Avatar src={asset.image} />
-
 
 //     <Descriptions title="Details">
 //       <Descriptions.Item label="Model">{asset.model}</Descriptions.Item>

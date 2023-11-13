@@ -25,7 +25,6 @@ export const enUS = {
     icon_3: 'Units',
     icon_4: 'Users',
     icon_5: 'Workorders',
- 
   },
 
   header: {
