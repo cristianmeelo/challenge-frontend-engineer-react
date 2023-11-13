@@ -4,7 +4,7 @@ import { Space } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
 
 import { generateUnitFilters, getCompanyName, getUnitName } from '@/functions';
-import {  useCompaniesContext, useUnitsContext, useUsersContext } from '@/hooks';
+import { useCompaniesContext, useUnitsContext, useUsersContext } from '@/hooks';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 
 export const ListView = ({
@@ -13,7 +13,6 @@ export const ListView = ({
 }: {
   language: Locale;
   handleEditClick: (record: User) => void;
-
 }) => {
   const dict = getLanguageUseClient(language);
   const { usersData } = useUsersContext();

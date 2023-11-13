@@ -5,10 +5,12 @@ import {
   EyeOutlined,
   EditOutlined,
   UserSwitchOutlined,
+  DownloadOutlined,
 } from '@ant-design/icons';
 
 import { getAssetName, getUserName } from '@/functions';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
+import { generateWorkorderPDF } from '@/utils/generateWorkorderPDF/generateWorkorderPDF';
 
 export const getStatusMap = (): {
   [key in WorkOrderStatus]: { icon: React.ReactNode; text: string };
@@ -93,16 +95,23 @@ export const getColumns = (
     {
       key: 'action',
       render: (text: string, record: Workorder) => (
-        <Space size="middle" direction="vertical">
+        <Space size="middle" direction="vertical" align="center">
+          <Tooltip title="download">
+          <Button
+            type="primary"
+            icon={<DownloadOutlined />}
+            size={'middle'}
+            onClick={() => generateWorkorderPDF(record)}
+          />
+          </Tooltip>
+
           <Space.Compact direction="vertical">
             <Button type="primary" icon={<EyeOutlined />} onClick={() => handleSeeClick(record)}>
               {dict.table.workorders.buttons.checklist}
             </Button>
-
             <Button type="default" icon={<EditOutlined />} onClick={() => handleEditClick(record)}>
               {dict.table.workorders.buttons.workorder}
             </Button>
-
             <Button
               type="dashed"
               danger
