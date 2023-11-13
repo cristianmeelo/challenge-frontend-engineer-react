@@ -55,6 +55,9 @@ export const ptBR = {
     users: {
       title: 'Lista de Usuários',
     },
+    workorders: {
+      title: 'Lista de Ordens de Serviço',
+    },
   },
 
   modal: {
@@ -62,6 +65,9 @@ export const ptBR = {
       company: 'Editar Empresa',
       unit: 'Editar Unidade',
       user: 'Editar Usuário',
+      workorder: 'Editar Ordem de Serviço',
+      asset: 'Editar Ativo',
     },
+    assigned_users: 'Usuários Encarregados',
   },
 };

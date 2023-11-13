@@ -49,6 +49,9 @@ export const esMX = {
     users: {
       title: 'Lista de Usuarios',
     },
+    workorders: {
+      title: 'Lista de Órdenes de Servicio',
+    },
   },
 
   dropdown: {
@@ -62,6 +65,9 @@ export const esMX = {
       company: 'Editar empresa',
       unit: 'Editar Unidade',
       user: 'Editar Usuario',
+      workorder: 'Editar Órden de Servicio',
+      asset: 'Editar Activo',
     },
+    assigned_users: 'Usuarios Asignados',
   },
 };

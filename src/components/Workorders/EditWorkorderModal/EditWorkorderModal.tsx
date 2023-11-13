@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { Modal, Input, Menu, Dropdown, Button, Space, Segmented } from 'antd';
+import { SegmentedValue } from 'antd/es/segmented';
 import { AppstoreOutlined } from '@ant-design/icons';
 
 import { useAssetsContext } from '@/hooks';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
-import { SegmentedValue } from 'antd/es/segmented';
 
 type EditWorkorderModalProps = {
-  title: string | undefined;
+  title: string ;
   isOpen: boolean;
   okText: string;
   cancelText: string;
   onCancel: () => void;
+  onConfirm: (editedTitle: string, editedDescription: string) => void;
   value?: Workorder;
   onChange: any; // #TODO
-  onConfirm: (editedTitle: string, editedDescription: string) => void;
   workorder: Workorder | undefined;
   handleAssetMenuClick: (asset: Asset) => void;
   onStatusChange: (status: WorkOrderStatus) => void;

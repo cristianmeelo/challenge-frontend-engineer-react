@@ -54,7 +54,6 @@ export const AssetsProvider = ({
     setAssetsData: React.Dispatch<React.SetStateAction<Asset[]>>
   ) => {
     // const loadingToast = ToastLoading(`${dict.toast_notifications.loading}`);
-
     // try {
     //   if (record) {
     //     const updatedData = {
@@ -71,9 +70,7 @@ export const AssetsProvider = ({
     //       status: record.status,
     //       unitId: record.unitId,
     //     };
-
     //     const updatedAsset = await updateAsset(record.id, updatedData);
-
     //     setAssetsData((prevAssets) => {
     //       const updatedAssets = prevAssets.map((asset) => {
     //         if (asset.id === updatedAsset.id) {
@@ -84,7 +81,6 @@ export const AssetsProvider = ({
     //       });
     //       return updatedAssets;
     //     });
-
     //     ToastSuccessful(loadingToast, `${dict.toast_notifications.success}`);
     //   }
     // } catch (error) {

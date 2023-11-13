@@ -49,6 +49,9 @@ export const enUS = {
     users: {
       title: 'Users List',
     },
+    workorders: {
+      title: 'Workorders List',
+    },
   },
 
   dropdown: {
@@ -62,6 +65,9 @@ export const enUS = {
       company: 'Edit company',
       unit: 'Edit Unit',
       user: 'Edit User',
+      workorder: 'Edit Workorder',
+      asset: 'Edit Asset',
     },
+    assigned_users: 'Assigned Users',
   },
 };

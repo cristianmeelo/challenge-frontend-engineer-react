@@ -51,7 +51,7 @@ export const WorkordersProvider = ({
 
   const handleUpdateWorkorder = async (
     record: Workorder | undefined,
-    setWorkordersData: React.Dispatch<React.SetStateAction<Workorder[]>>
+    setWorkordersData: React.Dispatch<React.SetStateAction<Workorder[] >>
   ) => {
     const loadingToast = ToastLoading(`${dict.toast_notifications.loading}`);
 
@@ -69,7 +69,7 @@ export const WorkordersProvider = ({
         const updatedWorkorder = await updateWorkorder(record.id, updatedData);
 
         setWorkordersData((prevWorkorders) => {
-          const updatedWorkorders = prevWorkorders.map((workorder) => {
+          const updatedWorkorders = prevWorkorders?.map((workorder) => {
             if (workorder.id === updatedWorkorder.id) {
               return updatedWorkorder;
             } else {
