@@ -7,7 +7,7 @@ import { useAssetsContext } from '@/hooks';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 
 type EditWorkorderModalProps = {
-  title: string ;
+  title: string;
   isOpen: boolean;
   okText: string;
   cancelText: string;
@@ -19,7 +19,6 @@ type EditWorkorderModalProps = {
   handleAssetMenuClick: (asset: Asset) => void;
   onStatusChange: (status: WorkOrderStatus) => void;
   onPriorityChange: (priority: Priority) => void;
-
   language: Locale;
 };
 

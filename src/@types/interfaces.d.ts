@@ -20,10 +20,7 @@ interface User {
 interface Workorder {
   assetId: string;
   assignedUserIds: string[];
-  checklist: {
-    completed: boolean;
-    task: string;
-  }[];
+  checklist: ChecklistItem[];
   description: string;
   id: number;
   priority: Priority;
@@ -31,6 +28,10 @@ interface Workorder {
   title: string;
 }
 
+type ChecklistItem = {
+  completed: boolean;
+  task: string;
+};
 type Priority = 'low' | 'medium' | 'high';
 type WorkOrderStatus = 'in progress' | 'completed';
 

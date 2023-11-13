@@ -51,7 +51,7 @@ export const WorkordersProvider = ({
 
   const handleUpdateWorkorder = async (
     record: Workorder | undefined,
-    setWorkordersData: React.Dispatch<React.SetStateAction<Workorder[] >>
+    setWorkordersData: React.Dispatch<React.SetStateAction<Workorder[]>>
   ) => {
     const loadingToast = ToastLoading(`${dict.toast_notifications.loading}`);
 

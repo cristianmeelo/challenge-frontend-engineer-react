@@ -10,6 +10,7 @@ import { ChecklistModal } from './ChecklistModal/ChecklistModal';
 import { EditWorkorderModal } from './EditWorkorderModal/EditWorkorderModal';
 import { EditAssignedUsersModal } from './EditAssignedUsersModal/EditAssignedUserModal';
 import { getColumns } from './WorkordersColumn/WorkordersColumn';
+import { CheckboxValueType } from 'antd/es/checkbox/Group';
 
 export const Workorders: React.FC<ViewProps> = ({ language }) => {
   const dict = getLanguageUseClient(language);
@@ -35,9 +36,6 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
     setIsEditingAssigned(false);
   };
 
-  const handleEditAssignedUsersConfirm = () => {
-    setIsSeeing(false);
-  };
   const handleEditModalCancel = () => {
     setIsEditing(false);
   };
@@ -52,11 +50,14 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
   };
 
   const handleSeeModalConfirm = () => {
+    handleUpdateWorkorder(editingWorkorder, setWorkordersData);
+
     setIsSeeing(false);
   };
 
+
   const handleEditModalConfirm = () => {
-    handleUpdateWorkorder(editingWorkorder, setWorkordersData)
+    handleUpdateWorkorder(editingWorkorder, setWorkordersData);
     setIsEditing(false);
   };
 
@@ -68,6 +69,11 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
     handleEditAssignedUserClick
   );
 
+  const handleEditAssignedUsersConfirm = () => {
+    handleUpdateWorkorder(editingWorkorder, setWorkordersData);
+    setIsEditingAssigned(false);
+  };
+
   return (
     <>
       <Breadcrumb content={dict.sidebar.icon_5} />
@@ -77,6 +83,7 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
         bordered
         title={() => `${dict.table.workorders.title}`}
       />
+
       <ChecklistModal
         isOpen={isSeeing}
         title={editingWorkorder?.title}
@@ -85,6 +92,11 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
         onCancel={handleSeeModalCancel}
         onConfirm={handleSeeModalConfirm}
         workorder={editingWorkorder}
+        handleCheckboxChange={(checkedValues: ChecklistItem[], updateStatus: WorkOrderStatus) => {
+          setEditingWorkorder((prev) => {
+            return { ...prev!, checklist: checkedValues, status: updateStatus };
+          });
+        }}
       />
 
       <EditWorkorderModal
@@ -128,9 +140,14 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
         onCancel={handleEditAssignedUserModalCancel}
         onConfirm={handleEditAssignedUsersConfirm}
         workorder={editingWorkorder}
+        handleCheckboxChange={(checkedValues: CheckboxValueType[]) => {
+          setEditingWorkorder((prev: any) => {
+            return { ...prev!, assignedUserIds: checkedValues };
+          });
+        }}
       />
-      <ToastContainer />
 
+      <ToastContainer />
     </>
   );
 };

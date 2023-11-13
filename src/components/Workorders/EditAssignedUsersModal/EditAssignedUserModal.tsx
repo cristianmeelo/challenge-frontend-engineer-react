@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, Checkbox, Space } from 'antd';
 import { CheckboxValueType } from 'antd/es/checkbox/Group';
-
-import { useWorkordersContext, useUsersContext } from '@/hooks';
+import { useUsersContext } from '@/hooks';
 
 type EditAssignedUserModalProps = {
   title: string | undefined;
@@ -10,8 +9,9 @@ type EditAssignedUserModalProps = {
   okText: string;
   cancelText: string;
   onCancel: () => void;
-  onConfirm: (assignedUserIds: CheckboxValueType[]) => void;
+  onConfirm: () => void;
   workorder: Workorder | undefined;
+  handleCheckboxChange: (checkedValues: CheckboxValueType[]) => void;
 };
 
 export const EditAssignedUsersModal: React.FC<EditAssignedUserModalProps> = ({
@@ -22,16 +22,25 @@ export const EditAssignedUsersModal: React.FC<EditAssignedUserModalProps> = ({
   onCancel,
   onConfirm,
   workorder,
+  handleCheckboxChange,
 }) => {
-  const { workordersData } = useWorkordersContext();
   const { usersData } = useUsersContext();
 
   const existingAssignedUserIds = workorder?.assignedUserIds || [];
   const [selectedUsers, setSelectedUsers] = useState<CheckboxValueType[]>(existingAssignedUserIds);
 
-  const handleCheckboxChange = (checkedValues: CheckboxValueType[]) => {
+  const handleCheckboxChangeFn = (checkedValues: CheckboxValueType[]) => {
     setSelectedUsers(checkedValues);
+    handleCheckboxChange(checkedValues);
   };
+
+  useEffect(() => {
+    if (workorder?.assignedUserIds) {
+      setSelectedUsers(workorder.assignedUserIds);
+    } else {
+      setSelectedUsers([]);
+    }
+  }, [workorder]);
 
   const userOptions = usersData.map((user) => ({
     label: user.name,
@@ -45,13 +54,13 @@ export const EditAssignedUsersModal: React.FC<EditAssignedUserModalProps> = ({
       okText={okText}
       cancelText={cancelText}
       onCancel={onCancel}
-      onOk={() => onConfirm(selectedUsers)}
+      onOk={onConfirm}
     >
       <Space direction="vertical">
         <Checkbox.Group
           options={userOptions}
           value={selectedUsers}
-          onChange={handleCheckboxChange}
+          onChange={handleCheckboxChangeFn}
         />
       </Space>
     </Modal>
