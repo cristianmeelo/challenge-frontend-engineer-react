@@ -1,10 +1,21 @@
 export const enUS = {
-  title: {
-    part1: 'Simple',
-    part2: 'Asset Monitoring',
+  home: {
+    title: 'TRACTIAN Culture',
+    description:
+      'At the heart of TRACTIAN is the pursuit of excellence in user experience. Our culture values innovation, efficiency, and, above all, simplicity. We believe that the most powerful solutions are those that seamlessly integrate into everyday life, making complex tasks easier.',
+    divider: 'Check out the list of App features',
+    steps: {
+      step_1_title: 'Advanced Graphical Visualization',
+      step_1_description:
+        'Explore all the features of assets visually and informatively through intuitive graphics. Make informed decisions with accessible and clearly presented data.',
+      step_2_title: 'Complete Business Management',
+      step_2_description:
+        'Navigate through companies, units, and users in an organized and efficient manner. Gain a comprehensive view of your organizational structure and identify areas for improvement.',
+      step_3_title: 'Simplified Actions',
+      step_3_description:
+        'Delegate responsibilities with ease, update assets, companies, units, and users with just a few clicks. At TRACTIAN, we simplify everyday tasks so you can focus on what matters most.',
+    },
   },
-  description:
-    "Track your hospital's assets in real time quickly and intuitively, both internally and externally.",
 
   sidebar: {
     icon_1: 'Assets',

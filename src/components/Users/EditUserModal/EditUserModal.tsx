@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Modal, Input, Menu, Dropdown, Button, Space } from 'antd';
-import { ShopOutlined, SubnodeOutlined } from '@ant-design/icons';
+import { ShopOutlined, SisternodeOutlined } from '@ant-design/icons';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { useCompaniesContext, useUnitsContext } from '@/hooks';
 
@@ -95,7 +95,7 @@ export const EditUserModal: React.FC<EditUsertModalProps> = ({
         {selectedCompany && (
           <Dropdown overlay={unitsMenu} placement="bottomRight" trigger={['click']}>
             <Button>
-              {selectedUnit ? selectedUnit.name : dict.dropdown.change_unit} <SubnodeOutlined />
+              {selectedUnit ? selectedUnit.name : dict.dropdown.change_unit} <SisternodeOutlined />
             </Button>
           </Dropdown>
         )}

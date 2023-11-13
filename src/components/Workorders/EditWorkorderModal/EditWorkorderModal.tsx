@@ -38,9 +38,6 @@ export const EditWorkorderModal: React.FC<EditWorkorderModalProps> = ({
   onStatusChange,
   onPriorityChange,
 }) => {
-
-
-
   const dict = getLanguageUseClient(language);
 
   const [editedTitle, setEditedTitle] = useState<string>(workorder?.title || '');
@@ -51,9 +48,10 @@ export const EditWorkorderModal: React.FC<EditWorkorderModalProps> = ({
 
   const { assetsData } = useAssetsContext();
 
-
-
-  const handleChange = (field: WorkOrderField, e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleChange = (
+    field: WorkOrderField,
+    e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
     onChange(field, e.target.value);
   };
 

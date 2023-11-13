@@ -4,7 +4,7 @@ import {
   CheckCircleOutlined,
   EyeOutlined,
   EditOutlined,
-  UserSwitchOutlined 
+  UserSwitchOutlined,
 } from '@ant-design/icons';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { BreadcrumbBasic as Breadcrumb } from '@/components';
@@ -35,7 +35,7 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
       icon: <ClockCircleOutlined style={{ color: 'orange' }} />,
       text: 'in progress',
     },
-    "completed": { icon: <CheckCircleOutlined style={{ color: 'green' }} />, text: 'completed' },
+    completed: { icon: <CheckCircleOutlined style={{ color: 'green' }} />, text: 'completed' },
   };
 
   const priorityTagMap: { [key: string]: React.ReactNode } = {
@@ -113,7 +113,12 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
             Editar Ordem de Servico
           </Button>
 
-          <Button type="dashed" danger icon={<UserSwitchOutlined />} onClick={() => handleEditAssignedUserClick(record)}>
+          <Button
+            type="dashed"
+            danger
+            icon={<UserSwitchOutlined />}
+            onClick={() => handleEditAssignedUserClick(record)}
+          >
             Editar Usuários
           </Button>
         </Space>
@@ -153,7 +158,6 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
   const handleSeeModalConfirm = () => {
     setIsSeeing(false);
   };
- 
 
   const handleEditModalConfirm = (editedTitle: string, editedDescription: string) => {
     // Lógica para salvar as alterações, por exemplo, chamada de API, atualização do estado, etc.
@@ -209,13 +213,13 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
       />
 
       <EditAssignedUsersModal
-              isOpen={isEditingAssigned }
-              title={`${editingWorkorder?.title} - Assigned users `}
-              okText={'Salvar de vdd'}
-              cancelText={'Cancela mesmom pai?'}
-              onCancel={handleEditAssignedUserModalCancel}
-              onConfirm={handleEditAssignedUsersConfirm}
-              workorder={editingWorkorder}
+        isOpen={isEditingAssigned}
+        title={`${editingWorkorder?.title} - Assigned users `}
+        okText={'Salvar de vdd'}
+        cancelText={'Cancela mesmom pai?'}
+        onCancel={handleEditAssignedUserModalCancel}
+        onConfirm={handleEditAssignedUsersConfirm}
+        workorder={editingWorkorder}
       />
     </>
   );

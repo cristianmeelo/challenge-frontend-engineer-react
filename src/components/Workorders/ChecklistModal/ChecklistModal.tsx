@@ -53,5 +53,3 @@ export const ChecklistModal: React.FC<ChecklistModalProps> = ({
     </Modal>
   );
 };
-
-

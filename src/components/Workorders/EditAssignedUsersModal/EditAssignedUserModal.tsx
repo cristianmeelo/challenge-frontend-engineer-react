@@ -48,7 +48,11 @@ export const EditAssignedUsersModal: React.FC<EditAssignedUserModalProps> = ({
       onOk={() => onConfirm(selectedUsers)}
     >
       <Space direction="vertical">
-        <Checkbox.Group options={userOptions} value={selectedUsers} onChange={handleCheckboxChange} />
+        <Checkbox.Group
+          options={userOptions}
+          value={selectedUsers}
+          onChange={handleCheckboxChange}
+        />
       </Space>
     </Modal>
   );
