@@ -8,7 +8,6 @@ import { useAssetsContext } from '@/hooks';
 import { TabsBasic } from '../Base/TabsBasic/TabsBasic';
 import { SearchBasic } from '../Base/SearchBasic/SearchBasic';
 
-
 export const Assets: React.FC<ViewProps> = ({ language }) => {
   const dict = getLanguageUseClient(language);
   const { assetsData } = useAssetsContext();

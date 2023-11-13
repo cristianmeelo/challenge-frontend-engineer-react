@@ -5,9 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3000 && open http://localhost:3000",
     "lint": "next lint",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "build:start": "npm run build && npm start",
+    "format:build:start": "npm run format && npm run build:start"
   },
   "dependencies": {
     "@ant-design/cssinjs": "^1.18.0-alpha.0",

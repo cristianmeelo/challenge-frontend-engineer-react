@@ -7,10 +7,10 @@ export default function Dashboard({ params }: PageProps) {
   const language = params.lang;
   const dict = getLanguageUseClient(params.lang);
 
-
-  return <>
+  return (
+    <>
       <Breadcrumb content={dict.sidebar.icon_6} />
-
-  <SensorChart language={language} />;
-  </>
+      <SensorChart language={language} />;
+    </>
+  );
 }
