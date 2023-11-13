@@ -55,7 +55,6 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
     setIsSeeing(false);
   };
 
-
   const handleEditModalConfirm = () => {
     handleUpdateWorkorder(editingWorkorder, setWorkordersData);
     setIsEditing(false);

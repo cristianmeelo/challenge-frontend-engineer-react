@@ -1,18 +1,4 @@
-
-
-import React,  from 'react';
 import { Modal, Checkbox, Space, Typography } from 'antd';
-
-type ChecklistModalProps = {
-  title: string | undefined;
-  isOpen: boolean;
-  okText: string;
-  cancelText: string;
-  onCancel: () => void;
-  onConfirm: () => void;
-  workorder: Workorder | undefined;
-  handleCheckboxChange: (updatedChecklist: ChecklistItem[], updatedStatus: WorkOrderStatus) => void;
-};
 
 export const ChecklistModal: React.FC<ChecklistModalProps> = ({
   isOpen,
@@ -32,16 +18,11 @@ export const ChecklistModal: React.FC<ChecklistModalProps> = ({
       task: task.task,
     }));
 
-   
+    const allItemsCompleted = updatedChecklist.every((item) => item.completed);
+    const updatedStatus: WorkOrderStatus = allItemsCompleted ? 'completed' : 'in progress';
 
-     const allItemsCompleted = updatedChecklist.every((item) => item.completed);
-     const updatedStatus: WorkOrderStatus = allItemsCompleted ? 'completed' : 'in progress';
-
-     handleCheckboxChange(updatedChecklist, updatedStatus);
-
+    handleCheckboxChange(updatedChecklist, updatedStatus);
   };
-
-
 
   return (
     <Modal
@@ -52,14 +33,14 @@ export const ChecklistModal: React.FC<ChecklistModalProps> = ({
       onCancel={onCancel}
       onOk={onConfirm}
     >
-       <Space direction="vertical">
-         <h3>{workorder?.description}</h3>
-         {workorder?.checklist?.map((task, index) => (
-           <Checkbox key={index} checked={task.completed} onChange={() => toggleCheckbox(index)}>
-             <Text delete={task.completed}>{task.task}</Text>
-           </Checkbox>
-         ))}
-       </Space>
+      <Space direction="vertical">
+        <h3>{workorder?.description}</h3>
+        {workorder?.checklist?.map((task, index) => (
+          <Checkbox key={index} checked={task.completed} onChange={() => toggleCheckbox(index)}>
+            <Text delete={task.completed}>{task.task}</Text>
+          </Checkbox>
+        ))}
+      </Space>
     </Modal>
   );
 };
