@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
-import { Table } from 'antd';
 
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 
 import { BreadcrumbBasic as Breadcrumb } from '@/components';
 import { EditUserModal } from './EditUserModal/EditUserModal';
-import { userColumns } from './userColumns/userColumns';
 import { useCompaniesContext, useUnitsContext, useUsersContext } from '@/hooks';
+import { ListView } from './ListView/ListView';
 
 export const Users: React.FC<ViewProps> = ({ language }) => {
   const { companiesData } = useCompaniesContext();
@@ -33,18 +32,11 @@ export const Users: React.FC<ViewProps> = ({ language }) => {
     setIsEditing(false);
   };
 
-  const editColumnText = `${dict.table.edit_column}`;
-  const columns = userColumns(companiesData, unitsData, handleEditClick, editColumnText);
-
   return (
     <>
       <Breadcrumb content={dict.sidebar.icon_4} />
-      <Table
-        dataSource={usersData}
-        columns={columns}
-        bordered
-        title={() => `${dict.table.users.title}`}
-      />
+
+      <ListView language={language} handleEditClick={handleEditClick} />
 
       <EditUserModal
         isOpen={isEditing}

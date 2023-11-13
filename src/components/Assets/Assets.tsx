@@ -5,10 +5,9 @@ import HighchartsReact from 'highcharts-react-official';
 import { BreadcrumbBasic as Breadcrumb } from '@/components';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { useAssetsContext } from '@/hooks';
-import { SearchProps } from 'antd/es/input';
 import { TabsBasic } from '../Base/TabsBasic/TabsBasic';
 import { SearchBasic } from '../Base/SearchBasic/SearchBasic';
-import { getColorByStatus, getStatusTagColor } from './functions';
+
 
 export const Assets: React.FC<ViewProps> = ({ language }) => {
   const dict = getLanguageUseClient(language);

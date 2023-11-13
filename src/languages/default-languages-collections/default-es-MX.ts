@@ -47,6 +47,13 @@ export const esMX = {
     edit_column: 'Editar',
     users: {
       title: 'Lista de Usuarios',
+      columns: {
+        name: 'Nombre',
+        email: 'Correo electrónico',
+        company: 'Empresa',
+        unit: 'Unidad',
+        action: 'Editar',
+      },
     },
     workorders: {
       title: 'Lista de Órdenes de Servicio',

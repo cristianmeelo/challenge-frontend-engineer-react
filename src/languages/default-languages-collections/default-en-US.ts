@@ -47,6 +47,13 @@ export const enUS = {
     edit_column: 'Edit',
     users: {
       title: 'Users List',
+      columns: {
+        name: 'Name',
+        email: 'Email',
+        company: 'Company',
+        unit: 'Unit',
+        action: 'Edit',
+      },
     },
     workorders: {
       title: 'Workorders List',

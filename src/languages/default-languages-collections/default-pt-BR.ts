@@ -53,6 +53,13 @@ export const ptBR = {
     edit_column: 'Editar',
     users: {
       title: 'Lista de Usuários',
+      columns: {
+        name: 'Nome',
+        email: 'Email',
+        company: 'Empresa',
+        unit: 'Unidade',
+        action: 'Editar',
+      },
     },
     workorders: {
       title: 'Lista de Ordens de Serviço',
