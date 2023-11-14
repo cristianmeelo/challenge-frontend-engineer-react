@@ -5,7 +5,7 @@
  * @param {Array} unitsData - An array of unit objects containing unit details.
  * @returns {string} - The name of the unit associated with the object, or 'Unknown Unit' if not found.
  */
-export const getUnitName = (item: { unitId: string }, unitsData: Unit[]): string => {
+export const getUnitName = (item: { unitId: number }, unitsData: Unit[]): string => {
   /**
    * Finds the unit object in the unitsData array based on the unit ID in the item.
    *

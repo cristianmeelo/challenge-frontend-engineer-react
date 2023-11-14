@@ -9,8 +9,8 @@ export const getWorkorders = async (): Promise<Workorder[]> => {
 export const updateWorkorder = async (
   workorderId: number,
   updatedData: {
-    assetId?: string;
-    assignedUserIds?: string[];
+    assetId?: number;
+    assignedUserIds?: number[];
     checklist?: {
       completed: boolean;
       task: string;

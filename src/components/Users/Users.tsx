@@ -1,17 +1,13 @@
 import { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
-
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
-
 import { BreadcrumbBasic as Breadcrumb } from '@/components';
 import { EditUserModal } from './EditUserModal/EditUserModal';
-import { useCompaniesContext, useUnitsContext, useUsersContext } from '@/hooks';
+import { useUsersContext } from '@/hooks';
 import { ListView } from './ListView/ListView';
 
 export const Users: React.FC<ViewProps> = ({ language }) => {
-  const { companiesData } = useCompaniesContext();
-  const { unitsData } = useUnitsContext();
-  const { handleUpdateUser, setUsersData, usersData } = useUsersContext();
+  const { handleUpdateUser, setUsersData } = useUsersContext();
 
   const dict = getLanguageUseClient(language);
   const [isEditing, setIsEditing] = useState<boolean>(false);

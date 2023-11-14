@@ -10,13 +10,13 @@ export const EditAssignedUsersModal: React.FC<EditAssignedUserModalProps> = ({
   cancelText,
   onCancel,
   onConfirm,
-  workorder,
+  data,
   handleCheckboxChange,
 }) => {
   const { usersData } = useUsersContext();
-
-  const existingAssignedUserIds = workorder?.assignedUserIds || [];
-  const [selectedUsers, setSelectedUsers] = useState<CheckboxValueType[]>(existingAssignedUserIds);
+  const [selectedUsers, setSelectedUsers] = useState<CheckboxValueType[]>(
+    data?.assignedUserIds || []
+  );
 
   const handleCheckboxChangeFn = (checkedValues: CheckboxValueType[]) => {
     setSelectedUsers(checkedValues);
@@ -24,12 +24,8 @@ export const EditAssignedUsersModal: React.FC<EditAssignedUserModalProps> = ({
   };
 
   useEffect(() => {
-    if (workorder?.assignedUserIds) {
-      setSelectedUsers(workorder.assignedUserIds);
-    } else {
-      setSelectedUsers([]);
-    }
-  }, [workorder]);
+    setSelectedUsers(data?.assignedUserIds || []);
+  }, [data?.assignedUserIds]);
 
   const userOptions = usersData.map((user) => ({
     label: user.name,

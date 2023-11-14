@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { Table } from 'antd';
+import { CheckboxValueType } from 'antd/es/checkbox/Group';
 
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { BreadcrumbBasic as Breadcrumb } from '@/components';
@@ -8,9 +9,8 @@ import { useAssetsContext, useUsersContext, useWorkordersContext } from '@/hooks
 
 import { ChecklistModal } from './ChecklistModal/ChecklistModal';
 import { EditWorkorderModal } from './EditWorkorderModal/EditWorkorderModal';
-import { EditAssignedUsersModal } from './EditAssignedUsersModal/EditAssignedUserModal';
+import { EditAssignedUsersModal } from '../_Shared/EditAssignedUsersModal/EditAssignedUserModal';
 import { getColumns } from './WorkordersColumn/WorkordersColumn';
-import { CheckboxValueType } from 'antd/es/checkbox/Group';
 
 export const Workorders: React.FC<ViewProps> = ({ language }) => {
   const dict = getLanguageUseClient(language);
@@ -51,7 +51,6 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
 
   const handleSeeModalConfirm = () => {
     handleUpdateWorkorder(editingWorkorder, setWorkordersData);
-
     setIsSeeing(false);
   };
 
@@ -134,7 +133,10 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
         cancelText={`${dict.button.cancel}`}
         onCancel={handleEditAssignedUserModalCancel}
         onConfirm={handleEditAssignedUsersConfirm}
-        workorder={editingWorkorder}
+        data={{
+          assignedUserIds: editingWorkorder?.assignedUserIds || [],
+          type: 'workorder',
+        }}
         handleCheckboxChange={(checkedValues: CheckboxValueType[]) => {
           setEditingWorkorder((prev: any) => {
             return { ...prev!, assignedUserIds: checkedValues };

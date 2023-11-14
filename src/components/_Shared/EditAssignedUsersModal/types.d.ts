@@ -1,10 +1,13 @@
-type EditAssignedUserModalProps = {
-  title: string | undefined;
+interface EditAssignedUserModalProps {
   isOpen: boolean;
+  title: string;
   okText: string;
   cancelText: string;
   onCancel: () => void;
   onConfirm: () => void;
-  workorder: Workorder | undefined;
   handleCheckboxChange: (checkedValues: CheckboxValueType[]) => void;
-};
+  data: {
+    assignedUserIds: number[];
+    type: 'workorder' | 'asset';
+  };
+}

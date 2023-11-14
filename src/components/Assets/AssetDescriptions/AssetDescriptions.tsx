@@ -20,7 +20,7 @@ export const AssetDescriptions: React.FC<AssetDescriptionsProps> = ({ asset, lan
     {
       key: '1',
       label: `${dict.table.assets.columns.company}`,
-      children: <p>{getUnitName(asset, unitsData)}</p>,
+      children: <p>{getUnitName({ unitId: asset.unitId }, unitsData)}</p>,
     },
     {
       key: '2',
@@ -34,7 +34,7 @@ export const AssetDescriptions: React.FC<AssetDescriptionsProps> = ({ asset, lan
     {
       key: '3',
       label: `${dict.table.assets.columns.unit}`,
-      children: <p>{getCompanyName(asset, companiesData)}</p>,
+      children: <p>{getCompanyName({ companyId: asset.companyId }, companiesData)}</p>,
     },
     {
       key: '4',
