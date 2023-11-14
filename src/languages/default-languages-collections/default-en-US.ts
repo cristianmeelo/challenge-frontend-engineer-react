@@ -112,8 +112,22 @@ export const enUS = {
     sensor_chart: {
       title: 'Total Sensor Distribution by Model',
       description:
-        'The pie chart below provides valuable insight into the distribution of sensor models across all monitored assets. By analyzing the total quantity of sensors for each model, we can identify patterns and discrepancies that can directly impact operations and maintenance. This visualization offers a quick and clear understanding of sensorization needs, enabling strategic decisions on sensor acquisition and replacement. This overview is crucial for optimizing operational efficiency and ensuring that assets are equipped with the right sensors, contributing to a more proactive and effective management of the industrial park.',
-      serie_a: 'Total Quantity of Sensors',
+        'The Total Sensor Distribution by Model chart provides valuable insight into the distribution of sensor models across all monitored assets. By analyzing the total number of sensors for each model, we can identify patterns and discrepancies that can directly impact operations and maintenance. This visualization offers a quick and clear understanding of sensorization needs, enabling strategic decisions on sensor acquisition and replacement. This overview is crucial for optimizing operational efficiency and ensuring that assets are equipped with the right sensors, contributing to a more proactive and effective management of the industrial park.',
+      series: {
+        a: 'Total Sensor Quantity',
+      },
+    },
+    user_chart: {
+      title: 'Number of Assets per User',
+      description:
+        "The Number of Assets per User chart provides valuable insights into the distribution of responsibilities among users regarding the company's assets. Observing the chart makes it evident which users are associated with a higher number of assets, highlighting those with a more substantial workload. This visualization is essential for identifying possible adjustments in task allocation, allowing a clear analysis of who is more involved in operations.",
+      y_axis: {
+        a: 'User',
+        b: 'Number of Assets',
+      },
+      series: {
+        a: 'Assets',
+      },
     },
   },
 

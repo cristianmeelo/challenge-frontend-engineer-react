@@ -1,8 +1,7 @@
-import React from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
+import { Col, Row } from 'antd';
 import { useAssetsContext } from '@/hooks';
-import { Space, Typography } from 'antd';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 
 export const SensorChart = ({ language }: { language: Locale }) => {
@@ -37,7 +36,7 @@ export const SensorChart = ({ language }: { language: Locale }) => {
     },
     series: [
       {
-        name: `${dict.chart.sensor_chart.serie_a}`,
+        name: `${dict.chart.sensor_chart.series.a}`,
         data: Object.entries(sensorData).map(([name, y]) => ({ name, y })),
         type: 'pie',
       },
@@ -45,9 +44,10 @@ export const SensorChart = ({ language }: { language: Locale }) => {
   };
 
   return (
-    <Space direction="vertical">
-      <Typography.Paragraph>{dict.chart.sensor_chart.description}</Typography.Paragraph>
-      <HighchartsReact highcharts={Highcharts} options={options} />
-    </Space>
+    <Row>
+      <Col>
+        <HighchartsReact highcharts={Highcharts} options={options} />
+      </Col>
+    </Row>
   );
 };
