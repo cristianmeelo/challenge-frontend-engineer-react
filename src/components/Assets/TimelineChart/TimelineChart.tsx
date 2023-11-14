@@ -1,8 +1,8 @@
 import HighchartsReact from 'highcharts-react-official';
 import HighchartsTimeline from 'highcharts/modules/timeline';
 import Highcharts from 'highcharts';
-import moment from 'moment';
-import 'moment/min/locales'
+import moment from 'moment/min/moment-with-locales';
+
 
 
 import { getColorByStatus } from '@/functions';
