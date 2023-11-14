@@ -84,12 +84,15 @@ export const ptBR = {
         name: 'Nome',
         model: 'Modelo',
         status: 'Status',
-        healthscore: 'Healthscore',
+        healthscore: 'Health score',
         sensors: 'Sensores',
         specifications: 'Especificações',
         company: 'Empresa',
         unit: 'Unidade',
         assigned_user: 'Usuários Designados',
+        total_collects_uptime: 'Total de Coletas',
+        total_uptime: 'Total de Horas de Coletas',
+        last_uptime_at: 'Data da Ultima Coleta',
       },
     },
   },
@@ -112,5 +115,9 @@ export const ptBR = {
         'O gráfico de pizza exibido abaixo oferece um insight valioso sobre a distribuição dos modelos de sensores em todos os ativos monitorados. Ao analisar a quantidade total de sensores para cada modelo, podemos identificar padrões e discrepâncias que podem impactar diretamente nas operações e na manutenção. Essa visualização proporciona uma compreensão rápida e clara das necessidades de sensorização, permitindo decisões estratégicas sobre aquisição e substituição de sensores. Este overview é crucial para otimizar a eficiência operacional e garantir que os ativos estejam equipados com os sensores adequados, contribuindo para uma gestão mais proativa e eficaz do parque industrial.',
       serie_a: 'Quantidade Total de Sensores',
     },
+  },
+
+  input_search: {
+    asset: 'Busque ativos por nome...',
   },
 };

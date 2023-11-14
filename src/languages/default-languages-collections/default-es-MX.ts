@@ -85,6 +85,9 @@ export const esMX = {
         company: 'Empresa',
         unit: 'Unidad',
         assigned_user: 'Usuarios Designados',
+        total_collects_uptime: 'Total Collections',
+        total_uptime: 'Total Collection Hours',
+        last_uptime_at: 'Last Collection Date',
       },
     },
   },
@@ -113,5 +116,9 @@ export const esMX = {
         'El gráfico circular a continuación proporciona información valiosa sobre la distribución de modelos de sensores en todos los activos monitoreados. Al analizar la cantidad total de sensores para cada modelo, podemos identificar patrones y discrepancias que pueden afectar directamente las operaciones y el mantenimiento. Esta visualización ofrece una comprensión rápida y clara de las necesidades de sensorización, permitiendo decisiones estratégicas sobre la adquisición y sustitución de sensores. Esta visión general es crucial para optimizar la eficiencia operativa y garantizar que los activos estén equipados con los sensores adecuados, contribuyendo a una gestión más proactiva y efectiva del parque industrial.',
       serie_a: 'Cantidad Total de Sensores',
     },
+  },
+
+  input_search: {
+    asset: 'Buscar activos por nombre...',
   },
 };

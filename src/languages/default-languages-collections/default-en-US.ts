@@ -84,6 +84,9 @@ export const enUS = {
         company: 'Company',
         unit: 'Unit',
         assigned_user: 'Assigned Users',
+        total_collects_uptime: 'Total Collections',
+        total_uptime: 'Total Collection Hours',
+        last_uptime_at: 'Last Collection Date',
       },
     },
   },
@@ -112,5 +115,9 @@ export const enUS = {
         'The pie chart below provides valuable insight into the distribution of sensor models across all monitored assets. By analyzing the total quantity of sensors for each model, we can identify patterns and discrepancies that can directly impact operations and maintenance. This visualization offers a quick and clear understanding of sensorization needs, enabling strategic decisions on sensor acquisition and replacement. This overview is crucial for optimizing operational efficiency and ensuring that assets are equipped with the right sensors, contributing to a more proactive and effective management of the industrial park.',
       serie_a: 'Total Quantity of Sensors',
     },
+  },
+
+  input_search: {
+    asset: 'Search assets by name...',
   },
 };

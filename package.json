@@ -19,6 +19,7 @@
     "highcharts-react-official": "^3.2.1",
     "i18next": "^23.6.0",
     "jspdf": "^2.5.1",
+    "moment": "^2.29.4",
     "next": "14.0.1",
     "next-intl": "^2.22.1",
     "react": "^18",

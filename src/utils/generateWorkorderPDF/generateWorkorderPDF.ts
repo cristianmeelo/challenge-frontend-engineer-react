@@ -1,6 +1,6 @@
 import jsPDF from 'jspdf';
 
-export const generateWorkorderPDF = (workOrder: Workorder) => {
+export const generateWorkorderPdf = (workOrder: Workorder) => {
   const pdf = new jsPDF();
 
   pdf.setFontSize(18);

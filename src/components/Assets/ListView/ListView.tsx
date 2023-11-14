@@ -21,7 +21,7 @@ export const ListView = ({ language }: { language: Locale }) => {
       key: 'name',
     },
     {
-      title: `${dict.table.assets}`,
+      title: `${dict.table.assets.columns.model}`,
       dataIndex: 'model',
       key: 'model',
       filters: modelFilters,

@@ -18,7 +18,7 @@ export const TabsBasic = ({ activeTab, setActiveTab, language }: TabsBasicProps)
       key: 'grid',
       label: <>{dict.sidebar.icon_1_1}</>,
       icon: <AppstoreOutlined />,
-      content: <GridView />,
+      content: <GridView language={language} />,
     },
   ];
 

@@ -10,7 +10,7 @@ import {
 
 import { getAssetName, getUserName } from '@/functions';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
-import { generateWorkorderPDF } from '@/utils/generateWorkorderPDF/generateWorkorderPDF';
+import { generateWorkorderPdf } from '@/utils/generateWorkorderPdf/generateWorkorderPdf';
 
 export const getStatusMap = (): {
   [key in WorkOrderStatus]: { icon: React.ReactNode; text: string };
@@ -97,12 +97,12 @@ export const getColumns = (
       render: (text: string, record: Workorder) => (
         <Space size="middle" direction="vertical" align="center">
           <Tooltip title="download">
-          <Button
-            type="primary"
-            icon={<DownloadOutlined />}
-            size={'middle'}
-            onClick={() => generateWorkorderPDF(record)}
-          />
+            <Button
+              type="primary"
+              icon={<DownloadOutlined />}
+              size={'middle'}
+              onClick={() => generateWorkorderPdf(record)}
+            />
           </Tooltip>
 
           <Space.Compact direction="vertical">

@@ -1,18 +1,15 @@
 import { Input } from 'antd';
-import { SearchProps } from 'antd/es/input';
 
-export const SearchBasic = ({ setSearchTerm }: { setSearchTerm: (term: string) => void }) => {
-  const onSearch: SearchProps['onSearch'] = (value, _e, info) => console.log(info?.source, value);
-  const { Search } = Input;
+export const SearchBasic: React.FC<SearchBasicProps> = ({ setSearchTerm, placeholder }) => {
+  const handleSearch = (value: string) => {
+    setSearchTerm(value);
+  };
 
   return (
-    <Search
-      placeholder="Input by name"
+    <Input.Search
+      placeholder={placeholder}
       allowClear
-      enterButton="Search"
-      size="large"
-      onSearch={onSearch}
-      onChange={(e) => setSearchTerm(e.target.value)}
+      onChange={(e) => handleSearch(e.target.value)}
     />
   );
 };
