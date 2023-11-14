@@ -1,17 +1,17 @@
 /**
- * Gets the name of the company associated with an object (unit or user).
+ * Gets the name of the asset associated with an object (workorder).
  *
- * @param {Object} item - The object containing the company ID.
- * @param {Array} companiesData - An array of company objects containing company details.
- * @returns {string} - The name of the company associated with the object, or 'Unknown Company' if not found.
+ * @param {Object} item - The object containing the asset ID.
+ * @param {Array} assetsData - An array of asset objects containing asset details.
+ * @returns {string} - The name of the asset associated with the object, or 'Unknown Asset' if not found.
  */
-export const getCompanyName = (item: { companyId: string }, companiesData: Company[]): string => {
+export const getAssetName = (item: { assetId: number }, assetsData: Asset[]): string => {
   /**
-   * Finds the company object in the companiesData array based on the company ID in the item.
+   * Finds the asset object in the assetsData array based on the asset ID in the item.
    *
-   * @param {Object} company - A company object from the companiesData array.
-   * @returns {boolean} - True if the company ID matches the item's company ID, otherwise false.
+   * @param {Object} asset - An asset object from the assetsData array.
+   * @returns {boolean} - True if the asset ID matches the item's asset ID, otherwise false.
    */
-  const company = companiesData.find((company) => company.id === item.companyId);
-  return company ? company.name : 'Unknown Company';
+  const asset = assetsData.find((asset) => asset.id === item.assetId);
+  return asset ? asset.name : 'Unknown Asset';
 };

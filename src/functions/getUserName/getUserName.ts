@@ -5,7 +5,7 @@
  * @param {Array} userData - An array of user objects containing user details.
  * @returns {string} - The name of the user associated with the object, or 'Unknown User' if not found.
  */
-export const getUserName = (item: { userId: string }, usersData: User[]): string => {
+export const getUserName = (item: { userId: number }, usersData: User[]): string => {
   /**
    * Finds the user object in the usersData array based on the user ID in the item.
    *

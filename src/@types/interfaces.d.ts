@@ -1,28 +1,28 @@
 interface Company {
-  id: string;
+  id: number;
   name: string;
 }
 
 interface Unit {
-  id: string;
-  companyId: string;
+  id: number;
+  companyId: number;
   name: string;
 }
 
 interface User {
-  id: string;
-  companyId: string;
-  unitId: string;
+  id: number;
+  companyId: number;
+  unitId: number;
   name: string;
   email: string;
 }
 
 interface Workorder {
-  assetId: string;
-  assignedUserIds: string[];
+  id: number;
+  assetId: number;
+  assignedUserIds: number[];
   checklist: ChecklistItem[];
   description: string;
-  id: number;
   priority: Priority;
   status: WorkOrderStatus;
   title: string;
@@ -36,10 +36,10 @@ type Priority = 'low' | 'medium' | 'high';
 type WorkOrderStatus = 'in progress' | 'completed';
 
 interface Asset {
-  id: string;
-  assignedUserIds: string[];
-  companyId: string;
-  unitId: string;
+  id: number;
+  assignedUserIds: number[];
+  companyId: number;
+  unitId: number;
   name: string;
   model: string;
   image: string;

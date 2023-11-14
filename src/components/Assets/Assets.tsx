@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BreadcrumbBasic as Breadcrumb } from '@/components';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 
-import { TabsBasic } from '../Base/TabsBasic/TabsBasic';
+import { TabsBasic } from '../_Base/TabsBasic/TabsBasic';
 
 export const Assets: React.FC<ViewProps> = ({ language }) => {
   const dict = getLanguageUseClient(language);

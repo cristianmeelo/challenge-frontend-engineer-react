@@ -7,10 +7,10 @@ export const getAssets = async (): Promise<Asset[]> => {
 };
 
 export const updateAsset = async (
-  id: string,
+  id: number,
   updatedData: {
-    assignedUserIds?: string[];
-    companyId?: string;
+    assignedUserIds?: number[];
+    companyId?: number;
     healthHistory?: {
       status: AssetStatus;
       timestamp: string;

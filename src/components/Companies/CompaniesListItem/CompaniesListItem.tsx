@@ -22,7 +22,6 @@ export const CompanyListItem: React.FC<CompanyListItemProps> = ({
           <List.Item.Meta
             avatar={<Avatar src={randomAvatar} />}
             title={<a href="/">{company.name}</a>}
-            description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus exercitationem iste architecto nostrum quos voluptatem!"
           />
         </Skeleton>
       </List.Item>

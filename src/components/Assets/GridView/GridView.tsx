@@ -3,7 +3,7 @@ import { Space } from 'antd';
 import { useAssetsContext } from '@/hooks';
 
 import { AssetCard } from '../AssetCard/AssetCard';
-import { SearchBasic } from '@/components/Base/SearchBasic/SearchBasic';
+import { SearchBasic } from '@/components/_Base/SearchBasic/SearchBasic';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 
 export const GridView = ({ language }: { language: Locale }) => {

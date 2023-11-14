@@ -59,7 +59,7 @@ export const getColumns = (
       title: `${dict.table.workorders.columns.asset}`,
       dataIndex: 'assetId',
       key: 'assetId',
-      render: (assetId: string) => getAssetName({ assetId }, assetsData),
+      render: (assetId: number) => getAssetName({ assetId }, assetsData),
     },
     {
       title: `${dict.table.workorders.columns.status}`,
@@ -84,7 +84,7 @@ export const getColumns = (
       title: `${dict.table.workorders.columns.assigned_users}`,
       dataIndex: 'assignedUserIds',
       key: 'assignedUserIds',
-      render: (assignedUserIds: string[]) => (
+      render: (assignedUserIds: number[]) => (
         <ul>
           {assignedUserIds.map((userId) => (
             <li key={userId}>{getUserName({ userId: userId }, usersData)}</li>

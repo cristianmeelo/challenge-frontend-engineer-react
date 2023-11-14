@@ -1,4 +1,4 @@
 interface AssignedUsersListProps {
-  assignedUserIds: string[];
+  assignedUserIds: number[];
   usersData: User[];
 }

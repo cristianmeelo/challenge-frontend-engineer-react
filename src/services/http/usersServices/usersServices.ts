@@ -7,8 +7,8 @@ export const getUsers = async (): Promise<User[]> => {
 };
 
 export const updateUser = async (
-  userId: string,
-  updatedData: { name: string; email: string; companyId: string; unitId: string }
+  userId: number,
+  updatedData: { name: string; email: string; companyId: number; unitId: number }
 ): Promise<User> => {
   const response: AxiosResponse<User> = await api.put(`/users/${userId}`, updatedData);
   return response.data;

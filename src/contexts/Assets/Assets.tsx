@@ -53,39 +53,39 @@ export const AssetsProvider = ({
     record: Asset | undefined,
     setAssetsData: React.Dispatch<React.SetStateAction<Asset[]>>
   ) => {
-    // const loadingToast = ToastLoading(`${dict.toast_notifications.loading}`);
-    // try {
-    //   if (record) {
-    //     const updatedData = {
-    //       assignedUserIds: record.assignedUserIds,
-    //       companyId: record.companyId,
-    //       healthHistory: record.healthHistory,
-    //       healthscore: record.healthscore,
-    //       image: record.image,
-    //       metrics: record.metrics,
-    //       model: record.model,
-    //       name: record.name,
-    //       sensors: record.sensors,
-    //       specifications: record.specifications,
-    //       status: record.status,
-    //       unitId: record.unitId,
-    //     };
-    //     const updatedAsset = await updateAsset(record.id, updatedData);
-    //     setAssetsData((prevAssets) => {
-    //       const updatedAssets = prevAssets.map((asset) => {
-    //         if (asset.id === updatedAsset.id) {
-    //           return updatedAsset;
-    //         } else {
-    //           return asset;
-    //         }
-    //       });
-    //       return updatedAssets;
-    //     });
-    //     ToastSuccessful(loadingToast, `${dict.toast_notifications.success}`);
-    //   }
-    // } catch (error) {
-    //   ToastError(loadingToast, `${dict.toast_notifications.error}`);
-    // }
+    const loadingToast = ToastLoading(`${dict.toast_notifications.loading}`);
+    try {
+      if (record) {
+        const updatedData = {
+          assignedUserIds: record.assignedUserIds,
+          companyId: record.companyId,
+          healthHistory: record.healthHistory,
+          healthscore: record.healthscore,
+          image: record.image,
+          metrics: record.metrics,
+          model: record.model,
+          name: record.name,
+          sensors: record.sensors,
+          specifications: record.specifications,
+          status: record.status,
+          unitId: record.unitId,
+        };
+        const updatedAsset = await updateAsset(record.id, updatedData);
+        setAssetsData((prevAssets) => {
+          const updatedAssets = prevAssets.map((asset) => {
+            if (asset.id === updatedAsset.id) {
+              return updatedAsset;
+            } else {
+              return asset;
+            }
+          });
+          return updatedAssets;
+        });
+        ToastSuccessful(loadingToast, `${dict.toast_notifications.success}`);
+      }
+    } catch (error) {
+      ToastError(loadingToast, `${dict.toast_notifications.error}`);
+    }
   };
 
   const context = {
