@@ -2,12 +2,25 @@ import HighchartsReact from 'highcharts-react-official';
 import HighchartsTimeline from 'highcharts/modules/timeline';
 import Highcharts from 'highcharts';
 import moment from 'moment';
+import 'moment/locale/pt';
+import 'moment/locale/es';
+import 'moment/locale/en';
+
 import { getColorByStatus } from '@/functions';
-import 'moment/locale/pt-BR';
-import 'moment/locale/es-MX';
 
 export const TimelineChart = ({ asset, language }: TimelineChartProps) => {
   HighchartsTimeline(Highcharts);
+
+  const mapLanguageToMomentLocale = (language: Locale) => {
+    switch (language) {
+      case 'en-US':
+        return 'en';
+      case 'es-MX':
+        return 'es';
+      default:
+        return 'pt';
+    }
+  };
 
   const options = {
     chart: {
@@ -30,7 +43,9 @@ export const TimelineChart = ({ asset, language }: TimelineChartProps) => {
         data: asset.healthHistory.map(
           (entry: { status: AssetStatus; timestamp: string }, index: any) => ({
             name: entry.status,
-            label: moment(entry.timestamp).locale(language).format('LLL'),
+            label: moment(entry.timestamp)
+              .locale(mapLanguageToMomentLocale(language))
+              .format('LLL'),
             description: `Status: ${entry.status}`,
             x: index,
             color: getColorByStatus(entry.status),
