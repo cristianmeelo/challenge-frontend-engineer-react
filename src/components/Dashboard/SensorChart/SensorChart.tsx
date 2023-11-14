@@ -5,11 +5,6 @@ import { useAssetsContext } from '@/hooks';
 import { Space, Typography } from 'antd';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 
-interface AssetSensors {
-  name: string;
-  sensors: string[];
-}
-
 export const SensorChart = ({ language }: { language: Locale }) => {
   const dict = getLanguageUseClient(language);
 
@@ -52,7 +47,6 @@ export const SensorChart = ({ language }: { language: Locale }) => {
   return (
     <Space direction="vertical">
       <Typography.Paragraph>{dict.chart.sensor_chart.description}</Typography.Paragraph>
-
       <HighchartsReact highcharts={Highcharts} options={options} />
     </Space>
   );

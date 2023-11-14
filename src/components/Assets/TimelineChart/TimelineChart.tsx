@@ -1,8 +1,8 @@
 import HighchartsReact from 'highcharts-react-official';
-import HighchartsTimeline from 'highcharts/modules/timeline'; // Importe o módulo timeline
+import HighchartsTimeline from 'highcharts/modules/timeline';
 import Highcharts from 'highcharts';
 import moment from 'moment';
-import { getColorByStatus } from '../functions';
+import { getColorByStatus } from '@/functions';
 import 'moment/locale/pt-BR';
 import 'moment/locale/es-MX';
 

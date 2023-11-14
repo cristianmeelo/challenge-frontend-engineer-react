@@ -3,9 +3,8 @@ import { ClockCircleOutlined } from '@ant-design/icons';
 import type { DescriptionsProps } from 'antd';
 import moment from 'moment';
 
-import { getCompanyName, getUnitName } from '@/functions';
+import { getCompanyName, getUnitName, calculateStrokeColor, getColorByStatus } from '@/functions';
 import { useUsersContext, useUnitsContext, useCompaniesContext } from '@/hooks';
-import { calculateStrokeColor, getColorByStatus } from '../functions';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { AssignedUsersList } from '../AssignedUsersList/AssignedUsersList';
 import { SpecificationsList } from '../SpecificationsList/SpecificationsList';

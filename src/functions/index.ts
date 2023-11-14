@@ -3,5 +3,7 @@ export * from './getCompanyName/getCompanyName';
 export * from './getUnitName/getUnitName';
 export * from './getAssetName/getAssetName';
 export * from './getUserName/getUserName';
-
 export * from './filterUtils/filterUtils';
+export * from './getColorByStatus/getColorByStatus';
+export * from './renderModelBadge/renderModelBadge';
+export * from './calculateStrokeColor/calculateStrokeColor';

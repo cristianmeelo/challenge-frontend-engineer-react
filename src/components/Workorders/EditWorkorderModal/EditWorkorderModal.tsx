@@ -2,24 +2,8 @@ import React, { useState } from 'react';
 import { Modal, Input, Menu, Dropdown, Button, Space, Segmented } from 'antd';
 import { SegmentedValue } from 'antd/es/segmented';
 import { AppstoreOutlined } from '@ant-design/icons';
-
 import { useAssetsContext } from '@/hooks';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
-
-type EditWorkorderModalProps = {
-  title: string;
-  isOpen: boolean;
-  okText: string;
-  cancelText: string;
-  onCancel: () => void;
-  onConfirm: (editedTitle: string, editedDescription: string) => void;
-  value?: Workorder;
-  onChange: any; // #TODO
-  workorder: Workorder | undefined;
-  handleAssetMenuClick: (asset: Asset) => void;
-  onPriorityChange: (priority: Priority) => void;
-  language: Locale;
-};
 
 export const EditWorkorderModal: React.FC<EditWorkorderModalProps> = ({
   isOpen,
@@ -40,7 +24,7 @@ export const EditWorkorderModal: React.FC<EditWorkorderModalProps> = ({
   const [editedTitle, setEditedTitle] = useState<string>(workorder?.title || '');
   const [editedDescription, setEditedDescription] = useState<string>(workorder?.description || '');
   const [selectedAsset, setSelectedAsset] = useState<Asset | null>(null);
-  const [status, setStatus] = useState<WorkOrderStatus>(workorder?.status || 'in progress');
+
   const [priority, setPriority] = useState<Priority>(workorder?.priority || 'high');
 
   const { assetsData } = useAssetsContext();

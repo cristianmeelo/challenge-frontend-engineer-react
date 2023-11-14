@@ -1,8 +1,6 @@
 import { AxiosResponse } from 'axios';
 import api from '../api';
 
-// APIs para Assets
-
 export const getAssets = async (): Promise<Asset[]> => {
   const response: AxiosResponse<Asset[]> = await api.get('/assets');
   return response.data;

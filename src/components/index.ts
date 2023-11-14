@@ -10,5 +10,4 @@ export * from './Units/Units';
 export * from './Users/Users';
 export * from './Workorders/Workorders';
 export * from './Assets/Assets';
-
-export * from './SensorChart/SensorChart';
+export * from './Dashboard/Dashboard';

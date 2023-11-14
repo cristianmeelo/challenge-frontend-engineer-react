@@ -135,26 +135,27 @@ table {
   background-color: #ff4d4f !important;
 }
 
-.sidebar-logo {
+.sidebar-logo-container {
   display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 4%;
-  margin-top: 8px;
-  padding: 4px;
-  border: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  transition: padding 0.3s ease;
+}
+
+.sidebar-logo {
+  width: 80px;
+  height: 20px;
 }
 
 .sidebar-text {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-  height: 4%;
-  margin-bottom: 12px;
+  margin-top: 6px;
   font-size: 10px;
-
   color: #fff;
+}
+
+.collapsed .sidebar-logo-container {
+  display: hidden;
 }
 
 .header {

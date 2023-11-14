@@ -3,17 +3,6 @@ import { Modal, Checkbox, Space } from 'antd';
 import { CheckboxValueType } from 'antd/es/checkbox/Group';
 import { useUsersContext } from '@/hooks';
 
-type EditAssignedUserModalProps = {
-  title: string | undefined;
-  isOpen: boolean;
-  okText: string;
-  cancelText: string;
-  onCancel: () => void;
-  onConfirm: () => void;
-  workorder: Workorder | undefined;
-  handleCheckboxChange: (checkedValues: CheckboxValueType[]) => void;
-};
-
 export const EditAssignedUsersModal: React.FC<EditAssignedUserModalProps> = ({
   isOpen,
   title,

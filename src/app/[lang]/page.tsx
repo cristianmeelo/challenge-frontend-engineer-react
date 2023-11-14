@@ -29,7 +29,9 @@ export default function Home({ params }: { params: { lang: Locale } }) {
             {dict.home.divider}
           </Space>
         </Divider>
-        <StepsBasic params={params} />
+        <Space align="center">
+          <StepsBasic params={params} />
+        </Space>
       </Content>
     </Watermark>
   );

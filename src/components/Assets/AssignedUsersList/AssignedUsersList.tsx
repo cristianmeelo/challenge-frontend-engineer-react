@@ -1,11 +1,6 @@
 import { getUserName } from '@/functions';
 import React from 'react';
 
-interface AssignedUsersListProps {
-  assignedUserIds: string[];
-  usersData: User[];
-}
-
 export const AssignedUsersList: React.FC<AssignedUsersListProps> = ({
   assignedUserIds,
   usersData,

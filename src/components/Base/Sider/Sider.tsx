@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Layout, Menu, Typography } from 'antd';
+import { Layout, Menu, Typography, Space } from 'antd';
 import {
   ShopOutlined,
   FileOutlined,
@@ -33,8 +33,10 @@ export const Sider = ({ params }: { params: { lang: Locale } }) => {
 
   return (
     <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
-      <Image src={logo} className="sidebar-logo" alt="tractian enterprise logo" />
-      {!collapsed && <Text className="sidebar-text">{dict.header.message}</Text>}
+      <div className={`sidebar-logo-container ${collapsed ? 'collapsed' : ''}`}>
+        <Image src={logo} className="sidebar-logo" alt="tractian enterprise logo" />
+        {!collapsed && <Text className="sidebar-text">{dict.header.message}</Text>}
+      </div>
 
       <Menu
         theme="dark"

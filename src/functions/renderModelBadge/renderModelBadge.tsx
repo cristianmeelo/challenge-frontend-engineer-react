@@ -1,6 +1,12 @@
 import { Badge } from 'antd';
 
-export const renderModelBadge = (model: string) => {
+/**
+ * Renders a badge based on the provided model type.
+ *
+ * @param {string} model - The model type (e.g., 'motor', 'fan', or other).
+ * @returns {JSX.Element} - The badge component representing the model type.
+ */
+export const renderModelBadge = (model: string): JSX.Element => {
   let text = '';
   let color = '';
 

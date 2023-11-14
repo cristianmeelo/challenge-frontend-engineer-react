@@ -10,7 +10,7 @@ import {
 
 import { getAssetName, getUserName } from '@/functions';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
-import { generateWorkorderPdf } from '@/utils/generateWorkorderPdf/generateWorkorderPdf';
+import { generateWorkorderPdf } from '@/utils/generateWorkorderPDF/generateWorkorderPDF';
 
 export const getStatusMap = (): {
   [key in WorkOrderStatus]: { icon: React.ReactNode; text: string };

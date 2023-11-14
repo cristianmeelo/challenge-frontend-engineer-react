@@ -1,8 +1,14 @@
 import { Table, Tag } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import { calculateStrokeColor, getColorByStatus } from '../functions';
-import { generateModelFilters, getCompanyName, getUnitName, getUserName } from '@/functions';
 import { useAssetsContext, useCompaniesContext, useUnitsContext, useUsersContext } from '@/hooks';
+import {
+  generateModelFilters,
+  getCompanyName,
+  getUnitName,
+  getUserName,
+  calculateStrokeColor,
+  getColorByStatus,
+} from '@/functions';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 
 export const ListView = ({ language }: { language: Locale }) => {

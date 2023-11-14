@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Card, Button, Avatar, Space, Tabs, Divider } from 'antd';
 import { PlusOutlined, MinusOutlined } from '@ant-design/icons';
-import { renderModelBadge } from '../functions';
+import { renderModelBadge } from '@/functions';
 import { AssetDescriptions } from '../AssetDescriptions/AssetDescriptions';
 import { TimelineChart } from '../TimelineChart/TimelineChart';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
