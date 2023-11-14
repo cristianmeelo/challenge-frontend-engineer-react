@@ -11,6 +11,9 @@
     "build:start": "npm run build && npm start",
     "format:build:start": "npm run format && npm run build:start"
   },
+"resolutions": {
+  "moment": "2.24.0"
+},
   "dependencies": {
     "@ant-design/colors": "^7.0.0",
     "@ant-design/cssinjs": "^1.18.0-alpha.0",
@@ -20,7 +23,7 @@
     "highcharts-react-official": "^3.2.1",
     "i18next": "^23.6.0",
     "jspdf": "^2.5.1",
-    "moment": "^2.29.4",
+    "moment": "2.29.4",
     "next": "14.0.1",
     "next-intl": "^2.22.1",
     "react": "^18",

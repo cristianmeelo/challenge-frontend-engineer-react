@@ -7,7 +7,6 @@ import { countAssetStatus } from '@/functions';
 export const AssetStatusChart = () => {
   const { assetsData } = useAssetsContext();
 
-
   const options = {
     chart: {
       plotBackgroundColor: null,
