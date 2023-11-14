@@ -121,4 +121,12 @@ export const esMX = {
   input_search: {
     asset: 'Buscar activos por nombre...',
   },
+
+  expand_card: {
+    asset: {
+      see_more: 'Ver más',
+      see_less: 'Ver menos',
+      tab: 'Historia de salud',
+    },
+  },
 };

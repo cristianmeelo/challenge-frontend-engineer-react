@@ -4,11 +4,11 @@ import type { DescriptionsProps } from 'antd';
 import moment from 'moment';
 
 import { getCompanyName, getUnitName } from '@/functions';
-import { calculateStrokeColor, getStatusTagColor, renderModelBadge } from '../functions';
+import { useUsersContext, useUnitsContext, useCompaniesContext } from '@/hooks';
+import { calculateStrokeColor, getColorByStatus } from '../functions';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { AssignedUsersList } from '../AssignedUsersList/AssignedUsersList';
 import { SpecificationsList } from '../SpecificationsList/SpecificationsList';
-import { useUsersContext, useUnitsContext, useCompaniesContext } from '@/hooks';
 
 export const AssetDescriptions: React.FC<AssetDescriptionsProps> = ({ asset, language }) => {
   const { usersData } = useUsersContext();
@@ -56,7 +56,7 @@ export const AssetDescriptions: React.FC<AssetDescriptionsProps> = ({ asset, lan
     {
       key: '6',
       label: `${dict.table.assets.columns.status}`,
-      children: <Badge color={getStatusTagColor(asset.status)} text={asset.status} />,
+      children: <Badge color={getColorByStatus(asset.status)} text={asset.status} />,
       span: 3,
     },
     {

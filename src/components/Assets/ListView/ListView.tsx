@@ -1,6 +1,6 @@
 import { Table, Tag } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import { getStatusTagColor } from '../functions';
+import { calculateStrokeColor, getColorByStatus } from '../functions';
 import { generateModelFilters, getCompanyName, getUnitName, getUserName } from '@/functions';
 import { useAssetsContext, useCompaniesContext, useUnitsContext, useUsersContext } from '@/hooks';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
@@ -31,7 +31,7 @@ export const ListView = ({ language }: { language: Locale }) => {
       title: `${dict.table.assets.columns.status}`,
       dataIndex: 'status',
       key: 'status',
-      render: (status: AssetStatus) => <Tag color={getStatusTagColor(status)}>{status}</Tag>,
+      render: (status: AssetStatus) => <Tag color={getColorByStatus(status)}>{status}</Tag>,
       filters: [
         { text: 'InOperation', value: 'inOperation' },
         { text: 'InDowntime', value: 'inDowntime' },
@@ -46,7 +46,7 @@ export const ListView = ({ language }: { language: Locale }) => {
       dataIndex: 'healthscore',
       key: 'healthscore',
       render: (healthscore: number) => (
-        <span style={{ color: healthscore > 80 ? 'green' : 'red' }}>{healthscore}%</span>
+        <span style={{ color: calculateStrokeColor(healthscore) }}>{healthscore}%</span>
       ),
     },
     {

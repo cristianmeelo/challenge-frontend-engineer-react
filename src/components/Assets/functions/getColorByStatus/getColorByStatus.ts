@@ -4,17 +4,20 @@
  * @param {AssetStatus} status - The status of the asset (e.g., 'inOperation', 'inDowntime', 'inAlert', 'unplannedStop').
  * @returns {string} - The corresponding color for the given status.
  */
+
+import { red, green, orange, yellow, volcano, gray } from '@ant-design/colors';
+
 export const getColorByStatus = (status: AssetStatus) => {
   switch (status) {
     case 'inOperation':
-      return 'green';
+      return green[5];
     case 'inDowntime':
-      return 'red';
+      return red[5];
     case 'inAlert':
-      return 'yellow';
+      return yellow[5];
     case 'unplannedStop':
-      return 'gray';
+      return volcano[5];
     default:
-      return 'blue';
+      return gray[1];
   }
 };

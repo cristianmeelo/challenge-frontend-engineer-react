@@ -1,13 +1,13 @@
-import { red, green, orange, yellow } from '@ant-design/colors';
+import { red, green, orange, yellow, volcano, gray } from '@ant-design/colors';
 
 export const calculateStrokeColor = (healthscore: number) => {
   if (healthscore >= 80) {
-    return 'green';
+    return green[5];
   } else if (healthscore >= 50) {
-    return 'yellow';
+    return yellow[5];
   } else if (healthscore >= 25) {
-    return 'orange';
+    return volcano[5];
   } else {
-    return 'red';
+    return gray[1];
   }
 };

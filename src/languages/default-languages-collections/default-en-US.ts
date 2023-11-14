@@ -120,4 +120,11 @@ export const enUS = {
   input_search: {
     asset: 'Search assets by name...',
   },
+  expand_card: {
+    asset: {
+      see_more: 'See more',
+      see_less: 'See less',
+      tab: 'Health History',
+    },
+  },
 };

@@ -120,4 +120,12 @@ export const ptBR = {
   input_search: {
     asset: 'Busque ativos por nome...',
   },
+
+  expand_card: {
+    asset: {
+      see_more: 'Ver mais',
+      see_less: 'Ver menos',
+      tab: 'Histórico de Saúde',
+    },
+  },
 };

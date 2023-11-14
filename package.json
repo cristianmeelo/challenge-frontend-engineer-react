@@ -12,6 +12,7 @@
     "format:build:start": "npm run format && npm run build:start"
   },
   "dependencies": {
+    "@ant-design/colors": "^7.0.0",
     "@ant-design/cssinjs": "^1.18.0-alpha.0",
     "antd": "^5.11.0",
     "axios": "^1.6.1",
