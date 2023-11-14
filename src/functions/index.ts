@@ -7,3 +7,4 @@ export * from './filterUtils/filterUtils';
 export * from './getColorByStatus/getColorByStatus';
 export * from './renderModelBadge/renderModelBadge';
 export * from './calculateStrokeColor/calculateStrokeColor';
+export * from './countAssetStatus/countAssetStatus';

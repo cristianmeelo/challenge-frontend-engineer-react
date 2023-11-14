@@ -1,8 +1,10 @@
 import { BreadcrumbBasic as Breadcrumb } from '@/components';
-import { Col, Row, Typography } from 'antd';
+import { Col, Divider, Row, Typography } from 'antd';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { SensorChart } from './SensorChart/SensorChart';
 import { UserChart } from './UserChart/UserChart';
+import { AssetStatusChart } from './StatusChart/StatusChart';
+import { StatusTags } from './Badges/Badges';
 
 export const Dashboard: React.FC<ViewProps> = ({ language }) => {
   const dict = getLanguageUseClient(language);
@@ -28,6 +30,20 @@ export const Dashboard: React.FC<ViewProps> = ({ language }) => {
           </Col>
           <Col span={12}>
             <UserChart language={language} />
+          </Col>
+        </Row>
+        <Divider />
+        <Row justify="center" align="middle">
+          <StatusTags />
+        </Row>
+        <Row justify="center" align="middle">
+          <Col span={12}>
+            <AssetStatusChart />
+          </Col>
+          <Col span={12}>
+            <Typography.Paragraph style={{ textAlign: 'justify' }}>
+              {dict.chart.status_chart.description}
+            </Typography.Paragraph>
           </Col>
         </Row>
       </Row>

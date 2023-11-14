@@ -5,7 +5,7 @@
  * @returns {string} - The corresponding color for the given status.
  */
 
-import { red, green, orange, yellow, volcano, gray } from '@ant-design/colors';
+import { red, green, orange, yellow, volcano, gray, purple } from '@ant-design/colors';
 
 export const getColorByStatus = (status: AssetStatus) => {
   switch (status) {
@@ -17,6 +17,8 @@ export const getColorByStatus = (status: AssetStatus) => {
       return yellow[5];
     case 'unplannedStop':
       return volcano[5];
+    case 'plannedStop':
+      return purple[5];
     default:
       return gray[1];
   }

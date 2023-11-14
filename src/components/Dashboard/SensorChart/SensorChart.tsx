@@ -6,7 +6,6 @@ import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 
 export const SensorChart = ({ language }: { language: Locale }) => {
   const dict = getLanguageUseClient(language);
-
   const { assetsData } = useAssetsContext();
 
   const countTotalSensors = () => {

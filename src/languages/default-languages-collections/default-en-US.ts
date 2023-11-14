@@ -129,6 +129,11 @@ export const enUS = {
         a: 'Assets',
       },
     },
+    status_chart: {
+      title: 'Machines Health',
+      description:
+        'Machine health refers to the operational condition and efficiency of industrial equipment. Keeping machines healthy is crucial to avoiding unscheduled downtime, ensuring workplace safety, and optimizing production. Neglect in maintenance can result in lost production, high costs and environmental impacts. Monitoring technologies, such as sensors and data analysis, play a key role in early detection of problems and promoting proactive maintenance practices, contributing to the efficiency and sustainability of industrial operations.',
+    },
   },
 
   input_search: {

@@ -130,6 +130,11 @@ export const esMX = {
         a: 'Activos',
       },
     },
+    status_chart: {
+      title: 'Salud de las Máquinas',
+      description:
+        'La salud de las máquinas se refiere a la condición operativa y la eficiencia de los equipos industriales. Mantener las máquinas en buen estado es crucial para evitar tiempos de inactividad no programados, garantizar la seguridad en el lugar de trabajo y optimizar la producción. La negligencia en el mantenimiento puede resultar en pérdida de producción, altos costos e impactos ambientales. Monitoreo Las tecnologías, como los sensores y el análisis de datos, desempeñan un papel clave en la detección temprana de problemas y la promoción de prácticas de mantenimiento proactivo, contribuyendo a la eficiencia y sostenibilidad de las operaciones industriales.',
+    },
   },
 
   input_search: {

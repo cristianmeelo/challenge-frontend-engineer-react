@@ -130,6 +130,11 @@ export const ptBR = {
         a: 'Ativos',
       },
     },
+    status_chart: {
+      title: 'Saúde das Máquinas',
+      description:
+        'A saúde das máquinas refere-se à condição operacional e eficiência dos equipamentos industriais. Manter as máquinas saudáveis é crucial para evitar paradas não programadas, garantir a segurança no local de trabalho e otimizar a produção. A negligência na manutenção pode resultar em perda de produção, custos elevados e impactos ambientais. Tecnologias de monitoramento, como sensores e análise de dados, desempenham um papel fundamental na detecção precoce de problemas e na promoção de práticas de manutenção proativas, contribuindo para a eficiência e sustentabilidade das operações industriais.',
+    },
   },
 
   input_search: {
