@@ -1,15 +1,15 @@
 type EditUsertModalProps = {
-  title: string;
   isOpen: boolean;
+  value?: User;
+  title: string;
   okText: string;
   cancelText: string;
-  onCancel: () => void;
-  onConfirm: () => void;
-  value?: User;
-  onChange: any; // #TODO
-  handleMenuClick: (company: Company) => void;
-  handleUnitMenuClicked: (unit: Unit) => void;
   language: Locale;
+  onCancel: () => void;
+  onOk: () => void;
+  onChange: (field: UserField, values: string) => void;
+  selectCompany: (company: Company) => void;
+  selectUnit: (unit: Unit) => void;
 };
 
 type UserField = 'email' | 'name';

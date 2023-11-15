@@ -8,35 +8,22 @@ import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 export const EditWorkorderModal: React.FC<EditWorkorderModalProps> = ({
   isOpen,
   title,
-  okText,
   value,
+  okText,
   onChange,
   cancelText,
-  onCancel,
-  onConfirm,
-  workorder,
-  handleAssetMenuClick,
   language,
-  onPriorityChange,
+  onCancel,
+  onOk,
+  selectAsset,
+  selectPriority,
 }) => {
   const dict = getLanguageUseClient(language);
-
-  const [editedTitle, setEditedTitle] = useState<string>(workorder?.title || '');
-  const [editedDescription, setEditedDescription] = useState<string>(workorder?.description || '');
-  const [selectedAsset, setSelectedAsset] = useState<Asset | null>(null);
-
-  const [priority, setPriority] = useState<Priority>(workorder?.priority || 'high');
-
   const { assetsData } = useAssetsContext();
+  const [selectedAsset, setSelectedAsset] = useState<Asset | null>(null);
+  const [priority, setPriority] = useState<Priority>(value?.priority || 'high');
 
-  const handleChange = (
-    field: WorkOrderField,
-    e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
-  ) => {
-    onChange(field, e.target.value);
-  };
-
-  const assetsMenu = (
+  const assetsOption = (
     <Menu>
       {assetsData.map((asset) => (
         <Menu.Item key={asset.id} onClick={() => handleAssetMenuClick(asset)}>
@@ -46,6 +33,18 @@ export const EditWorkorderModal: React.FC<EditWorkorderModalProps> = ({
     </Menu>
   );
 
+  const handleAssetMenuClick = (asset: Asset) => {
+    selectAsset(asset);
+    setSelectedAsset(asset);
+  };
+
+  const handleChange = (
+    field: WorkOrderField,
+    e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    onChange(field, e.target.value);
+  };
+
   return (
     <Modal
       title={title}
@@ -53,7 +52,7 @@ export const EditWorkorderModal: React.FC<EditWorkorderModalProps> = ({
       okText={okText}
       cancelText={cancelText}
       onCancel={onCancel}
-      onOk={() => onConfirm(editedTitle, editedDescription)}
+      onOk={onOk}
     >
       <Space direction="vertical" size={16}>
         <Input value={value?.title} onChange={(e) => handleChange('title', e)} />
@@ -62,7 +61,7 @@ export const EditWorkorderModal: React.FC<EditWorkorderModalProps> = ({
           onChange={(e) => handleChange('description', e)}
           autoSize={{ minRows: 3, maxRows: 6 }}
         />
-        <Dropdown overlay={assetsMenu} placement="bottomRight" trigger={['click']}>
+        <Dropdown overlay={assetsOption} placement="bottomRight" trigger={['click']}>
           <Button>
             {selectedAsset ? selectedAsset.name : dict.dropdown.change_asset} <AppstoreOutlined />
           </Button>
@@ -73,7 +72,7 @@ export const EditWorkorderModal: React.FC<EditWorkorderModalProps> = ({
           value={priority}
           onChange={(value: SegmentedValue) => {
             setPriority(value as Priority);
-            onPriorityChange(value as Priority);
+            selectPriority(value as Priority);
           }}
         />
       </Space>

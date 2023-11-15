@@ -12,7 +12,7 @@ import { getAssetName, getUserName } from '@/functions';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { generateWorkorderPdf } from '@/utils/generateWorkorderPDF/generateWorkorderPDF';
 
-export const getStatusMap = (): {
+const getStatusMap = (): {
   [key in WorkOrderStatus]: { icon: React.ReactNode; text: string };
 } => {
   return {
@@ -24,7 +24,7 @@ export const getStatusMap = (): {
   };
 };
 
-export const getPriorityTagMap = (): { [key: string]: React.ReactNode } => {
+const getPriorityTagMap = (): { [key: string]: React.ReactNode } => {
   return {
     low: <Tag color="blue">Low</Tag>,
     medium: <Tag color="orange">Medium</Tag>,
@@ -32,7 +32,7 @@ export const getPriorityTagMap = (): { [key: string]: React.ReactNode } => {
   };
 };
 
-export const getColumns = (
+export const WorkordersColumn = (
   assetsData: Asset[],
   usersData: User[],
   handleSeeClick: (record: Workorder) => void,

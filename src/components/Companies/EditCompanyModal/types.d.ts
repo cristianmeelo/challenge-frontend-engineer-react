@@ -1,12 +1,10 @@
-type EditUnitModalProps = {
+interface EditCompanyModalProps {
   isOpen: boolean;
-  value?: Unit;
+  value?: Company;
   title: string;
   okText: string;
   cancelText: string;
-  language: Locale;
   onCancel: () => void;
   onOk: () => void;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  selectCompany: (company: Company) => void;
-};
+}

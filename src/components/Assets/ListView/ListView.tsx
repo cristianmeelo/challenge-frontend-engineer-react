@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { CheckboxValueType } from 'antd/es/checkbox/Group';
-import { Button, Space, Table, Tag, Tooltip } from 'antd';
+import { Button, Space, Table, Tag } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { useAssetsContext, useCompaniesContext, useUnitsContext, useUsersContext } from '@/hooks';
 import {
@@ -12,7 +12,7 @@ import {
   calculateStrokeColor,
   getColorByStatus,
 } from '@/functions';
-import { EyeOutlined, EditOutlined, UserSwitchOutlined, DownloadOutlined } from '@ant-design/icons';
+import { EyeOutlined, EditOutlined, UserSwitchOutlined } from '@ant-design/icons';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { EditAssignedUsersModal } from '@/components/_Shared/EditAssignedUsersModal/EditAssignedUserModal';
 
@@ -76,20 +76,6 @@ export const ListView = ({ language }: { language: Locale }) => {
       ),
     },
     {
-      title: `${dict.table.assets.columns.specifications}`,
-      dataIndex: 'specifications',
-      key: 'specifications',
-      render: (specifications: any) => (
-        <>
-          {Object.keys(specifications).map((key) => (
-            <p key={key}>
-              <strong>{key}:</strong> {specifications[key]}
-            </p>
-          ))}
-        </>
-      ),
-    },
-    {
       title: `${dict.table.assets.columns.company}`,
       dataIndex: 'companyId',
       key: 'companyId',
@@ -118,15 +104,6 @@ export const ListView = ({ language }: { language: Locale }) => {
       key: 'action',
       render: (text: string, record: Asset) => (
         <Space size="middle" direction="vertical" align="center">
-          <Tooltip title="download">
-            <Button
-              type="primary"
-              icon={<DownloadOutlined />}
-              size={'middle'}
-              // onClick={() => generateWorkorderPdf(record)}
-            />
-          </Tooltip>
-
           <Space.Compact direction="vertical">
             <Button
               type="primary"
