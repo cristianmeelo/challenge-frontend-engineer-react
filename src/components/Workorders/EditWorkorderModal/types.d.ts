@@ -1,16 +1,15 @@
 type EditWorkorderModalProps = {
-  title: string;
   isOpen: boolean;
+  value?: Workorder;
+  title: string;
   okText: string;
   cancelText: string;
-  onCancel: () => void;
-  onConfirm: (editedTitle: string, editedDescription: string) => void;
-  value?: Workorder;
-  onChange: any; // #TODO
-  workorder: Workorder | undefined;
-  handleAssetMenuClick: (asset: Asset) => void;
-  onPriorityChange: (priority: Priority) => void;
   language: Locale;
+  onCancel: () => void;
+  onOk: () => void;
+  onChange: (field: WorkOrderField, values: string) => void;
+  selectAsset: (asset: Asset) => void;
+  selectPriority: (priority: Priority) => void;
 };
 
 type WorkOrderField = 'title' | 'description';

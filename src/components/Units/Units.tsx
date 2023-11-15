@@ -2,30 +2,27 @@ import { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
+import { useUnitsContext } from '@/hooks';
 import { BreadcrumbBasic as Breadcrumb } from '@/components';
-import { EditUnitModal } from './EditUnitModal/EditUnitModal';
-import { UnitsList } from './UnitsList/UnitsList';
-import { useCompaniesContext, useUnitsContext } from '@/hooks';
+import { UnitsList, EditUnitModal } from '@/components/Units';
 
 export const Units: React.FC<ViewProps> = ({ language }) => {
-  const { handleUpdateUnit, setUnitsData } = useUnitsContext();
-  const { companiesData } = useCompaniesContext();
-
   const dict = getLanguageUseClient(language);
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [editingUnit, setEditingUnit] = useState<Unit>();
+  const { handleUpdateUnit, setUnitsData } = useUnitsContext();
 
   const handleEditClick = (unit: Unit) => {
     setIsEditing(true);
     setEditingUnit({ ...unit });
   };
 
-  const handleEditModalCancel = () => {
+  const onCancel: VoidFunction = () => {
     setIsEditing(false);
     setEditingUnit(undefined);
   };
 
-  const handleEditModalConfirm = () => {
+  const onOk: VoidFunction = () => {
     handleUpdateUnit(editingUnit, setUnitsData);
     setIsEditing(false);
   };
@@ -33,28 +30,26 @@ export const Units: React.FC<ViewProps> = ({ language }) => {
   return (
     <>
       <Breadcrumb content={dict.sidebar.icon_3} />
-
       <UnitsList onEdit={handleEditClick} />
-
       <EditUnitModal
         isOpen={isEditing}
-        onCancel={handleEditModalCancel}
-        onConfirm={handleEditModalConfirm}
         value={editingUnit}
         title={dict.modal.edit.unit}
         okText={dict.button.confirm}
         cancelText={dict.button.cancel}
+        onCancel={onCancel}
+        onOk={onOk}
         language={language}
-        handleMenuClick={(company: Company) => {
-          setEditingUnit((prev) => ({
-            ...prev!,
-            companyId: company.id,
-          }));
-        }}
         onChange={(e) => {
           setEditingUnit((prev) => ({
             ...prev!,
             name: e.target.value,
+          }));
+        }}
+        selectCompany={(company: Company) => {
+          setEditingUnit((prev) => ({
+            ...prev!,
+            companyId: company.id,
           }));
         }}
       />

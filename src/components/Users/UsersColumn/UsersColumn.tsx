@@ -1,38 +1,30 @@
-import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
 import { Space } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
-
-import { generateUnitFilters, getCompanyName, getUnitName } from '@/functions';
-import { useCompaniesContext, useUnitsContext, useUsersContext } from '@/hooks';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
+import { useCompaniesContext, useUnitsContext } from '@/hooks';
+import { generateUnitFilters, getCompanyName, getUnitName } from '@/functions';
 
-export const ListView = ({
-  language,
-  handleEditClick,
-}: {
-  language: Locale;
-  handleEditClick: (record: User) => void;
-}) => {
+export const UsersColumn = (
+  language: Locale,
+  handleEditClick: (record: User) => void
+): Array<any> => {
   const dict = getLanguageUseClient(language);
-  const { usersData } = useUsersContext();
   const { companiesData } = useCompaniesContext();
   const { unitsData } = useUnitsContext();
-
   const unitsFilters = generateUnitFilters(unitsData);
 
-  const columns: ColumnsType<any> = [
+  return [
     {
       title: `${dict.table.users.columns.name}`,
       dataIndex: 'name',
       key: 'name',
-      sorter: (a, b) => a.name - b.name,
+      sorter: (a: { name: number }, b: { name: number }) => a.name - b.name,
     },
     {
       title: `${dict.table.users.columns.email}`,
       dataIndex: 'email',
       key: 'email',
-      sorter: (a, b) => a.name - b.name,
+      sorter: (a: { name: number }, b: { name: number }) => a.name - b.name,
     },
     {
       title: `${dict.table.users.columns.company}`,
@@ -59,14 +51,4 @@ export const ListView = ({
       ),
     },
   ];
-
-  return (
-    <Table
-      dataSource={usersData}
-      columns={columns}
-      bordered
-      title={() => `${dict.table.users.title}`}
-      pagination={{ pageSize: 10 }}
-    />
-  );
 };

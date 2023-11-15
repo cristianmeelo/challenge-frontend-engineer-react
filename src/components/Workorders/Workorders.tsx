@@ -1,74 +1,54 @@
 import { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
-import { Table } from 'antd';
 import { CheckboxValueType } from 'antd/es/checkbox/Group';
 
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
-import { BreadcrumbBasic as Breadcrumb } from '@/components';
-import { useAssetsContext, useUsersContext, useWorkordersContext } from '@/hooks';
-
-import { ChecklistModal } from './ChecklistModal/ChecklistModal';
-import { EditWorkorderModal } from './EditWorkorderModal/EditWorkorderModal';
-import { EditAssignedUsersModal } from '../_Shared/EditAssignedUsersModal/EditAssignedUserModal';
-import { getColumns } from './WorkordersColumn/WorkordersColumn';
+import { useWorkordersContext } from '@/hooks';
+import { BreadcrumbBasic as Breadcrumb, EditAssignedUsersModal } from '@/components';
+import { ChecklistModal, EditWorkorderModal, WorkordersTable } from '@/components/Workorders';
 
 export const Workorders: React.FC<ViewProps> = ({ language }) => {
   const dict = getLanguageUseClient(language);
-  const { workordersData, handleUpdateWorkorder, setWorkordersData } = useWorkordersContext();
-  const { assetsData } = useAssetsContext();
-  const { usersData } = useUsersContext();
+  const { handleUpdateWorkorder, setWorkordersData } = useWorkordersContext();
 
   const [isEditing, setIsEditing] = useState<boolean>(false);
-  const [isEditingAssigned, setIsEditingAssigned] = useState<boolean>(false);
   const [isSeeing, setIsSeeing] = useState<boolean>(false);
   const [editingWorkorder, setEditingWorkorder] = useState<Workorder>();
+  const [isEditingAssigned, setIsEditingAssigned] = useState<boolean>(false);
 
   const handleEditClick = (workorder: Workorder) => {
     setIsEditing(true);
     setEditingWorkorder({ ...workorder });
   };
-
   const handleEditAssignedUserClick = (workorder: Workorder) => {
     setIsEditingAssigned(true);
     setEditingWorkorder({ ...workorder });
   };
-  const handleEditAssignedUserModalCancel = () => {
+  const handleEditAssignedUserModalCancel: VoidFunction = () => {
     setIsEditingAssigned(false);
   };
-
-  const handleEditModalCancel = () => {
+  const handleEditModalCancel: VoidFunction = () => {
     setIsEditing(false);
   };
-
   const handleSeeClick = (workorder: Workorder) => {
     setIsSeeing(true);
     setEditingWorkorder({ ...workorder });
   };
-
-  const handleSeeModalCancel = () => {
+  const handleSeeModalCancel: VoidFunction = () => {
     setIsSeeing(false);
   };
 
-  const handleSeeModalConfirm = () => {
+  const handleSeeModalConfirm: VoidFunction = () => {
     handleUpdateWorkorder(editingWorkorder, setWorkordersData);
     setIsSeeing(false);
   };
 
-  const handleEditModalConfirm = () => {
+  const handleEditModalConfirm: VoidFunction = () => {
     handleUpdateWorkorder(editingWorkorder, setWorkordersData);
     setIsEditing(false);
   };
 
-  const columns = getColumns(
-    assetsData,
-    usersData,
-    handleSeeClick,
-    handleEditClick,
-    handleEditAssignedUserClick,
-    language
-  );
-
-  const handleEditAssignedUsersConfirm = () => {
+  const handleEditAssignedUsersConfirm: VoidFunction = () => {
     handleUpdateWorkorder(editingWorkorder, setWorkordersData);
     setIsEditingAssigned(false);
   };
@@ -76,13 +56,12 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
   return (
     <>
       <Breadcrumb content={dict.sidebar.icon_5} />
-      <Table
-        dataSource={workordersData}
-        columns={columns}
-        bordered
-        title={() => `${dict.table.workorders.title}`}
+      <WorkordersTable
+        language={language}
+        handleEditClick={handleEditClick}
+        handleSeeClick={handleSeeClick}
+        handleEditAssignedUserClick={handleEditAssignedUserClick}
       />
-
       <ChecklistModal
         isOpen={isSeeing}
         title={editingWorkorder?.title}
@@ -100,30 +79,29 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
 
       <EditWorkorderModal
         isOpen={isEditing}
+        value={editingWorkorder}
         title={`${dict.modal.edit.workorder}`}
         okText={`${dict.button.confirm}`}
         cancelText={`${dict.button.cancel}`}
-        value={editingWorkorder}
+        language={language}
         onCancel={handleEditModalCancel}
-        onConfirm={handleEditModalConfirm}
-        workorder={editingWorkorder}
-        handleAssetMenuClick={(asset: Asset) => {
-          setEditingWorkorder((prev) => ({
-            ...prev!,
-            assetId: asset.id,
-          }));
-        }}
+        onOk={handleEditModalConfirm}
         onChange={(field: WorkOrderField, value: string) =>
           setEditingWorkorder((prev) => {
             return { ...prev!, [field]: value };
           })
         }
-        onPriorityChange={(priority: Priority) => {
+        selectAsset={(asset: Asset) => {
+          setEditingWorkorder((prev) => ({
+            ...prev!,
+            assetId: asset.id,
+          }));
+        }}
+        selectPriority={(priority: Priority) => {
           setEditingWorkorder((prev) => {
             return { ...prev!, priority: priority };
           });
         }}
-        language={language}
       />
 
       <EditAssignedUsersModal

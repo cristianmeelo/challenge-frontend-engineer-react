@@ -6,25 +6,24 @@ import { useCompaniesContext, useUnitsContext } from '@/hooks';
 
 export const EditUserModal: React.FC<EditUsertModalProps> = ({
   isOpen,
+  value,
   title,
   okText,
   cancelText,
-  onCancel,
-  onConfirm,
-  value,
-  onChange,
-  handleMenuClick,
-  handleUnitMenuClicked,
   language,
+  onCancel,
+  onOk,
+  onChange,
+  selectCompany,
+  selectUnit,
 }) => {
   const dict = getLanguageUseClient(language);
-
   const { companiesData } = useCompaniesContext();
   const { unitsData } = useUnitsContext();
   const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
   const [selectedUnit, setSelectedUnit] = useState<Unit | null>(null);
 
-  const companiesMenu = (
+  const companiesOptions = (
     <Menu>
       {companiesData.map((company) => (
         <Menu.Item key={company.id} onClick={() => handleCompanyMenuClick(company)}>
@@ -34,7 +33,7 @@ export const EditUserModal: React.FC<EditUsertModalProps> = ({
     </Menu>
   );
 
-  const unitsMenu = (
+  const unitsOptions = (
     <Menu>
       {selectedCompany &&
         unitsData
@@ -52,14 +51,14 @@ export const EditUserModal: React.FC<EditUsertModalProps> = ({
   };
 
   const handleCompanyMenuClick = (company: Company) => {
+    selectCompany(company);
     setSelectedCompany(company);
     setSelectedUnit(null);
-    handleMenuClick(company);
   };
 
   const handleUnitMenuClick = (unit: Unit) => {
+    selectUnit(unit);
     setSelectedUnit(unit);
-    handleUnitMenuClicked(unit);
   };
 
   const handleModalCancel = () => {
@@ -68,7 +67,7 @@ export const EditUserModal: React.FC<EditUsertModalProps> = ({
     setSelectedCompany(null);
   };
   const handleModalConfirm = () => {
-    onConfirm();
+    onOk();
     setSelectedUnit(null);
     setSelectedCompany(null);
   };
@@ -86,14 +85,14 @@ export const EditUserModal: React.FC<EditUsertModalProps> = ({
         <Input value={value?.name} onChange={(e) => handleChange('name', e)} />
         <Input value={value?.email} onChange={(e) => handleChange('email', e)} />
 
-        <Dropdown overlay={companiesMenu} placement="bottomRight" trigger={['click']}>
+        <Dropdown overlay={companiesOptions} placement="bottomRight" trigger={['click']}>
           <Button>
             {selectedCompany ? selectedCompany.name : dict.dropdown.change_company} <ShopOutlined />
           </Button>
         </Dropdown>
 
         {selectedCompany && (
-          <Dropdown overlay={unitsMenu} placement="bottomRight" trigger={['click']}>
+          <Dropdown overlay={unitsOptions} placement="bottomRight" trigger={['click']}>
             <Button>
               {selectedUnit ? selectedUnit.name : dict.dropdown.change_unit} <SisternodeOutlined />
             </Button>

@@ -11,22 +11,21 @@ export const EditUnitModal: React.FC<EditUnitModalProps> = ({
   cancelText,
   language,
   onCancel,
-  onConfirm,
+  onOk,
   onChange,
-  handleMenuClick,
+  selectCompany,
 }) => {
+  const dict = getLanguageUseClient(language);
   const { companiesData } = useCompaniesContext();
-  const menu = (
+  const companiesOptions = (
     <Menu>
       {companiesData.map((company) => (
-        <Menu.Item key={company.id} onClick={() => handleMenuClick(company)}>
+        <Menu.Item key={company.id} onClick={() => selectCompany(company)}>
           {company.name}
         </Menu.Item>
       ))}
     </Menu>
   );
-
-  const dict = getLanguageUseClient(language);
 
   return (
     <Modal
@@ -35,12 +34,11 @@ export const EditUnitModal: React.FC<EditUnitModalProps> = ({
       okText={okText}
       cancelText={cancelText}
       onCancel={onCancel}
-      onOk={onConfirm}
+      onOk={onOk}
     >
       <Space direction="vertical" size={16}>
         <Input value={value?.name} onChange={onChange} />
-
-        <Dropdown overlay={menu} placement="bottomRight" trigger={['click']}>
+        <Dropdown overlay={companiesOptions} placement="bottomRight" trigger={['click']}>
           <Button>
             {dict.dropdown.change_company} <ShopOutlined />
           </Button>
