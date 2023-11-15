@@ -7,10 +7,10 @@ import {
   UserSwitchOutlined,
   DownloadOutlined,
 } from '@ant-design/icons';
-
-import { getAssetName, getUserName } from '@/functions';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { generateWorkorderPdf } from '@/utils/generateWorkorderPDF/generateWorkorderPDF';
+import { useAssetsContext, useUsersContext } from '@/hooks';
+import { getAssetName, getUserName } from '@/functions';
 
 const getStatusMap = (): {
   [key in WorkOrderStatus]: { icon: React.ReactNode; text: string };
@@ -33,16 +33,17 @@ const getPriorityTagMap = (): { [key: string]: React.ReactNode } => {
 };
 
 export const WorkordersColumn = (
-  assetsData: Asset[],
-  usersData: User[],
+  language: Locale,
   handleSeeClick: (record: Workorder) => void,
   handleEditClick: (record: Workorder) => void,
-  handleEditAssignedUserClick: (record: Workorder) => void,
-  language: Locale
+  handleEditAssignedUserClick: (record: Workorder) => void
 ): Array<any> => {
+  const dict = getLanguageUseClient(language);
+  const { usersData } = useUsersContext();
+  const { assetsData } = useAssetsContext();
+
   const statusMap = getStatusMap();
   const priorityTagMap = getPriorityTagMap();
-  const dict = getLanguageUseClient(language);
 
   return [
     {

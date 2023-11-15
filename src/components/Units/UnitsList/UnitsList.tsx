@@ -1,10 +1,9 @@
 import { List } from 'antd';
 import { UnitListItem } from '../UnitsListItem/UnitsListItem';
-import { useCompaniesContext, useRandomAvatar, useUnitsContext } from '@/hooks';
+import { useRandomAvatar, useUnitsContext } from '@/hooks';
 
 export const UnitsList: React.FC<unitsListProps> = ({ onEdit }) => {
-  const { unitsData, isLoading } = useUnitsContext();
-  const { companiesData } = useCompaniesContext();
+  const { unitsData } = useUnitsContext();
   const { randomAvatar } = useRandomAvatar();
 
   return (

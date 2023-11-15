@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Space } from 'antd';
-import { useAssetsContext } from '@/hooks';
 
-import { AssetCard } from '../AssetCard/AssetCard';
-import { SearchBasic } from '@/components/_Base/SearchBasic/SearchBasic';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
+import { useAssetsContext } from '@/hooks';
+import { SearchBasic } from '@/components/_Base/SearchBasic/SearchBasic';
+import { AssetCard } from '@/components/Assets';
 
-export const GridView = ({ language }: { language: Locale }) => {
+export const AssetsCards = ({ language }: { language: Locale }) => {
   const dict = getLanguageUseClient(language);
 
   const [searchTerm, setSearchTerm] = useState<string>('');

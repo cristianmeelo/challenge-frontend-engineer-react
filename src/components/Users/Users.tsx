@@ -4,7 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { useUsersContext } from '@/hooks';
 import { BreadcrumbBasic as Breadcrumb } from '@/components';
-import { EditUserModal, ListView } from '@/components/Users';
+import { EditUserModal, UsersTable } from '@/components/Users';
 
 export const Users: React.FC<ViewProps> = ({ language }) => {
   const dict = getLanguageUseClient(language);
@@ -30,7 +30,7 @@ export const Users: React.FC<ViewProps> = ({ language }) => {
   return (
     <>
       <Breadcrumb content={dict.sidebar.icon_4} />
-      <ListView language={language} handleEditClick={handleEditClick} />
+      <UsersTable language={language} handleEditClick={handleEditClick} />
       <EditUserModal
         isOpen={isEditing}
         value={editingUser}

@@ -1,8 +1,6 @@
-import { useState } from 'react';
-import { ToastContainer } from 'react-toastify';
-import { CheckboxValueType } from 'antd/es/checkbox/Group';
-import { Button, Space, Table, Tag } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import { Button, Space, Tag } from 'antd';
+import { UserSwitchOutlined } from '@ant-design/icons';
+import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { useAssetsContext, useCompaniesContext, useUnitsContext, useUsersContext } from '@/hooks';
 import {
   generateModelFilters,
@@ -12,23 +10,20 @@ import {
   calculateStrokeColor,
   getColorByStatus,
 } from '@/functions';
-import { EyeOutlined, EditOutlined, UserSwitchOutlined } from '@ant-design/icons';
-import { getLanguageUseClient } from '@/languages/default-languages-use-client';
-import { EditAssignedUsersModal } from '@/components/_Shared/EditAssignedUsersModal/EditAssignedUserModal';
 
-export const ListView = ({ language }: { language: Locale }) => {
+export const AssetsColumn = (
+  language: Locale,
+  handleEditAssignedUserClick: (record: Asset) => void
+): Array<any> => {
   const dict = getLanguageUseClient(language);
-  const { usersData } = useUsersContext();
-  const { assetsData, handleUpdateAsset, setAssetsData } = useAssetsContext();
   const { companiesData } = useCompaniesContext();
   const { unitsData } = useUnitsContext();
+  const { usersData } = useUsersContext();
+  const { assetsData } = useAssetsContext();
 
   const modelFilters = generateModelFilters(assetsData);
 
-  const [isEditingAssigned, setIsEditingAssigned] = useState<boolean>(false);
-  const [editingAsset, setEditingAsset] = useState<Asset>();
-
-  const columns: ColumnsType<any> = [
+  return [
     {
       title: `${dict.table.assets.title}`,
       dataIndex: 'name',
@@ -86,7 +81,7 @@ export const ListView = ({ language }: { language: Locale }) => {
       dataIndex: 'unitId',
       key: 'unitId',
       render: (unitId: number) => getUnitName({ unitId }, unitsData),
-      sorter: (a, b) => a.unitId - b.unitId,
+      sorter: (a: { unitId: number }, b: { unitId: number }) => a.unitId - b.unitId,
     },
     {
       title: `${dict.table.assets.columns.assigned_user}`,
@@ -105,7 +100,7 @@ export const ListView = ({ language }: { language: Locale }) => {
       render: (text: string, record: Asset) => (
         <Space size="middle" direction="vertical" align="center">
           <Space.Compact direction="vertical">
-            <Button
+            {/* <Button
               type="primary"
               icon={<EyeOutlined />}
               // onClick={() => handleSeeClick(record)}
@@ -118,7 +113,7 @@ export const ListView = ({ language }: { language: Locale }) => {
               // onClick={() => handleEditClick(record)}
             >
               {dict.table.workorders.buttons.workorder}
-            </Button>
+            </Button> */}
             <Button
               type="dashed"
               danger
@@ -132,50 +127,4 @@ export const ListView = ({ language }: { language: Locale }) => {
       ),
     },
   ];
-
-  const handleEditAssignedUserModalCancel = () => {
-    setIsEditingAssigned(false);
-  };
-
-  const handleEditAssignedUsersConfirm = () => {
-    handleUpdateAsset(editingAsset, setAssetsData);
-    setIsEditingAssigned(false);
-  };
-
-  const handleEditAssignedUserClick = (asset: Asset) => {
-    setIsEditingAssigned(true);
-    setEditingAsset({ ...asset });
-  };
-
-  return (
-    <>
-      <Table
-        dataSource={assetsData}
-        columns={columns}
-        bordered
-        title={() => `${dict.table.workorders.title}`}
-        pagination={{ pageSize: 10 }}
-      />
-
-      <EditAssignedUsersModal
-        isOpen={isEditingAssigned}
-        title={`${editingAsset?.name} - ${dict.modal.assigned_users} `}
-        okText={`${dict.button.confirm}`}
-        cancelText={`${dict.button.cancel}`}
-        onCancel={handleEditAssignedUserModalCancel}
-        onConfirm={handleEditAssignedUsersConfirm}
-        data={{
-          assignedUserIds: editingAsset?.assignedUserIds || [],
-          type: 'asset',
-        }}
-        handleCheckboxChange={(checkedValues: CheckboxValueType[]) => {
-          setEditingAsset((prev: any) => {
-            return { ...prev!, assignedUserIds: checkedValues };
-          });
-        }}
-      />
-
-      <ToastContainer />
-    </>
-  );
 };

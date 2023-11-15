@@ -1,18 +1,14 @@
-import React, { useState } from 'react';
-import { BreadcrumbBasic as Breadcrumb } from '@/components';
+import { useState } from 'react';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
-
-import { TabsBasic } from '../_Base/TabsBasic/TabsBasic';
+import { BreadcrumbBasic as Breadcrumb, TabsBasic } from '@/components';
 
 export const Assets: React.FC<ViewProps> = ({ language }) => {
   const dict = getLanguageUseClient(language);
-
   const [activeTab, setActiveTab] = useState<tabsOptions>('list');
 
   return (
     <>
       <Breadcrumb content={dict.sidebar.icon_1} />
-
       <TabsBasic
         activeTab={activeTab}
         setActiveTab={(key) => setActiveTab(key)}

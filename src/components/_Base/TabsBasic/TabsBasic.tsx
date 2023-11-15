@@ -1,8 +1,7 @@
 import { Tabs } from 'antd';
 import { UnorderedListOutlined, AppstoreOutlined } from '@ant-design/icons';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
-import { ListView } from '../../Assets/ListView/ListView';
-import { GridView } from '../../Assets/GridView/GridView';
+import { AssetsTable, AssetsCards } from '@/components/Assets';
 
 export const TabsBasic = ({ activeTab, setActiveTab, language }: TabsBasicProps) => {
   const dict = getLanguageUseClient(language);
@@ -12,13 +11,13 @@ export const TabsBasic = ({ activeTab, setActiveTab, language }: TabsBasicProps)
       key: 'list',
       label: <>{dict.sidebar.icon_1_2}</>,
       icon: <UnorderedListOutlined />,
-      content: <ListView language={language} />,
+      content: <AssetsTable language={language} />,
     },
     {
       key: 'grid',
       label: <>{dict.sidebar.icon_1_1}</>,
       icon: <AppstoreOutlined />,
-      content: <GridView language={language} />,
+      content: <AssetsCards language={language} />,
     },
   ];
 
