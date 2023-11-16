@@ -3,15 +3,7 @@ import { ToastLoading, ToastSuccessful, ToastError } from '@/utils/notifications
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { getUnits, updateUnit } from '@/services/http';
 
-interface UnitsContextProps {
-  isLoading: boolean;
-  unitsData: Unit[];
-  setUnitsData: React.Dispatch<React.SetStateAction<Unit[]>>;
-  handleUpdateUnit: (
-    record: Unit | undefined,
-    setUnitsData: React.Dispatch<React.SetStateAction<Unit[]>>
-  ) => void;
-}
+
 
 const initialUnitsContext: UnitsContextProps = {
   isLoading: true,

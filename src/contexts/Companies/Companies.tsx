@@ -1,22 +1,9 @@
-/**
- * CompaniesContext é utilizado para fornecer informações sobre empresas
- * aos componentes da aplicação.
- */
-'use client';
 import { createContext, useEffect, useState } from 'react';
 import { ToastLoading, ToastSuccessful, ToastError } from '@/utils/notifications/notifications';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { getCompanies, updateCompany } from '@/services/http';
 
-interface CompaniesContextProps {
-  isLoading: boolean;
-  companiesData: Company[];
-  setCompaniesData: React.Dispatch<React.SetStateAction<Company[]>>;
-  handleUpdateCompany: (
-    record: Company | undefined,
-    setCompaniesData: React.Dispatch<React.SetStateAction<Company[]>>
-  ) => void;
-}
+
 
 const initialCompaniesContext: CompaniesContextProps = {
   isLoading: true,

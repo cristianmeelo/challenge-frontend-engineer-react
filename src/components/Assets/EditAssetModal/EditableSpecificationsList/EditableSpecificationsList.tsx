@@ -25,7 +25,7 @@ export const EditableSpecificationsList: React.FC<EditableSpecificationsListProp
   };
 
   useEffect(() => {
-    setEditingKey(null); 
+    setEditingKey(null);
   }, []);
 
   return (

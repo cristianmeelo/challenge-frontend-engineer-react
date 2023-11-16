@@ -3,15 +3,7 @@ import { ToastLoading, ToastSuccessful, ToastError } from '@/utils/notifications
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { getUsers, updateUser } from '@/services/http';
 
-interface UsersContextProps {
-  isLoading: boolean;
-  usersData: User[];
-  setUsersData: React.Dispatch<React.SetStateAction<User[]>>;
-  handleUpdateUser: (
-    record: User | undefined,
-    setUsersData: React.Dispatch<React.SetStateAction<User[]>>
-  ) => void;
-}
+
 
 const initialUsersContext: UsersContextProps = {
   isLoading: true,

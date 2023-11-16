@@ -3,15 +3,7 @@ import { ToastLoading, ToastSuccessful, ToastError } from '@/utils/notifications
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { getAssets, updateAsset } from '@/services/http';
 
-interface AssetsContextProps {
-  isLoading: boolean;
-  assetsData: Asset[];
-  setAssetsData: React.Dispatch<React.SetStateAction<Asset[]>>;
-  handleUpdateAsset: (
-    record: Asset | undefined,
-    setAssetsData: React.Dispatch<React.SetStateAction<Asset[]>>
-  ) => void;
-}
+
 
 const initialAssetsContext: AssetsContextProps = {
   isLoading: true,

@@ -3,15 +3,7 @@ import { ToastLoading, ToastSuccessful, ToastError } from '@/utils/notifications
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { getWorkorders, updateWorkorder } from '@/services/http';
 
-interface WorkordersContextProps {
-  isLoading: boolean;
-  workordersData: Workorder[];
-  setWorkordersData: React.Dispatch<React.SetStateAction<Workorder[]>>;
-  handleUpdateWorkorder: (
-    record: Workorder | undefined,
-    setWorkordersData: React.Dispatch<React.SetStateAction<Workorder[]>>
-  ) => void;
-}
+
 
 const initialWorkordersContext: WorkordersContextProps = {
   isLoading: true,
