@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
-
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { useCompaniesContext } from '@/hooks';
 import { BreadcrumbBasic as Breadcrumb } from '@/components';
