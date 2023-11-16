@@ -1,4 +1,5 @@
 import { Space } from 'antd';
+import { ColumnProps } from 'antd/es/table';
 import { EditOutlined } from '@ant-design/icons';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { useCompaniesContext, useUnitsContext } from '@/hooks';
@@ -7,7 +8,7 @@ import { generateUnitFilters, getCompanyName, getUnitName } from '@/functions';
 export const UsersColumn = (
   language: Locale,
   handleEditClick: (record: User) => void
-): Array<any> => {
+): ColumnProps<User>[] => {
   const dict = getLanguageUseClient(language);
   const { companiesData } = useCompaniesContext();
   const { unitsData } = useUnitsContext();
@@ -18,13 +19,13 @@ export const UsersColumn = (
       title: `${dict.table.users.columns.name}`,
       dataIndex: 'name',
       key: 'name',
-      sorter: (a: { name: number }, b: { name: number }) => a.name - b.name,
+      sorter: (a: User, b: User) => a.name.localeCompare(b.name),
     },
     {
       title: `${dict.table.users.columns.email}`,
       dataIndex: 'email',
       key: 'email',
-      sorter: (a: { name: number }, b: { name: number }) => a.name - b.name,
+      sorter: (a: User, b: User) => a.email.localeCompare(b.email),
     },
     {
       title: `${dict.table.users.columns.company}`,
@@ -38,7 +39,7 @@ export const UsersColumn = (
       key: 'unitId',
       render: (unitId: number) => getUnitName({ unitId }, unitsData),
       filters: unitsFilters,
-      onFilter: (value: any, record: Asset) => record.unitId === value,
+      onFilter: (value: any, record: User) => record.unitId === value,
     },
     {
       title: `${dict.table.users.columns.action}`,

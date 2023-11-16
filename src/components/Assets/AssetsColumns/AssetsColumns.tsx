@@ -1,4 +1,5 @@
 import { Button, Space, Tag } from 'antd';
+import { ColumnProps } from 'antd/es/table';
 import { UserSwitchOutlined } from '@ant-design/icons';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { useAssetsContext, useCompaniesContext, useUnitsContext, useUsersContext } from '@/hooks';
@@ -14,7 +15,7 @@ import {
 export const AssetsColumn = (
   language: Locale,
   handleEditAssignedUserClick: (record: Asset) => void
-): Array<any> => {
+): ColumnProps<Asset>[] => {
   const dict = getLanguageUseClient(language);
   const { companiesData } = useCompaniesContext();
   const { unitsData } = useUnitsContext();
@@ -100,13 +101,7 @@ export const AssetsColumn = (
       render: (text: string, record: Asset) => (
         <Space size="middle" direction="vertical" align="center">
           <Space.Compact direction="vertical">
-            {/* <Button
-              type="primary"
-              icon={<EyeOutlined />}
-              // onClick={() => handleSeeClick(record)}
-            >
-              {dict.table.workorders.buttons.checklist}
-            </Button>
+            {/* 
             <Button
               type="default"
               icon={<EditOutlined />}

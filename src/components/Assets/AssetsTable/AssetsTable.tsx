@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import { Button, Space, Table, Tag } from 'antd';
-import { ToastContainer } from 'react-toastify';
+import {  Table, } from 'antd';
 import { CheckboxValueType } from 'antd/es/checkbox/Group';
+import { ToastContainer } from 'react-toastify';
 
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { useAssetsContext } from '@/hooks';
 import { EditAssignedUsersModal } from '@/components';
 import { AssetsColumn } from '@/components/Assets';
 
-export const AssetsTable = ({ language }: { language: Locale }) => {
+export const AssetsTable: React.FC<ViewProps> = ({ language }) => {
   const dict = getLanguageUseClient(language);
   const { assetsData, handleUpdateAsset, setAssetsData } = useAssetsContext();
   const [isEditingAssigned, setIsEditingAssigned] = useState<boolean>(false);

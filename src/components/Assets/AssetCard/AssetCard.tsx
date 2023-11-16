@@ -1,16 +1,14 @@
 import { useState } from 'react';
 import { Card, Button, Avatar, Space, Tabs, Divider } from 'antd';
 import { PlusOutlined, MinusOutlined } from '@ant-design/icons';
-import { renderModelBadge } from '@/functions';
-import { AssetDescriptions } from '../AssetDescriptions/AssetDescriptions';
-import { TimelineChart } from '../TimelineChart/TimelineChart';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
+import { renderModelBadge } from '@/functions';
+import { AssetDescriptions, TimelineChart } from '@/components/Assets';
 
 const { TabPane } = Tabs;
 
-export const AssetCard = ({ asset, language }: { asset: Asset; language: Locale }) => {
+export const AssetCard: React.FC<AssetCardProps> = ({ asset, language }) => {
   const dict = getLanguageUseClient(language);
-
   const [showDetails, setShowDetails] = useState(false);
 
   const toggleDetails = () => {

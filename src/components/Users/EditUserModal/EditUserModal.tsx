@@ -4,7 +4,7 @@ import { ShopOutlined, SisternodeOutlined } from '@ant-design/icons';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { useCompaniesContext, useUnitsContext } from '@/hooks';
 
-export const EditUserModal: React.FC<EditUsertModalProps> = ({
+export const EditUserModal: React.FC<EditUserModalProps> = ({
   isOpen,
   value,
   title,

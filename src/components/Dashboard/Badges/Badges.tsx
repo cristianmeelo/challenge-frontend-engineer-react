@@ -4,7 +4,6 @@ import { countAssetStatus, getColorByStatus } from '@/functions';
 
 export const StatusTags = () => {
   const { assetsData } = useAssetsContext();
-
   const statusCounts = countAssetStatus(assetsData);
 
   return (

@@ -3,11 +3,11 @@ import { ClockCircleOutlined } from '@ant-design/icons';
 import type { DescriptionsProps } from 'antd';
 import moment from 'moment';
 
-import { getCompanyName, getUnitName, calculateStrokeColor, getColorByStatus } from '@/functions';
-import { useUsersContext, useUnitsContext, useCompaniesContext } from '@/hooks';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
-import { AssignedUsersList } from '../AssignedUsersList/AssignedUsersList';
-import { SpecificationsList } from '../SpecificationsList/SpecificationsList';
+import { useUsersContext, useUnitsContext, useCompaniesContext } from '@/hooks';
+import { getCompanyName, getUnitName, calculateStrokeColor, getColorByStatus } from '@/functions';
+import { AssignedUsersList, SpecificationsList } from '@/components/Assets';
+
 
 export const AssetDescriptions: React.FC<AssetDescriptionsProps> = ({ asset, language }) => {
   const { usersData } = useUsersContext();
