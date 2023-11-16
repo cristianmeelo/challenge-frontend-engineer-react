@@ -9,3 +9,4 @@ export * from './renderModelBadge/renderModelBadge';
 export * from './calculateStrokeColor/calculateStrokeColor';
 export * from './countAssetStatus/countAssetStatus';
 export * from './mapLanguageToMomentLocale/mapLanguageToMomentLocale';
+export * from './countTotalSensors/countTotalSensors';

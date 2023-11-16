@@ -1,30 +1,14 @@
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import { Col, Row } from 'antd';
-import { useAssetsContext } from '@/hooks';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
+import { useAssetsContext } from '@/hooks';
+import { countTotalSensors } from '@/functions';
 
 export const SensorChart = ({ language }: { language: Locale }) => {
   const dict = getLanguageUseClient(language);
   const { assetsData } = useAssetsContext();
-
-  const countTotalSensors = () => {
-    const sensorCounts: Record<string, number> = {};
-
-    assetsData.forEach((asset: AssetSensors) => {
-      asset.sensors.forEach((sensorModel: string) => {
-        if (sensorCounts[sensorModel]) {
-          sensorCounts[sensorModel]++;
-        } else {
-          sensorCounts[sensorModel] = 1;
-        }
-      });
-    });
-
-    return sensorCounts;
-  };
-
-  const sensorData = countTotalSensors();
+  const sensorData = countTotalSensors(assetsData);
 
   const options: Highcharts.Options = {
     chart: {

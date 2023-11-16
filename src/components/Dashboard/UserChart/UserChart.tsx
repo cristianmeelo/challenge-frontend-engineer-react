@@ -2,13 +2,11 @@ import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import { Col, Row } from 'antd';
 import { green, volcano } from '@ant-design/colors';
-
-import { useAssetsContext, useUsersContext } from '@/hooks';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
+import { useAssetsContext, useUsersContext } from '@/hooks';
 
-export const UserChart = ({ language }: { language: Locale }) => {
+export const UserChart: React.FC<ViewProps>  = ({ language }) => {
   const dict = getLanguageUseClient(language);
-
   const { usersData } = useUsersContext();
   const { assetsData } = useAssetsContext();
 

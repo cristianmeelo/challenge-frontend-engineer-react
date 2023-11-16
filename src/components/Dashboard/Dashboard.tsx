@@ -1,10 +1,7 @@
 import { BreadcrumbBasic as Breadcrumb } from '@/components';
 import { Col, Divider, Row, Typography } from 'antd';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
-import { SensorChart } from './SensorChart/SensorChart';
-import { UserChart } from './UserChart/UserChart';
-import { AssetStatusChart } from './StatusChart/StatusChart';
-import { StatusTags } from './Badges/Badges';
+import { SensorChart,AssetStatusChart,StatusTags,UserChart } from '@/components/Dashboard';
 
 export const Dashboard: React.FC<ViewProps> = ({ language }) => {
   const dict = getLanguageUseClient(language);
