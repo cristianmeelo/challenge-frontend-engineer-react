@@ -41,6 +41,8 @@ export const enUS = {
   button: {
     confirm: 'Confirm',
     cancel: 'Cancel',
+    save: 'Save',
+    edit: 'Edit',
   },
 
   table: {

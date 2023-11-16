@@ -62,6 +62,12 @@ type EditAssetModalProps = {
   selectModel: (asset: Asset) => void;
 
   /**
+   * A callback function to handle changes in the asset specifications.
+   * @param specificationsList - The updated specifications list after editing.
+   */
+  handleSpecificationsChange: (specificationsList: Record<string, any>) => void;
+
+  /**
    * A callback function to select a company associated with the asset.
    * @param company - The company object to be selected.
    */
@@ -76,6 +82,6 @@ type EditAssetModalProps = {
 
 /**
  * Represents the fields that can be edited for an asset.
- * Can be 'name".
+ * Can be "name" or "sensors".
  */
 type AssetField = 'name' | 'sensors';

@@ -41,6 +41,8 @@ export const esMX = {
   button: {
     confirm: 'Confirmar',
     cancel: 'Cancelar',
+    save: 'Guardar',
+    edit: 'Editar',
   },
 
   table: {

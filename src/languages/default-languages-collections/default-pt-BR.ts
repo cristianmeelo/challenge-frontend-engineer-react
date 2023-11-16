@@ -41,6 +41,8 @@ export const ptBR = {
   button: {
     confirm: 'Confirmar',
     cancel: 'Cancelar',
+    save: 'Salvar',
+    edit: 'Editar',
   },
 
   dropdown: {

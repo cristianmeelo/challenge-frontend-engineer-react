@@ -1,19 +1,10 @@
-import { useEffect, useState } from 'react';
-import {
-  Modal,
-  Input,
-  Menu,
-  Dropdown,
-  Button,
-  Space,
-  Radio,
-  RadioChangeEvent,
-  Checkbox,
-} from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Modal, Input, Menu, Dropdown, Button, Space, RadioChangeEvent, Checkbox } from 'antd';
 import { CheckboxValueType } from 'antd/es/checkbox/Group';
 import { AppstoreOutlined, ShopOutlined, SisternodeOutlined } from '@ant-design/icons';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { useAssetsContext, useCompaniesContext, useUnitsContext } from '@/hooks';
+import { EditableSpecificationsList } from './EditableSpecificationsList/EditableSpecificationsList';
 
 export const EditAssetModal: React.FC<EditAssetModalProps> = ({
   isOpen,
@@ -25,6 +16,7 @@ export const EditAssetModal: React.FC<EditAssetModalProps> = ({
   onCancel,
   onOk,
   onChange,
+  handleSpecificationsChange,
   handleCheckboxChange,
   selectModel,
   selectCompany,
@@ -39,6 +31,9 @@ export const EditAssetModal: React.FC<EditAssetModalProps> = ({
   const [selectedSensors, setSelectedSensors] = useState<CheckboxValueType[]>(value?.sensors || []);
   const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
   const [selectedUnit, setSelectedUnit] = useState<Unit | null>(null);
+  const [editingSpecifications, setEditingSpecifications] = useState<Record<string, any>>(
+    value?.specifications || {}
+  );
 
   const modelsOptions = (
     <Menu>
@@ -109,9 +104,15 @@ export const EditAssetModal: React.FC<EditAssetModalProps> = ({
     handleCheckboxChange(checkedValues);
   };
 
+  const handleSpecificationsEdit = (updatedSpecs: Record<string, any>) => {
+    setEditingSpecifications(updatedSpecs);
+    handleSpecificationsChange(updatedSpecs);
+  };
+
   useEffect(() => {
     setSelectedSensors(value?.sensors || []);
-  }, [value?.sensors]);
+    setEditingSpecifications(value?.specifications || {});
+  }, [value?.sensors, value?.specifications]);
 
   return (
     <Modal
@@ -134,6 +135,12 @@ export const EditAssetModal: React.FC<EditAssetModalProps> = ({
           options={assetsData.flatMap((asset) => asset.sensors)}
           value={selectedSensors}
           onChange={handleCheckboxChangeFn}
+        />
+
+        <EditableSpecificationsList
+          language={language}
+          specifications={editingSpecifications}
+          onSpecificationsChange={handleSpecificationsEdit}
         />
 
         <Dropdown overlay={companiesOptions} placement="bottomRight" trigger={['click']}>

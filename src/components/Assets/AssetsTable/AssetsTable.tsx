@@ -86,16 +86,21 @@ export const AssetsTable: React.FC<ViewProps> = ({ language }) => {
             return { ...prev!, [field]: value };
           })
         }
-        handleCheckboxChange={(checkedValues: CheckboxValueType[]) => {
-          setEditingAsset((prev: any) => {
-            return { ...prev!, sensors: checkedValues };
-          });
-        }}
         selectModel={(asset: Asset) => {
           setEditingAsset((prev) => ({
             ...prev!,
             assetId: asset.model,
           }));
+        }}
+        handleCheckboxChange={(checkedValues: CheckboxValueType[]) => {
+          setEditingAsset((prev: any) => {
+            return { ...prev!, sensors: checkedValues };
+          });
+        }}
+        handleSpecificationsChange={(specificationsList: Record<string, any>) => {
+          setEditingAsset((prev: any) => {
+            return { ...prev!, specifications: specificationsList };
+          });
         }}
         selectCompany={(company: Company) => {
           setEditingAsset((prev) => ({
