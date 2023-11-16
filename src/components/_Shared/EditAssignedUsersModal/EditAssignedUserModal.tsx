@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Modal, Checkbox, Space } from 'antd';
 import { CheckboxValueType } from 'antd/es/checkbox/Group';
 import { useUsersContext } from '@/hooks';

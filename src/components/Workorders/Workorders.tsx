@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { CheckboxValueType } from 'antd/es/checkbox/Group';
 
+import { EDIT_ASSIGNED_USER_MODAL_TYPES } from '@/enums';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { useWorkordersContext } from '@/hooks';
 import { BreadcrumbBasic as Breadcrumb, EditAssignedUsersModal } from '@/components';
@@ -113,7 +114,7 @@ export const Workorders: React.FC<ViewProps> = ({ language }) => {
         onConfirm={handleEditAssignedUsersConfirm}
         data={{
           assignedUserIds: editingWorkorder?.assignedUserIds || [],
-          type: 'workorder',
+          type: EDIT_ASSIGNED_USER_MODAL_TYPES.WORKORDER,
         }}
         handleCheckboxChange={(checkedValues: CheckboxValueType[]) => {
           setEditingWorkorder((prev: any) => {

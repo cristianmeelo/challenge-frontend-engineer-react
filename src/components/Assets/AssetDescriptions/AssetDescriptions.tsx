@@ -8,7 +8,6 @@ import { useUsersContext, useUnitsContext, useCompaniesContext } from '@/hooks';
 import { getCompanyName, getUnitName, calculateStrokeColor, getColorByStatus } from '@/functions';
 import { AssignedUsersList, SpecificationsList } from '@/components/Assets';
 
-
 export const AssetDescriptions: React.FC<AssetDescriptionsProps> = ({ asset, language }) => {
   const { usersData } = useUsersContext();
   const { unitsData } = useUnitsContext();

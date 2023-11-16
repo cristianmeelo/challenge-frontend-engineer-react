@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import {  Table, } from 'antd';
+import { Table } from 'antd';
 import { CheckboxValueType } from 'antd/es/checkbox/Group';
 import { ToastContainer } from 'react-toastify';
 
+import { EDIT_ASSIGNED_USER_MODAL_TYPES } from '@/enums';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { useAssetsContext } from '@/hooks';
 import { EditAssignedUsersModal } from '@/components';
@@ -48,7 +49,7 @@ export const AssetsTable: React.FC<ViewProps> = ({ language }) => {
         onConfirm={handleEditAssignedUsersConfirm}
         data={{
           assignedUserIds: editingAsset?.assignedUserIds || [],
-          type: 'asset',
+          type: EDIT_ASSIGNED_USER_MODAL_TYPES.ASSET,
         }}
         handleCheckboxChange={(checkedValues: CheckboxValueType[]) => {
           setEditingAsset((prev: any) => {

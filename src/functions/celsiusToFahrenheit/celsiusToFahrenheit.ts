@@ -6,10 +6,9 @@
  * @example
  * const temperatureInCelsius = 20;
  * const temperatureInFahrenheit = celsiusToFahrenheit(temperatureInCelsius);
- * console.log(temperatureInFahrenheit); 
+ * console.log(temperatureInFahrenheit);
  * // Output: 68
  */
 export const celsiusToFahrenheit = (celsius: number): number => {
-    return (celsius * 9) / 5 + 32;
-  };
-  
+  return (celsius * 9) / 5 + 32;
+};

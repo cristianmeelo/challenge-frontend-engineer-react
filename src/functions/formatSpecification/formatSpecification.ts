@@ -1,4 +1,4 @@
-import {celsiusToFahrenheit} from "@/functions"
+import { celsiusToFahrenheit } from '@/functions';
 
 /**
  * Formats a specification value based on its key and the specified language.
@@ -12,7 +12,7 @@ import {celsiusToFahrenheit} from "@/functions"
  * const specificationValue = 25;
  * const language = 'en-US';
  * const formattedSpecification = formatSpecification(specificationKey, specificationValue, language);
- * console.log(formattedSpecification); 
+ * console.log(formattedSpecification);
  * // Output: 77ºF
  */
 export const formatSpecification = (key: string, value: any, language: Locale): React.ReactNode => {
@@ -26,5 +26,3 @@ export const formatSpecification = (key: string, value: any, language: Locale): 
       return value;
   }
 };
-
-

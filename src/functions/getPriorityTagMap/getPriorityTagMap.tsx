@@ -1,4 +1,4 @@
-import { Tag } from "antd";
+import { Tag } from 'antd';
 
 /**
  * Generates a mapping between priority values and corresponding React elements (Tags).

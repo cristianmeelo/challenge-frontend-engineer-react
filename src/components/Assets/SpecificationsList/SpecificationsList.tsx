@@ -1,4 +1,4 @@
-import {  formatSpecification } from "@/functions";
+import { formatSpecification } from '@/functions';
 
 export const SpecificationsList: React.FC<SpecificationsListProps> = ({
   specifications,
@@ -14,7 +14,3 @@ export const SpecificationsList: React.FC<SpecificationsListProps> = ({
     </ul>
   );
 };
-
-
-
-

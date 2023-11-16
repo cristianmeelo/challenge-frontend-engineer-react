@@ -5,7 +5,10 @@ import { ClockCircleOutlined, CheckCircleOutlined } from '@ant-design/icons';
  *
  * @returns {Record<WorkOrderStatus, { icon: React.ReactNode; text: string }>} - An object mapping work order statuses to Icon components.
  */
-export const getWorkOrderStatusMap = (): Record<WorkOrderStatus, { icon: React.ReactNode; text: string }> => {
+export const getWorkOrderStatusMap = (): Record<
+  WorkOrderStatus,
+  { icon: React.ReactNode; text: string }
+> => {
   return {
     'in progress': {
       icon: <ClockCircleOutlined style={{ color: 'orange' }} />,

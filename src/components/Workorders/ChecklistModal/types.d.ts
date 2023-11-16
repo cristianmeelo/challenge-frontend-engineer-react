@@ -42,8 +42,5 @@ type ChecklistModalProps = {
    * @param updatedChecklist - The updated checklist items.
    * @param updatedStatus - The updated work order status.
    */
-  handleCheckboxChange: (
-    updatedChecklist: ChecklistItem[],
-    updatedStatus: WorkOrderStatus
-  ) => void;
+  handleCheckboxChange: (updatedChecklist: ChecklistItem[], updatedStatus: WorkOrderStatus) => void;
 };

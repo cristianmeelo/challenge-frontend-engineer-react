@@ -4,7 +4,7 @@ import { BreadcrumbBasic as Breadcrumb, TabsBasic } from '@/components';
 
 export const Assets: React.FC<ViewProps> = ({ language }) => {
   const dict = getLanguageUseClient(language);
-  const [activeTab, setActiveTab] = useState<tabsOptions>('list');
+  const [activeTab, setActiveTab] = useState<TabsOptions>('list');
 
   return (
     <>
