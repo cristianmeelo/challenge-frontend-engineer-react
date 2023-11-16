@@ -2,7 +2,7 @@ import { List } from 'antd';
 import { UnitListItem } from '../UnitsListItem/UnitsListItem';
 import { useRandomAvatar, useUnitsContext } from '@/hooks';
 
-export const UnitsList: React.FC<unitsListProps> = ({ onEdit }) => {
+export const UnitsList: React.FC<UnitsListProps> = ({ onEdit }) => {
   const { unitsData } = useUnitsContext();
   const { randomAvatar } = useRandomAvatar();
 

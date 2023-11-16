@@ -5,7 +5,7 @@ import { green, volcano } from '@ant-design/colors';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { useAssetsContext, useUsersContext } from '@/hooks';
 
-export const UserChart: React.FC<ViewProps>  = ({ language }) => {
+export const UserChart: React.FC<ViewProps> = ({ language }) => {
   const dict = getLanguageUseClient(language);
   const { usersData } = useUsersContext();
   const { assetsData } = useAssetsContext();

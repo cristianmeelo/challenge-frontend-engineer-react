@@ -1,13 +1,22 @@
 /**
  * Get color based on the status of an asset.
  *
- * @param {AssetStatus} status - The status of the asset (e.g., 'inOperation', 'inDowntime', 'inAlert', 'unplannedStop').
- * @returns {string} - The corresponding color for the given status.
+ * @param status - The status of the asset (e.g., 'inOperation', 'inDowntime', 'inAlert', 'unplannedStop').
+ * @returns The corresponding color for the given status.
+ *
+ * @example
+ * const assetStatus = 'inOperation';
+ * const color = getColorByStatus(assetStatus);
+ * console.log(color);
+ * // Output: '#87d068' (green[5] from Ant Design color palette)
  */
-
 import { red, green, orange, yellow, volcano, gray, purple } from '@ant-design/colors';
 
-export const getColorByStatus = (status: AssetStatus) => {
+export const getColorByStatus = (status: AssetStatus): string => {
+  /**
+   * The corresponding color for the given asset status.
+   * @type {string}
+   */
   switch (status) {
     case 'inOperation':
       return green[5];

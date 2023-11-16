@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Layout, Menu, Typography, Space } from 'antd';
+import { Layout, Menu, Typography } from 'antd';
 import {
   ShopOutlined,
   FileOutlined,
@@ -11,8 +11,8 @@ import {
 import Image from 'next/image';
 
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
-import { getItem } from '@/functions';
 import { useRouterPush } from '@/hooks';
+import { createMenuItem } from '@/functions';
 import logo from '/public/logo-tractian.svg';
 
 export const Sider = ({ params }: { params: { lang: Locale } }) => {
@@ -23,12 +23,12 @@ export const Sider = ({ params }: { params: { lang: Locale } }) => {
   const { Text } = Typography;
 
   const items: MenuItem[] = [
-    getItem(`${dict.sidebar.icon_1}`, '/assets', <AppstoreOutlined />),
-    getItem(`${dict.sidebar.icon_2}`, '/companies', <ShopOutlined />),
-    getItem(`${dict.sidebar.icon_3}`, '/units', <SisternodeOutlined />),
-    getItem(`${dict.sidebar.icon_4}`, '/users', <TeamOutlined />),
-    getItem(`${dict.sidebar.icon_5}`, '/workorders', <FileOutlined />),
-    getItem(`${dict.sidebar.icon_6}`, '/dashboard', <DashboardOutlined />),
+    createMenuItem(`${dict.sidebar.icon_1}`, '/assets', <AppstoreOutlined />),
+    createMenuItem(`${dict.sidebar.icon_2}`, '/companies', <ShopOutlined />),
+    createMenuItem(`${dict.sidebar.icon_3}`, '/units', <SisternodeOutlined />),
+    createMenuItem(`${dict.sidebar.icon_4}`, '/users', <TeamOutlined />),
+    createMenuItem(`${dict.sidebar.icon_5}`, '/workorders', <FileOutlined />),
+    createMenuItem(`${dict.sidebar.icon_6}`, '/dashboard', <DashboardOutlined />),
   ];
 
   return (
