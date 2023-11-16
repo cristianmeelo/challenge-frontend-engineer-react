@@ -5,7 +5,6 @@ import moment from 'moment';
 import 'moment/min/locales';
 import { getColorByStatus, mapLanguageToMomentLocale } from '@/functions';
 
-
 export const TimelineChart = ({ asset, language }: TimelineChartProps) => {
   HighchartsTimeline(Highcharts);
 

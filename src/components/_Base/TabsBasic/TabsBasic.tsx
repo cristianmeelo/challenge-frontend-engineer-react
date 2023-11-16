@@ -24,7 +24,7 @@ export const TabsBasic = ({ activeTab, setActiveTab, language }: TabsBasicProps)
   return (
     <Tabs
       activeKey={activeTab}
-      onChange={(key) => setActiveTab(key as tabsOptions)}
+      onChange={(key) => setActiveTab(key as TabsOptions)}
       tabBarGutter={20}
       tabPosition="top"
     >

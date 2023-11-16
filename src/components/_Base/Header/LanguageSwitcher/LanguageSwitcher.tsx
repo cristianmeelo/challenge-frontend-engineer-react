@@ -1,8 +1,6 @@
-'use client';
-
-import type { MenuProps } from 'antd';
 import { Button, Dropdown } from 'antd';
 import { TranslationOutlined } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
 
 import { usePathname } from 'next/navigation';
 import { useRouterPush } from '@/hooks';
