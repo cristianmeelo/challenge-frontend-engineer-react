@@ -14,3 +14,4 @@ export * from './getPriorityTagMap/getPriorityTagMap';
 export * from './getWorkOrderStatusMap/getWorkOrderStatusMap';
 export * from './celsiusToFahrenheit/celsiusToFahrenheit';
 export * from './formatSpecification/formatSpecification';
+export * from './countTotalAssets/countTotalAssets';

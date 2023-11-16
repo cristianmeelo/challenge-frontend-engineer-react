@@ -41,6 +41,8 @@ export const ptBR = {
   button: {
     confirm: 'Confirmar',
     cancel: 'Cancelar',
+    save: 'Salvar',
+    edit: 'Editar',
   },
 
   dropdown: {
@@ -94,6 +96,10 @@ export const ptBR = {
         total_uptime: 'Total de Horas de Coletas',
         last_uptime_at: 'Data da Ultima Coleta',
       },
+      buttons: {
+        workorder: 'Editar Ativo',
+        users: 'Editar Usuários',
+      },
     },
   },
 
@@ -113,6 +119,7 @@ export const ptBR = {
       title: 'Distribuição Total de Sensores por Modelo',
       description:
         'O gráfico Distribuição Total de Sensores por Modelo oferece um insight valioso sobre a distribuição dos modelos de sensores em todos os ativos monitorados. Ao analisar a quantidade total de sensores para cada modelo, podemos identificar padrões e discrepâncias que podem impactar diretamente nas operações e na manutenção. Essa visualização proporciona uma compreensão rápida e clara das necessidades de sensorização, permitindo decisões estratégicas sobre aquisição e substituição de sensores. Este overview é crucial para otimizar a eficiência operacional e garantir que os ativos estejam equipados com os sensores adequados, contribuindo para uma gestão mais proativa e eficaz do parque industrial.',
+      tag: 'Total de sensores:',
 
       series: {
         a: 'Quantidade Total de Sensores',
@@ -122,6 +129,8 @@ export const ptBR = {
       title: 'Quantidade de Ativos por Usuários',
       description:
         'O gráfico Quantidade de Ativos por Usuário fornece insights valiosos sobre a distribuição de responsabilidades entre os usuários em relação aos ativos da empresa. Ao observar o gráfico, torna-se evidente quais usuários estão associados a um maior número de ativos, destacando aqueles com uma carga de trabalho mais substancial. Essa visualização é essencial para identificar possíveis ajustes na alocação de tarefas, permitindo uma análise clara de quem está mais envolvido nas operações.',
+      tag: 'Total de ativos:',
+
       y_axis: {
         a: 'Usuário',
         b: 'Quantidade de Ativos',

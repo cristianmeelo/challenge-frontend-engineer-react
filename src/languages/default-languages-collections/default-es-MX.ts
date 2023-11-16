@@ -41,6 +41,8 @@ export const esMX = {
   button: {
     confirm: 'Confirmar',
     cancel: 'Cancelar',
+    save: 'Guardar',
+    edit: 'Editar',
   },
 
   table: {
@@ -66,7 +68,6 @@ export const esMX = {
         assigned_users: 'Usuarios Designados',
         action: 'Acción',
       },
-
       buttons: {
         checklist: 'Ver Checklist',
         workorder: 'Editar Orden de Servicio',
@@ -88,6 +89,10 @@ export const esMX = {
         total_collects_uptime: 'Total Collections',
         total_uptime: 'Total Collection Hours',
         last_uptime_at: 'Last Collection Date',
+      },
+      buttons: {
+        workorder: 'Editar Activot',
+        users: 'Editar Usuarios',
       },
     },
   },
@@ -114,6 +119,7 @@ export const esMX = {
       title: 'Distribución Total de Sensores por Modelo',
       description:
         'El gráfico Distribución Total de Sensores por Modelo brinda información valiosa sobre la distribución de modelos de sensores en todos los activos monitoreados. Al analizar la cantidad total de sensores para cada modelo, podemos identificar patrones y discrepancias que pueden afectar directamente las operaciones y el mantenimiento. Esta visualización proporciona una comprensión rápida y clara de las necesidades de sensorización, permitiendo decisiones estratégicas sobre la adquisición y sustitución de sensores. Este resumen es crucial para optimizar la eficiencia operativa y garantizar que los activos estén equipados con los sensores adecuados, contribuyendo a una gestión más proactiva y eficaz del parque industrial.',
+      tag: 'Sensores totales:',
       series: {
         a: 'Cantidad Total de Sensores',
       },
@@ -122,6 +128,8 @@ export const esMX = {
       title: 'Cantidad de Activos por Usuario',
       description:
         'El gráfico de Cantidad de Activos por Usuario proporciona información valiosa sobre la distribución de responsabilidades entre los usuarios con respecto a los activos de la empresa. Observando el gráfico, se hace evidente qué usuarios están asociados con un mayor número de activos, destacando aquellos con una carga de trabajo más sustancial. Esta visualización es esencial para identificar posibles ajustes en la asignación de tareas, permitiendo un análisis claro de quién está más involucrado en las operaciones.',
+      tag: 'Activos totales:',
+
       y_axis: {
         a: 'Usuario',
         b: 'Cantidad de Activos',

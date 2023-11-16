@@ -14,6 +14,7 @@ export const AssetStatusChart = () => {
       plotShadow: false,
     },
     title: {
+      text: '',
       align: 'center',
       verticalAlign: 'middle',
       y: 60,

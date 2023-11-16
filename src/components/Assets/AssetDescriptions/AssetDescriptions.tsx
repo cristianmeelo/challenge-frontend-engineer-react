@@ -49,7 +49,15 @@ export const AssetDescriptions: React.FC<AssetDescriptionsProps> = ({ asset, lan
     {
       key: '5',
       label: `${dict.table.assets.columns.sensors}`,
-      children: <p>{asset.sensors}</p>,
+      children: (
+        <>
+          {asset.sensors.map((sensor) => (
+            <Tag key={sensor} color="black">
+              {sensor}
+            </Tag>
+          ))}
+        </>
+      ),
     },
     {
       key: '6',

@@ -6,3 +6,4 @@ export * from './AssignedUsersList/AssignedUsersList';
 export * from './AssetsCards/AssetsCards';
 export * from './SpecificationsList/SpecificationsList';
 export * from './TimelineChart/TimelineChart';
+export * from './EditAssetModal/EditAssetModal';

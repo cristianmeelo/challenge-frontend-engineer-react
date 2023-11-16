@@ -8,9 +8,9 @@ export const EditAssignedUsersModal: React.FC<EditAssignedUserModalProps> = ({
   title,
   okText,
   cancelText,
+  data,
   onCancel,
   onConfirm,
-  data,
   handleCheckboxChange,
 }) => {
   const { usersData } = useUsersContext();
