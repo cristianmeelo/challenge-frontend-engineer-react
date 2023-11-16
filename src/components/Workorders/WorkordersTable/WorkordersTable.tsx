@@ -3,12 +3,12 @@ import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { useWorkordersContext } from '@/hooks';
 import { WorkordersColumn } from '@/components/Workorders';
 
-export const WorkordersTable = ({
+export const WorkordersTable: React.FC<WorkordersTableProps> = ({
   language,
   handleEditClick,
   handleEditAssignedUserClick,
   handleSeeClick,
-}: WorkordersTableProps) => {
+}) => {
   const dict = getLanguageUseClient(language);
   const { workordersData } = useWorkordersContext();
 

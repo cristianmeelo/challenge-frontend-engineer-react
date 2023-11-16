@@ -1,48 +1,28 @@
-import { Space, Tag, Tooltip, Button } from 'antd';
+import { Space,  Tooltip, Button } from 'antd';
 import {
-  ClockCircleOutlined,
-  CheckCircleOutlined,
   EyeOutlined,
   EditOutlined,
   UserSwitchOutlined,
   DownloadOutlined,
 } from '@ant-design/icons';
+import { ColumnProps } from 'antd/es/table';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { generateWorkorderPdf } from '@/utils/generateWorkorderPDF/generateWorkorderPDF';
 import { useAssetsContext, useUsersContext } from '@/hooks';
-import { getAssetName, getUserName } from '@/functions';
+import { getAssetName, getPriorityTagMap, getUserName, getWorkOrderStatusMap } from '@/functions';
 
-const getStatusMap = (): {
-  [key in WorkOrderStatus]: { icon: React.ReactNode; text: string };
-} => {
-  return {
-    'in progress': {
-      icon: <ClockCircleOutlined style={{ color: 'orange' }} />,
-      text: 'in progress',
-    },
-    completed: { icon: <CheckCircleOutlined style={{ color: 'green' }} />, text: 'completed' },
-  };
-};
-
-const getPriorityTagMap = (): { [key: string]: React.ReactNode } => {
-  return {
-    low: <Tag color="blue">Low</Tag>,
-    medium: <Tag color="orange">Medium</Tag>,
-    high: <Tag color="red">High</Tag>,
-  };
-};
 
 export const WorkordersColumn = (
   language: Locale,
   handleSeeClick: (record: Workorder) => void,
   handleEditClick: (record: Workorder) => void,
   handleEditAssignedUserClick: (record: Workorder) => void
-): Array<any> => {
+): ColumnProps<Workorder>[] => {
   const dict = getLanguageUseClient(language);
   const { usersData } = useUsersContext();
   const { assetsData } = useAssetsContext();
-
-  const statusMap = getStatusMap();
+  
+  const statusMap = getWorkOrderStatusMap();
   const priorityTagMap = getPriorityTagMap();
 
   return [
