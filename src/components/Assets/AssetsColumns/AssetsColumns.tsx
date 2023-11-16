@@ -1,6 +1,6 @@
 import { Button, Space, Tag } from 'antd';
 import { ColumnProps } from 'antd/es/table';
-import { UserSwitchOutlined } from '@ant-design/icons';
+import { UserSwitchOutlined, EditOutlined } from '@ant-design/icons';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { useAssetsContext, useCompaniesContext, useUnitsContext, useUsersContext } from '@/hooks';
 import {
@@ -14,6 +14,7 @@ import {
 
 export const AssetsColumn = (
   language: Locale,
+  handleEditClick: (record: Asset) => void,
   handleEditAssignedUserClick: (record: Asset) => void
 ): ColumnProps<Asset>[] => {
   const dict = getLanguageUseClient(language);
@@ -66,7 +67,9 @@ export const AssetsColumn = (
       render: (sensors: string[]) => (
         <>
           {sensors.map((sensor) => (
-            <Tag key={sensor}>{sensor}</Tag>
+            <Tag key={sensor} color="black">
+              {sensor}
+            </Tag>
           ))}
         </>
       ),
@@ -101,21 +104,16 @@ export const AssetsColumn = (
       render: (text: string, record: Asset) => (
         <Space size="middle" direction="vertical" align="center">
           <Space.Compact direction="vertical">
-            {/* 
-            <Button
-              type="default"
-              icon={<EditOutlined />}
-              // onClick={() => handleEditClick(record)}
-            >
-              {dict.table.workorders.buttons.workorder}
-            </Button> */}
+            <Button type="default" icon={<EditOutlined />} onClick={() => handleEditClick(record)}>
+              {dict.table.assets.buttons.workorder}
+            </Button>
             <Button
               type="dashed"
               danger
               icon={<UserSwitchOutlined />}
               onClick={() => handleEditAssignedUserClick(record)}
             >
-              {dict.table.workorders.buttons.users}
+              {dict.table.assets.buttons.users}
             </Button>
           </Space.Compact>
         </Space>

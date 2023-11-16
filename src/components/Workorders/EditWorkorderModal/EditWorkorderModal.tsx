@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Modal, Input, Menu, Dropdown, Button, Space, Segmented } from 'antd';
 import { SegmentedValue } from 'antd/es/segmented';
 import { AppstoreOutlined } from '@ant-design/icons';
@@ -10,11 +10,11 @@ export const EditWorkorderModal: React.FC<EditWorkorderModalProps> = ({
   title,
   value,
   okText,
-  onChange,
   cancelText,
   language,
   onCancel,
   onOk,
+  onChange,
   selectAsset,
   selectPriority,
 }) => {
@@ -23,7 +23,7 @@ export const EditWorkorderModal: React.FC<EditWorkorderModalProps> = ({
   const [selectedAsset, setSelectedAsset] = useState<Asset | null>(null);
   const [priority, setPriority] = useState<Priority>(value?.priority || 'high');
 
-  const assetsOption = (
+  const assetsOptions = (
     <Menu>
       {assetsData.map((asset) => (
         <Menu.Item key={asset.id} onClick={() => handleAssetMenuClick(asset)}>
@@ -61,7 +61,7 @@ export const EditWorkorderModal: React.FC<EditWorkorderModalProps> = ({
           onChange={(e) => handleChange('description', e)}
           autoSize={{ minRows: 3, maxRows: 6 }}
         />
-        <Dropdown overlay={assetsOption} placement="bottomRight" trigger={['click']}>
+        <Dropdown overlay={assetsOptions} placement="bottomRight" trigger={['click']}>
           <Button>
             {selectedAsset ? selectedAsset.name : dict.dropdown.change_asset} <AppstoreOutlined />
           </Button>

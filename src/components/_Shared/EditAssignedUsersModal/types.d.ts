@@ -23,6 +23,21 @@ interface EditAssignedUserModalProps {
   cancelText: string;
 
   /**
+   * The data object containing assigned user IDs and the type of entity (workorder or asset).
+   */
+  data: {
+    /**
+     * An array of assigned user IDs.
+     */
+    assignedUserIds: number[];
+
+    /**
+     * The type of entity, which can be 'workorder' or 'asset'.
+     */
+    type: MyEnums.EditAssignedUserModalType.Asset | MyEnums.EditAssignedUserModalType.Workorder;
+  };
+
+  /**
    * A callback function to be invoked when the modal is canceled or closed.
    */
   onCancel: () => void;
@@ -37,19 +52,4 @@ interface EditAssignedUserModalProps {
    * @param checkedValues - An array of values representing the checked checkboxes.
    */
   handleCheckboxChange: (checkedValues: CheckboxValueType[]) => void;
-
-  /**
-   * The data object containing assigned user IDs and the type of entity (workorder or asset).
-   */
-  data: {
-    /**
-     * An array of assigned user IDs.
-     */
-    assignedUserIds: number[];
-
-    /**
-     * The type of entity, which can be 'workorder' or 'asset'.
-     */
-    type: MyEnums.EditAssignedUserModalType.Asset | MyEnums.EditAssignedUserModalType.Workorder;
-  };
 }

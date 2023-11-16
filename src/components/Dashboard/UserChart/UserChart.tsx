@@ -1,14 +1,18 @@
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
-import { Col, Row } from 'antd';
+import { Col, Row, Tag } from 'antd';
 import { green, volcano } from '@ant-design/colors';
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { useAssetsContext, useUsersContext } from '@/hooks';
+import { countTotalAssets } from '@/functions';
 
 export const UserChart: React.FC<ViewProps> = ({ language }) => {
   const dict = getLanguageUseClient(language);
   const { usersData } = useUsersContext();
   const { assetsData } = useAssetsContext();
+  const assetsCount = countTotalAssets(assetsData);
+
+  const totalAssets = Object.values(assetsCount).reduce((acc, count) => acc + count, 0);
 
   const userDataWithAssetCount = usersData.map((user) => ({
     ...user,
@@ -54,6 +58,11 @@ export const UserChart: React.FC<ViewProps> = ({ language }) => {
       <Col>
         <HighchartsReact highcharts={Highcharts} options={options} />
       </Col>
+      <Row>
+        <Tag className="custom-tag">
+          {dict.chart.user_chart.tag} {totalAssets}
+        </Tag>
+      </Row>
     </Row>
   );
 };
