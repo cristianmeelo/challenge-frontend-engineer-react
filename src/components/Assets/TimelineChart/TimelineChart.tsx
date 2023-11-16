@@ -3,8 +3,8 @@ import HighchartsTimeline from 'highcharts/modules/timeline';
 import Highcharts from 'highcharts';
 import moment from 'moment';
 import 'moment/min/locales';
-
 import { getColorByStatus, mapLanguageToMomentLocale } from '@/functions';
+
 
 export const TimelineChart = ({ asset, language }: TimelineChartProps) => {
   HighchartsTimeline(Highcharts);

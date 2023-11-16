@@ -14,8 +14,6 @@ export const UsersColumn = (
   const { unitsData } = useUnitsContext();
   const unitsFilters = generateUnitFilters(unitsData);
 
-  console.log(unitsFilters);
-
   return [
     {
       title: `${dict.table.users.columns.name}`,

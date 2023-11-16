@@ -6,7 +6,7 @@ import { useAssetsContext } from '@/hooks';
 import { SearchBasic } from '@/components/_Base/SearchBasic/SearchBasic';
 import { AssetCard } from '@/components/Assets';
 
-export const AssetsCards = ({ language }: { language: Locale }) => {
+export const AssetsCards: React.FC<ViewProps> = ({ language }) => {
   const dict = getLanguageUseClient(language);
 
   const [searchTerm, setSearchTerm] = useState<string>('');
