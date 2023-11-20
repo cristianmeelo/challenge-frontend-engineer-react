@@ -3,8 +3,6 @@ import { ToastLoading, ToastSuccessful, ToastError } from '@/utils/notifications
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { getWorkorders, updateWorkorder } from '@/services/http';
 
-
-
 const initialWorkordersContext: WorkordersContextProps = {
   isLoading: true,
   workordersData: [],

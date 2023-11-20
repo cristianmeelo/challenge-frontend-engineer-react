@@ -3,8 +3,6 @@ import { ToastLoading, ToastSuccessful, ToastError } from '@/utils/notifications
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { getUsers, updateUser } from '@/services/http';
 
-
-
 const initialUsersContext: UsersContextProps = {
   isLoading: true,
   usersData: [],

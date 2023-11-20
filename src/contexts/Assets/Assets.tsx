@@ -3,8 +3,6 @@ import { ToastLoading, ToastSuccessful, ToastError } from '@/utils/notifications
 import { getLanguageUseClient } from '@/languages/default-languages-use-client';
 import { getAssets, updateAsset } from '@/services/http';
 
-
-
 const initialAssetsContext: AssetsContextProps = {
   isLoading: true,
   assetsData: [],
