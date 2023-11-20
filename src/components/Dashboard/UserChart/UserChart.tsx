@@ -56,13 +56,15 @@ export const UserChart: React.FC<ViewProps> = ({ language }) => {
   return (
     <Row>
       <Col>
-        <HighchartsReact highcharts={Highcharts} options={options} />
+        <Row>
+          <Tag className="custom-tag">
+            {dict.chart.user_chart.tag} {totalAssets}
+          </Tag>
+        </Row>
+        <Row>
+          <HighchartsReact highcharts={Highcharts} options={options} />
+        </Row>
       </Col>
-      <Row>
-        <Tag className="custom-tag">
-          {dict.chart.user_chart.tag} {totalAssets}
-        </Tag>
-      </Row>
     </Row>
   );
 };

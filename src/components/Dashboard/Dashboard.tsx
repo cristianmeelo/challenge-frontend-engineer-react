@@ -11,24 +11,20 @@ export const Dashboard: React.FC<ViewProps> = ({ language }) => {
       <Row>
         <Row justify="center" align="top" gutter={[16, 16]}>
           <Col span={12}>
+            <SensorChart language={language} />
             <Typography.Paragraph style={{ textAlign: 'justify' }}>
               {dict.chart.sensor_chart.description}
             </Typography.Paragraph>
+            <br />
           </Col>
           <Col span={12}>
             <Typography.Paragraph style={{ textAlign: 'justify' }}>
               {dict.chart.user_chart.description}
             </Typography.Paragraph>
-          </Col>
-        </Row>
-        <Row justify="center" align="top" gutter={[16, 16]}>
-          <Col span={12}>
-            <SensorChart language={language} />
-          </Col>
-          <Col span={12}>
             <UserChart language={language} />
           </Col>
         </Row>
+
         <Divider />
         <Row justify="center" align="middle">
           <StatusTags />
