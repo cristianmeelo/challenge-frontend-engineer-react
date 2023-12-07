@@ -67,7 +67,7 @@ Then go to <a href="http://localhost:3000/">http://localhost:3000/</a> in your b
 
 | :placard: Vitrine.Dev |                                                                                   |
 | --------------------- | --------------------------------------------------------------------------------- |
-| :sparkles: Name       | **CMMS Tracian**                                                                       |
+| :sparkles: Name       | ** CMMS Tracian**                                                                       |
 | :label: Technologies  | Next, Typescript, AntDesign, i18n, React Toastify, Highchrts, JS Pdf, Vercel Deployment, GitHub ( used Technologies) |
 | :rocket: URL          | https://challenge-frontend-engineer-react-nu.vercel.app/                             |
 | :fire: Challenge      | https://tractian.notion.site/Front-End-Software-Engineer-cf7f9a91d97647abaf99b2565f8ae8fa                                   |

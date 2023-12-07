@@ -66,7 +66,7 @@ A [Tractian](https://tractian.com/) é uma empresa que oferece soluções para o
 
 | :placard: Vitrine.Dev |                                                                                                                          |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| :sparkles: Nome       | **CMMS - Tractian **                                                                                                     |
+| :sparkles: Nome       | ** CMMS - Tractian **                                                                                                     |
 | :label: Tecnologias   | Next, Typescript, AntDesign, i18n, React Toastify, Highchrts, JS Pdf, Vercel Deployment, GitHub (tecnologias utilizadas) |
 | :rocket: URL          | https://challenge-frontend-engineer-react-nu.vercel.app/                                                                 |
 | :fire: Desafio        | https://tractian.notion.site/Front-End-Software-Engineer-cf7f9a91d97647abaf99b2565f8ae8fa                                |
