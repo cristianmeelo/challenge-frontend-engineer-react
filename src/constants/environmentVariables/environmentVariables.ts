@@ -3,8 +3,8 @@ import packageJson from '../../../package.json';
 const { version } = packageJson;
 
 const url: { [key: string]: string } = {
-  development: 'https://my-json-server.typicode.com/tractian/fake-api',
-  production: 'https://my-json-server.typicode.com/tractian/fake-api',
+  development: 'https://challenge-frontend-engineer-react-api.vercel.app/',
+  production: 'https://challenge-frontend-engineer-react-api.vercel.app/',
   test: 'https://',
 };
 
