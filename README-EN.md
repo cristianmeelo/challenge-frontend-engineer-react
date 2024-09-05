@@ -11,7 +11,7 @@
   </tr>
 </table>
 
-![](https://github.com/cristianmeelo/challenge-frontend-engineer-react/blob/main/thumbnail.png?raw=true)
+![](https://github.com/cristianmeelo/challenge-frontend-engineer-react/blob/main/thumbnail-en.png?raw=true)
 
 ![](https://github.com/cristianmeelo/challenge-frontend-engineer-react/blob/main/thumbnail-mockup-en.png?raw=true#vitrinedev)
 
