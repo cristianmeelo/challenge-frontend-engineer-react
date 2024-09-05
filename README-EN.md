@@ -6,7 +6,7 @@
   </tr>
   <tr>
     <td>
-      <a href="README.md">🇧🇷 Português</a>
+      <a href="README.md">🇧🇷 Portuguese</a>
     </td>
   </tr>
 </table>
