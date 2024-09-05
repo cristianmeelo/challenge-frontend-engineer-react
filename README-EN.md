@@ -39,7 +39,7 @@ Here are the adapted features:
 - Actions such as delegation of responsibilities, updating of assets, company, unit and users;
 - Use graphs to show health levels, status and so on.
 - Generate and download production order checklist.
-- Consume API (https://github.com/tractian/fake-api)
+- Consume API ~~(https://github.com/tractian/fake-api)~~ https://challenge-frontend-engineer-react-api.vercel.app/.
 
 ## ⚙️ Techniques and technologies used
 
