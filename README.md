@@ -38,7 +38,7 @@ Aqui estão os recursos adaptados:
 - Ações como delegação de responsabilidades, atualização de patrimônio, empresa, unidade e usuários;
 - Use gráficos para mostrar níveis de saúde, status e assim por diante.
 - Gerar e baixar checklist de ordens de produção.
-- Consumir API (https://github.com/tractian/fake-api)
+- Consumir API ~~(https://github.com/tractian/fake-api)~~ https://challenge-frontend-engineer-react-api.vercel.app/.
 
 ## ⚙️ Técnicas e tecnologias usadas
 
